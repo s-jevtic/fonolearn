@@ -10,13 +10,21 @@ export class IpaComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.listened = false;
-    this.guessed = false;
-    this.arg = -1;
+    this.guessedCount = 0;
+    this.totalCount = 0;
     for(let i = 0; i < IpaComponent.links.length; i++)
     {
       IpaComponent.IPAMap.set(IpaComponent.links[i], IpaComponent.symbols[i]);
     }
+    this.newGuess();
+  }
+
+  newGuess(): void {
+    this.listened = false;
+    this.guessed = false;
+    this.tried = false;
+    this.clicked = [0, 0, 0]
+    this.arg = -1;
     this.genRandomSound();
     this.genRandomSymbols();
   }
@@ -41,8 +49,14 @@ export class IpaComponent implements OnInit {
   ];
 
   listened = false;
+  tried = false;
   guessed = false;
   arg = -1;
+
+  clicked: number[] = [0, 0, 0];
+
+  guessedCount = 0;
+  totalCount = 0;
 
   randomSound: string = "";
   randomSymbols: string[] = ["", "", ""];
@@ -75,7 +89,15 @@ export class IpaComponent implements OnInit {
 
   checkAnswer(arg: number) {
     this.arg = arg;
-    if (IpaComponent.IPAMap.get(this.randomSound) == this.randomSymbols[arg]) this.guessed = true;
+    if (IpaComponent.IPAMap.get(this.randomSound) == this.randomSymbols[arg])
+    {
+      this.guessed = true;
+      this.clicked[arg] = 2;
+      if (!this.tried) this.guessedCount++;
+    }
+    else this.clicked[arg] = 1;
+    if (!this.tried) this.totalCount++;
+    this.tried = true;
   }
 
 }
