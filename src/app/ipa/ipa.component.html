@@ -1,0 +1,17 @@
+<div class="container-fluid justify-content-center">
+    <div class="d-flex justify-content-center my-3">
+        <button class="btn btn-lg btn-primary" type="button" *ngIf="!listened" (click)="playSound()">Listen</button>
+        <button class="btn btn-lg btn-secondary" type="button" *ngIf="listened" (click)="playSound()">Listen again</button>
+    </div>
+    <div class="d-flex justify-content-center my-3">
+        <button class="btn btn-primary mx-3 py-1" type="button" *ngIf="listened" (click)="checkAnswer(0)">{{ randomSymbols[0] }}</button>
+        <button class="btn btn-primary mx-3 py-1" type="button" *ngIf="listened" (click)="checkAnswer(1)">{{ randomSymbols[1] }}</button>
+        <button class="btn btn-primary mx-3 py-1" type="button" *ngIf="listened" (click)="checkAnswer(2)">{{ randomSymbols[2] }}</button>
+    </div>
+    <div class="d-flex justify-content-center my-3">
+        <p *ngIf="guessed" class="lead text-light">Correct!</p>
+    </div>
+    <div class="d-flex justify-content-center my-3">
+        <a class="btn btn-lg btn-danger mx-3" type="button" href="">Exit</a>
+    </div>
+</div>
