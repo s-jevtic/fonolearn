@@ -27,6 +27,7 @@ export class IpaComponent implements OnInit {
     this.arg = -1;
     this.genRandomSound();
     this.genRandomSymbols();
+    this.playSound();
   }
 
   static IPAMap = new Map<string, string>();
