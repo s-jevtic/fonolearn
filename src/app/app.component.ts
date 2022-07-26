@@ -9,4 +9,8 @@ import { MainMenuComponent } from './main-menu/main-menu.component';
 export class AppComponent {
   title = 'IPAapp';
   mainMenu = new MainMenuComponent();
+  
+  goIPA($event: any) {
+    window.location.assign('ipa');
+  }
 }

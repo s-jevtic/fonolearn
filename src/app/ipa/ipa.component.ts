@@ -16,6 +16,11 @@ export class IpaComponent implements OnInit {
     {
       IpaComponent.IPAMap.set(IpaComponent.links[i], IpaComponent.symbols[i]);
     }
+    switch (this.set) {
+      case "v": this.links = IpaComponent.links.slice(6, 13); break;
+      case "p": this.links = IpaComponent.links.slice(0, 6); break;
+      case "a": this.links = IpaComponent.links;
+    }
     this.newGuess();
   }
 
@@ -30,6 +35,8 @@ export class IpaComponent implements OnInit {
     this.playSound();
   }
 
+  set = "a";
+
   static IPAMap = new Map<string, string>();
 
   static links = [
@@ -38,7 +45,14 @@ export class IpaComponent implements OnInit {
     "https://upload.wikimedia.org/wikipedia/commons/e/e3/Voiceless_velar_plosive.ogg",
     "https://upload.wikimedia.org/wikipedia/commons/2/2c/Voiced_bilabial_plosive.ogg",
     "https://upload.wikimedia.org/wikipedia/commons/0/01/Voiced_alveolar_plosive.ogg",
-    "https://upload.wikimedia.org/wikipedia/commons/1/12/Voiced_velar_plosive_02.ogg"
+    "https://upload.wikimedia.org/wikipedia/commons/1/12/Voiced_velar_plosive_02.ogg",
+    "https://upload.wikimedia.org/wikipedia/commons/0/0e/PR-open_front_unrounded_vowel.ogg",
+    "https://upload.wikimedia.org/wikipedia/commons/7/71/Open-mid_front_unrounded_vowel.ogg",
+    "https://upload.wikimedia.org/wikipedia/commons/6/6c/Close-mid_front_unrounded_vowel.ogg",
+    "https://upload.wikimedia.org/wikipedia/commons/9/91/Close_front_unrounded_vowel.ogg",
+    "https://upload.wikimedia.org/wikipedia/commons/d/d0/PR-open-mid_back_rounded_vowel.ogg",
+    "https://upload.wikimedia.org/wikipedia/commons/8/84/Close-mid_back_rounded_vowel.ogg",
+    "https://upload.wikimedia.org/wikipedia/commons/5/5d/Close_back_rounded_vowel.ogg"
   ];
   static symbols = [
     "p",
@@ -46,8 +60,18 @@ export class IpaComponent implements OnInit {
     "k",
     "b",
     "d",
-    "g"
+    "g",
+    "a",
+    "ɛ",
+    "e",
+    "i",
+    "ɔ",
+    "o",
+    "u"
   ];
+
+  links = IpaComponent.links;
+  symbols = IpaComponent.symbols;
 
   listened = false;
   tried = false;

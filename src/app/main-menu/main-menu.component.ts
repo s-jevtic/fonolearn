@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-main-menu',
@@ -10,6 +10,12 @@ export class MainMenuComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
+  @Output() sendSetEmitter = new EventEmitter();
+
+  sendSet(set: string) {
+    this.sendSetEmitter.emit(set);
+  }
 }
