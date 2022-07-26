@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'app-main-menu',
@@ -7,15 +8,13 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class MainMenuComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     
   }
 
-  @Output() sendSetEmitter = new EventEmitter();
-
   sendSet(set: string) {
-    this.sendSetEmitter.emit(set);
+    this.router.navigate(['/ipa'], {queryParams: {set: set}});
   }
 }

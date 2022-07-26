@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'app-ipa',
@@ -7,37 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IpaComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
-  ngOnInit(): void {
-    this.guessedCount = 0;
-    this.totalCount = 0;
-    for(let i = 0; i < IpaComponent.links.length; i++)
-    {
-      IpaComponent.IPAMap.set(IpaComponent.links[i], IpaComponent.symbols[i]);
-    }
-    switch (this.set) {
-      case "v": this.links = IpaComponent.links.slice(6, 13); break;
-      case "p": this.links = IpaComponent.links.slice(0, 6); break;
-      case "a": this.links = IpaComponent.links;
-    }
-    this.newGuess();
-  }
-
-  newGuess(): void {
-    this.listened = false;
-    this.guessed = false;
-    this.tried = false;
-    this.clicked = [0, 0, 0]
-    this.arg = -1;
-    this.genRandomSound();
-    this.genRandomSymbols();
-    this.playSound();
-  }
-
-  set = "a";
-
-  static IPAMap = new Map<string, string>();
+  set: string;
 
   static links = [
     "https://upload.wikimedia.org/wikipedia/commons/5/51/Voiceless_bilabial_plosive.ogg",
@@ -70,8 +43,46 @@ export class IpaComponent implements OnInit {
     "u"
   ];
 
-  links = IpaComponent.links;
-  symbols = IpaComponent.symbols;
+  links: string[];
+  symbols: string[];
+
+  //links = IpaComponent.links;
+  //symbols = IpaComponent.symbols;
+
+  ngOnInit(): void {
+    this.guessedCount = 0;
+    this.totalCount = 0;
+    this.route.queryParams.subscribe((params: Params) => {
+      this.set = params.set;
+    });
+
+    for(let i = 0; i < IpaComponent.links.length; i++)
+    {
+      IpaComponent.IPAMap.set(IpaComponent.links[i], IpaComponent.symbols[i]);
+    }
+    console.log(this.set);
+    switch (this.set) {
+      case "v": this.links = IpaComponent.links.slice(6, 13); this.symbols = IpaComponent.symbols.slice(6, 13); break;
+      case "p": this.links = IpaComponent.links.slice(0, 6); this.symbols = IpaComponent.symbols.slice(0, 6); break;
+      case "a": this.links = IpaComponent.links; this.symbols = IpaComponent.symbols; break;
+      default: console.log("Error");
+    }
+    // console.log(this.links);
+    this.newGuess();
+  }
+
+  newGuess(): void {
+    this.listened = false;
+    this.guessed = false;
+    this.tried = false;
+    this.clicked = [0, 0, 0]
+    this.arg = -1;
+    this.genRandomSound();
+    this.genRandomSymbols();
+    this.playSound();
+  }
+
+  static IPAMap = new Map<string, string>();
 
   listened = false;
   tried = false;
@@ -87,11 +98,10 @@ export class IpaComponent implements OnInit {
   randomSymbols: string[] = ["", "", ""];
 
   genRandomSound(): void {
-    this.randomSound = IpaComponent.links[Math.floor(Math.random() * IpaComponent.links.length)];
+    this.randomSound = this.links[Math.floor(Math.random() * this.links.length)];
   }
   genRandomSymbols(): void { // Schwartzian transform (stackoverflow)
-    let unshuffled = IpaComponent.symbols;
-
+    let unshuffled = this.symbols;
     let shuffled = unshuffled
       .map(value => ({ value, sort: Math.random() }))
       .sort((a, b) => a.sort - b.sort)

@@ -1,9 +1,9 @@
 <div class="container-fluid d-flex justify-content-center dropdown px-3 my-4">
     <button class="btn btn-lg btn-primary dropdown-toggle" role="button" id="soundSetPicker" data-bs-toggle="dropdown" aria-expanded="false">Pick set of sounds</button>
     <ul class="dropdown-menu" aria-labelledby="soundSetPicker">
-        <li><a class="dropdown-item" href="ipa" (onClick)="sendSet(&quot;v&quot;)">vowels</a></li>
-        <li><a class="dropdown-item" href="ipa" (onClick)="sendSet(&quot;p&quot;)">pulmonic consonants</a></li>
-        <li><a class="dropdown-item" href="ipa" (onClick)="sendSet(&quot;a&quot;)">all</a></li>
+        <li><a class="dropdown-item" (click)="sendSet(&quot;v&quot;)">vowels</a></li>
+        <li><a class="dropdown-item" (click)="sendSet(&quot;p&quot;)">pulmonic consonants</a></li>
+        <li><a class="dropdown-item" (click)="sendSet(&quot;a&quot;)">all</a></li>
     </ul>
 </div>
 <!-- <div class="container-fluid d-flex justify-content-center px-3 my-3">
