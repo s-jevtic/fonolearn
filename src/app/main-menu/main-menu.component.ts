@@ -13,8 +13,4 @@ export class MainMenuComponent implements OnInit {
   ngOnInit(): void {
     
   }
-
-  sendSet(set: string) {
-    this.router.navigate(['/ipa'], {queryParams: {set: set}});
-  }
 }
