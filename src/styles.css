@@ -9,3 +9,8 @@ html{
 .ipa{
     font-family: 'DejaVu Serif';
 }
+
+.ipa-button {
+    height: 35px;
+    width: 35px;
+}
