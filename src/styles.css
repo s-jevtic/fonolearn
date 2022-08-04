@@ -14,3 +14,27 @@ html{
     height: 35px;
     width: 35px;
 }
+
+.ipa-check {
+    height: 35px;
+    width: 35px;
+    background-color:#007bff !important; /* primary */
+    color: white;
+}
+
+.custom-check:checked + .ipa-check {
+    color: white;
+    background-color: #28a745 !important; /* success */
+}
+
+.custom-check:focus + .ipa-check {
+    color: white;
+}
+
+.ipa-check:hover {
+    color: white;
+}
+
+.ipa-check:active {
+    color: white;
+}

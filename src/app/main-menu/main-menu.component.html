@@ -14,7 +14,11 @@
                 <tr>
                     <ng-container *ngFor="let character of row; let j = index">
                         <td>
-                            <button class="btn btn-primary shadow-none p-1 m-1 ipa ipa-button" (click)="ipaClick($event, character)">{{ character }}</button>
+                            <div class="custom-checkbox">
+                                <!--<button class="btn btn-primary shadow-none p-1 m-1 ipa ipa-button" (click)="ipaClick($event, character)">{{ character }}</button>-->
+                                <input type="checkbox" class="btn-check custom-check" id="btncheck{{character}}" (click)="ipaClick(character)" autocomplete="off">
+                                <label class="btn ipa-check ipa p-1 m-1 " for="btncheck{{character}}">{{ character }}</label>
+                            </div>
                         </td>
                     </ng-container>
                 </tr>
