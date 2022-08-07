@@ -10,14 +10,21 @@
 <div class="d-flex justify-content-center table-responsive">
     <table class="table-borderless">
         <tbody>
-            <ng-container *ngFor="let row of tablesymbols; let i = index">
+            <ng-container *ngFor="let row of pulmonicTable; let i = index">
                 <tr>
-                    <ng-container *ngFor="let character of row; let j = index">
+                    <ng-container *ngFor="let position of row; let j = index">
                         <td>
-                            <div class="custom-checkbox">
+                            <div class="custom-checkbox btn-group m-1" role="group">
                                 <!--<button class="btn btn-primary shadow-none p-1 m-1 ipa ipa-button" (click)="ipaClick($event, character)">{{ character }}</button>-->
-                                <input type="checkbox" class="btn-check custom-check" id="btncheck{{character}}" (click)="ipaClick(character)" autocomplete="off">
-                                <label class="btn ipa-check ipa p-1 m-1 " for="btncheck{{character}}">{{ character }}</label>
+                                <ng-container *ngFor="let phone of position; let k = index">
+                                    <ng-container *ngIf="phone.clickable == true">
+                                        <input type="checkbox" class="btn-check custom-check" id="btncheck{{phone.symbol}}" (change)="ipaCheck($event, phone)" autocomplete="off">
+                                        <label class="btn btn-link shadow-none ipa-button ipa p-1" for="btncheck{{phone.symbol}}" data-toggle="tooltip" data-placement="top" title="{{phone.desc}}" id="label{{phone.symbol}}">{{ phone.symbol }}</label>
+                                    </ng-container>
+                                    <ng-container *ngIf="(phone.clickable == false)">
+                                        <div class="p-1 ipa ipa-button" data-toggle="tooltip" data-placement="top" title="{{phone.desc}}">{{ phone.symbol }}</div>
+                                    </ng-container>
+                                </ng-container>
                             </div>
                         </td>
                     </ng-container>

@@ -2,8 +2,15 @@
 html{
     font-family: 'DejaVu Sans', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
     /*background-color: black;*/
-    /*color: white;*/
     /*text-align: center;*/
+}
+
+body{
+    color: white !important;
+}
+
+header{
+    color: #212529;
 }
 
 .ipa{
@@ -13,28 +20,5 @@ html{
 .ipa-button {
     height: 35px;
     width: 35px;
-}
-
-.ipa-check {
-    height: 35px;
-    width: 35px;
-    background-color:#007bff !important; /* primary */
-    color: white;
-}
-
-.custom-check:checked + .ipa-check {
-    color: white;
-    background-color: #28a745 !important; /* success */
-}
-
-.custom-check:focus + .ipa-check {
-    color: white;
-}
-
-.ipa-check:hover {
-    color: white;
-}
-
-.ipa-check:active {
-    color: white;
+    text-align: center;
 }

@@ -1,13 +1,13 @@
 export enum MannerOfArticulation {
     Stop,
-    // Nasal,
-    // Trill,
+    Nasal,
+    Trill,
     // TapFlap,
     // LateralFlap,
-    // Fricative,
+    Fricative,
     // TrillFricative,
     // LateralFricative,
     // Affricate,
-    // Approximant,
-    // LateralApproximant
+    Approximant,
+    LateralApproximant
   }

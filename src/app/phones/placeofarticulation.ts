@@ -1,15 +1,15 @@
 export enum PlaceOfArticulation {
   Bilabial,
-  // Labiodental,
-  // Dental,
+  Labiodental,
+  Dental,
   Alveolar,
   // AlveoloPalatal,
   // PalatoAlveolar,
   // Retroflex,
-  // Palatal,
+  Palatal,
   Velar,
-  // Uvular,
+  Uvular,
   // Pharyngeal,
   // Epiglottal,
-  // Glottal
+  Glottal
 }
