@@ -1,6 +1,6 @@
 export enum Voicing {
     Voiceless,
     Voiced,
-    // BreathyVoiced,
-    // CreakyVoiced
+    BreathyVoiced,
+    CreakyVoiced
   }

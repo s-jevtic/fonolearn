@@ -2,7 +2,7 @@
 html{
     font-family: 'DejaVu Sans', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
     /*background-color: black;*/
-    /*text-align: center;*/
+    text-align: center;
 }
 
 body{
@@ -14,10 +14,18 @@ header{
 }
 
 .ipa{
-    font-family: 'DejaVu Serif';
+    font-family: 'IPA Kiel', 'DejaVu Serif';
 }
 
 .ipa-button {
+    height: 35px;
+    width: 35px;
+    text-align: center;
+    color: --bs-color-success;
+    text-decoration: none;
+}
+
+.ipa-td {
     height: 35px;
     width: 35px;
     text-align: center;

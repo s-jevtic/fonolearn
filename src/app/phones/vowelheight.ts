@@ -1,9 +1,9 @@
 export enum VowelHeight {
     Close,
-    // NearClose,
+    NearClose,
     CloseMid,
-    // Mid,
+    Mid,
     OpenMid,
-    // NearOpen,
+    NearOpen,
     Open
 }
