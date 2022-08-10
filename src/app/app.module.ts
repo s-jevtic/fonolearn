@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IpaComponent } from './ipa/ipa.component';
 import { MainMenuComponent } from './main-menu/main-menu.component';
+import { UsefulLinksComponent } from './useful-links/useful-links.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     IpaComponent,
-    MainMenuComponent
+    MainMenuComponent,
+    UsefulLinksComponent
   ],
   imports: [
     BrowserModule,

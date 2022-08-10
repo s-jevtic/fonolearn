@@ -6,6 +6,35 @@ html{
     /*text-align: center;*/
 }
 
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main{
+    flex: 1;
+}
+
 .ipa{
     font-family: 'DejaVu Serif';
+}
+
+#content{
+    max-width: calc(100wv - 15rem);
+    /* position: relative;
+    float: left; */
+    align-items: center;
+    color: white;
+}
+
+#sidebar{
+    /* min-width: 15rem; */
+    height: 100vh;
+    position: relative;
+    float: right;
+}
+
+hr.divider{
+    margin: 0;
 }
