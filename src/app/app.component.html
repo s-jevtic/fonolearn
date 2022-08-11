@@ -2,9 +2,13 @@
   <img src="./assets/logo_header.png" class="img-fluid mx-3" width="100" alt="App logo">
   <h1 class="mx-3 mb-0">Cool IPA learning app</h1>
 </header>
-<main>
-  <div class="mt-4" id="content">
-    <router-outlet></router-outlet>
+<main role="main">
+  <div class="row main-content">
+    <div class="col-md-10" id="content">
+      <router-outlet></router-outlet>
+    </div>
+    <div class="col-md-2">
+      <app-useful-links></app-useful-links>
+    </div>
   </div>
-  <app-useful-links></app-useful-links>
 </main>
