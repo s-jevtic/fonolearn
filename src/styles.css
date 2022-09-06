@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 :root{
-    --link-width: 250px; /* maybe remove the constant and make the width automatic in the future? */
+    --link-width: 15rem; /* maybe remove the constant and make the width automatic in the future? */
+    --sidebar-wrapper-width: 18rem;
+    --transition-time: 0.4s;
 }
 
 html{
@@ -36,12 +38,13 @@ body{
 
 #sidebar-wrapper{
     height: 100%;
-    transition: all 0.4s;
+    transition: all var(--transition-time);
     display: flex;
 }
 
 #sidebar-wrapper.toggle{
-    min-width: var(--link-width);
+    /* min-width: var(--link-width); */
+    width: var(--sidebar-wrapper-width);
 }
 
 #menu-icon{
@@ -52,7 +55,7 @@ body{
     width: var(--link-width);
     min-height: 100%;
     margin: 0;
-    transition: all 0.4s; /* should be smoother, probably has to do with the ngIf */
+    transition: all var(--transition-time); /* should be smoother, probably has to do with the ngIf */
 }
 
 #sidebar-wrapper:not(.toggle) #sidebar{
@@ -60,7 +63,7 @@ body{
     width: 0px;
 }
 
-@media (max-width: 1080px){
+@media (max-width: var(--sidebar-wrapper-width)){
     :not(.toggle) #sidebar{
         margin-right: -var(--link-width);
     }
@@ -85,7 +88,7 @@ hr.divider{
     height: 5px;
     background-color: --bs-dark;
     margin: 6px 0;
-    transition: 0.4s;
+    transition: var(--transition-time);
 }
 
 /* Rotate first bar */
@@ -106,7 +109,7 @@ hr.divider{
 }
 
 #links-menu{
-    transition: 0.4s;
+    transition: var(--transition-time);
 }
 
 /* .toggle #links-menu{
