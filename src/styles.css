@@ -1,4 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+:root{
+    --link-width: 250px; /* maybe remove the constant and make the width automatic in the future? */
+}
+
 html{
     font-family: 'DejaVu Sans', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
     /*background-color: black;*/
@@ -12,8 +16,11 @@ body{
     min-height: 100vh;
 }
 
-main{
-    flex: 1;
+.wrapper{
+    display: flex;
+    min-height: 100%;
+    width: 100%;
+    align-items: stretch;
 }
 
 .ipa{
@@ -22,22 +29,51 @@ main{
 
 #content{
     /* max-width: calc(100wv - 15rem); */
-    /* position: relative;
-    float: left; */
+    /* position: relative; */
     align-items: center;
     color: white;
 }
 
-#sidebar-col{
+#sidebar-wrapper{
     height: 100%;
+    transition: all 0.4s;
+    display: flex;
+}
+
+#sidebar-wrapper.toggle{
+    min-width: var(--link-width);
+}
+
+#menu-icon{
+    float: left;
 }
 
 #sidebar{
-    /* min-width: 15rem; */
-    height: 100%;
-    position: relative;
-    float: right;
-    transition: 0.4s;
+    width: var(--link-width);
+    min-height: 100%;
+    margin: 0;
+    transition: all 0.4s; /* should be smoother, probably has to do with the ngIf */
+}
+
+#sidebar-wrapper:not(.toggle) #sidebar{
+    /* margin-right: -var(--link-width); */
+    width: 0px;
+}
+
+@media (max-width: 1080px){
+    :not(.toggle) #sidebar{
+        margin-right: -var(--link-width);
+    }
+    .toggle #sidebar{
+        min-width: var(--link-width);
+    }
+    #sidebar-wrapper.toggle{
+        width: 100vw;
+        margin-right: 0;
+        position: absolute;
+        left: 0;
+        right: 0;
+    }
 }
 
 hr.divider{
@@ -73,7 +109,7 @@ hr.divider{
     transition: 0.4s;
 }
 
-#links-menu .toggle{
+/* .toggle #links-menu{
     width: 0;
     height: 0;
-}
+} */

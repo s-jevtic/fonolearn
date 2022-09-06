@@ -14,18 +14,9 @@ export class UsefulLinksComponent implements OnInit {
   }
 
   toggleSidebar() {
-    (document.getElementById("menu-icon") as HTMLElement).classList.toggle("toggle");
-    if(this.toggled)
-    {
-      (document.getElementById("links-menu") as HTMLElement).classList.remove("toggle");
-      this.toggled = false;
-    }
-    else
-    {
-      this.toggled = true;
-      (document.getElementById("links-menu") as HTMLElement).classList.add("toggle");
-    }
-    console.log((document.getElementById("menu-icon") as HTMLElement).classList + "\n" + (document.getElementById("links-menu") as HTMLElement).classList + "\n" + this.toggled);
+    (document.getElementById("sidebar-wrapper") as HTMLElement).classList.toggle("toggle");
+    this.toggled = !this.toggled;
+    // console.log((document.getElementById("menu-icon") as HTMLElement).classList + "\n" + (document.getElementById("links-menu") as HTMLElement).classList + "\n" + this.toggled);
   }
 
   toggled: boolean;

@@ -3,12 +3,10 @@
   <h1 class="mx-3 mb-0">Cool IPA learning app</h1>
 </header>
 <main role="main">
-  <div class="row main-content">
-    <div class="col-md-10" id="content">
+  <div class="wrapper">
+    <div class="container-fluid" id="content">
       <router-outlet></router-outlet>
     </div>
-    <div class="col-md-2 h-100">
-      <app-useful-links></app-useful-links>
-    </div>
+    <app-useful-links></app-useful-links>
   </div>
 </main>
