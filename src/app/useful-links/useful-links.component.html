@@ -1,5 +1,5 @@
 <hr class="divider"/>
-<div class="border-end bg-light px-0" id="sidebar-wrapper"> 
+<div [@openClose]="toggled? 'open' : 'closed'" class="border-end bg-light px-0" id="sidebar-wrapper"> 
     <div class="container-xs py-3 mx-3" id="menu-icon" (click)="toggleSidebar()">
         <div class="bar1 bg-dark mx-2 my-1"></div>
         <div class="bar2 bg-dark mx-2 my-1"></div>

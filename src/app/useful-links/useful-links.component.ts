@@ -1,9 +1,29 @@
 import { Component, OnInit } from '@angular/core';
+import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger
+} from '@angular/animations';
 
 @Component({
   selector: 'app-useful-links',
   templateUrl: './useful-links.component.html',
-  styleUrls: ['./useful-links.component.css']
+  styleUrls: ['./useful-links.component.css'],
+  animations: [
+    trigger('openClose', [
+      state('open', style({
+        width: 'calc(35px + 16rem)',
+      })),
+      state('closed', style({
+        width: 'calc(35px + 3rem)',
+      })),
+      transition('open => closed, closed => open', [
+        animate('0.3s 0s ease-in-out'),
+      ]),
+    ]),
+  ],
 })
 export class UsefulLinksComponent implements OnInit {
 
