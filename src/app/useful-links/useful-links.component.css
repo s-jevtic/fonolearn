@@ -1,0 +1,81 @@
+:root{
+    --link-width: 15rem; /* maybe remove the constant and make the width automatic in the future? */
+    --sidebar-wrapper-width: 18rem;
+    --transition-time: 0.4s;
+}
+
+#sidebar-wrapper{
+    height: 100%;
+    transition: all var(--transition-time);
+    display: flex;
+}
+
+#sidebar-wrapper.toggle{
+    /* min-width: var(--link-width); */
+    width: var(--sidebar-wrapper-width);
+}
+
+#menu-icon{
+    float: left;
+}
+
+#sidebar{
+    width: var(--link-width);
+    min-height: 100%;
+    margin: 0;
+    transition: all var(--transition-time); /* should be smoother, probably has to do with the ngIf */
+}
+
+#sidebar-wrapper:not(.toggle) #sidebar{
+    /* margin-right: -var(--link-width); */
+    width: 0px;
+}
+
+@media (max-width: var(--sidebar-wrapper-width)){
+    :not(.toggle) #sidebar{
+        margin-right: -var(--link-width);
+    }
+    .toggle #sidebar{
+        min-width: var(--link-width);
+    }
+    #sidebar-wrapper.toggle{
+        width: 100vw;
+        margin-right: 0;
+        position: absolute;
+        left: 0;
+        right: 0;
+    }
+}
+
+hr.divider{
+    margin: 0;
+}
+
+.bar1, .bar2, .bar3{
+    width: 35px;
+    height: 5px;
+    background-color: --bs-dark;
+    margin: 6px 0;
+    transition: var(--transition-time);
+}
+
+/* Rotate first bar */
+.toggle .bar1{
+    -webkit-transform: rotate(-45deg) translate(-9px, 5px);
+    transform: rotate(-45deg) translate(-9px, 5px);
+}
+
+/* Fade out the second bar */
+.toggle .bar2{
+    opacity: 0;
+}
+
+/* Rotate last bar */
+.toggle .bar3{
+    -webkit-transform: rotate(45deg) translate(-8px, -5px) ;
+    transform: rotate(45deg) translate(-8px, -5px) ;
+}
+
+#links-menu{
+    transition: var(--transition-time);
+}
