@@ -1,9 +1,9 @@
 <hr class="divider"/>
 <div [@openClose]="toggled? 'open' : 'closed'" class="border-end bg-light px-0" id="sidebar-wrapper"> 
     <div class="container-xs py-3 mx-3" id="menu-icon" (click)="toggleSidebar()">
-        <div class="bar1 bg-dark mx-2 my-1"></div>
-        <div class="bar2 bg-dark mx-2 my-1"></div>
-        <div class="bar3 bg-dark mx-2 my-1"></div>
+        <div [@changeIcon]="toggled? 'cross1' : 'menu'" class="bar1 bg-dark mx-2 my-1"></div>
+        <div [@changeIcon]="toggled? 'cross2' : 'menu'" class="bar2 bg-dark mx-2 my-1"></div>
+        <div [@changeIcon]="toggled? 'cross3' : 'menu'" class="bar3 bg-dark mx-2 my-1"></div>
     </div>
     <div class="px-0" id="sidebar">
         <ng-container *ngIf="toggled">

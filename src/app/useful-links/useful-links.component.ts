@@ -19,10 +19,24 @@ import {
       state('closed', style({
         width: 'calc(35px + 3rem)',
       })),
-      transition('open => closed, closed => open', [
-        animate('0.3s 0s ease-in-out'),
+      transition('open <=> closed', [
+        animate('3s ease-in-out'),
       ]),
     ]),
+    trigger('changeIcon', [
+      state('cross1', style({
+        transform: 'rotate(-45deg) translate(-9px, 5px)',
+      })),
+      state('cross2', style({
+        opacity: 0,
+      })),
+      state('cross3', style({
+        transform: 'rotate(45deg) translate(-8px, -5px)'
+      })),
+      transition('cross1 <=> menu, cross2 <=> menu, cross3 <=> menu', [
+        animate('3s ease-in-out')
+      ])
+    ])
   ],
 })
 export class UsefulLinksComponent implements OnInit {
