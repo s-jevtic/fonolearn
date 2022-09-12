@@ -1,16 +1,16 @@
 <hr class="divider"/>
-<div [@openClose]="toggled? 'open' : 'closed'" class="border-end bg-light px-0" id="sidebar-wrapper"> 
+<div [@openClose]="menuState" class="border-end bg-light px-0" id="sidebar-wrapper">
     <div class="container-xs py-3 mx-3" id="menu-icon" (click)="toggleSidebar()">
-        <div [@changeIcon]="toggled? 'cross1' : 'menu'" class="bar1 bg-dark mx-2 my-1"></div>
-        <div [@changeIcon]="toggled? 'cross2' : 'menu'" class="bar2 bg-dark mx-2 my-1"></div>
-        <div [@changeIcon]="toggled? 'cross3' : 'menu'" class="bar3 bg-dark mx-2 my-1"></div>
+        <div [@changeIcon]="line1State" class="bar1 bg-dark mx-2 my-1"></div>
+        <div [@changeIcon]="line2State" class="bar2 bg-dark mx-2 my-1"></div>
+        <div [@changeIcon]="line3State" class="bar3 bg-dark mx-2 my-1"></div>
     </div>
     <div class="px-0" id="sidebar">
-        <ng-container *ngIf="toggled">
+        <ng-container *ngIf="show">
             <div class="pt-3 pb-4 me-3" id="links-menu">
                 <h2 class="mb-3">Useful links</h2>
                 <a href="https://www.internationalphoneticassociation.org/content/full-ipa-chart">Official full IPA chart</a> <br class="mb-3"/>
-                <a href="https://www.ipachart.com">Interactive IPA chart</a> <br class="mb-3"/>
+                <a href="https://www.ipachart.com">Interactive IPA chart</a> <br class="mb-3" />
                 <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet">IPA Wikipedia article</a> <br class="mb-1"/>
                 <hr/>
             </div>
