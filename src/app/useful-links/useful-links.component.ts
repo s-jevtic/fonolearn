@@ -6,7 +6,6 @@ import {
   transition,
   trigger
 } from '@angular/animations';
-import { isTokenCharValid } from 'builder-util';
 
 @Component({
   selector: 'app-useful-links',
