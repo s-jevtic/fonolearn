@@ -8,7 +8,7 @@ export const sidebarAnimation = trigger('openClose', [
       width: 'calc(35px + 3rem)',
     })),
     transition('open <=> closed', [
-      animate('3s ease-in-out')
+      animate('0.3s ease-in-out')
     ]),
 ]);
 
@@ -23,6 +23,6 @@ export const menuIconAnimation = trigger('changeIcon', [
         transform: 'rotate(45deg) translate(-8px, -5px)'
     })),
     transition('cross1 <=> menu, cross2 <=> menu, invisible <=> menu', [
-        animate('3s ease-in-out')
+        animate('0.3s ease-in-out')
     ])
 ]);
