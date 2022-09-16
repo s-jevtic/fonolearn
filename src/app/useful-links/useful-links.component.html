@@ -1,10 +1,6 @@
 <hr class="divider"/>
-<div [@openClose]="menuState" class="border-end bg-light px-0" id="sidebar-wrapper">
-    <div class="container-xs py-3 mx-3" id="menu-icon" (click)="toggleSidebar()">
-        <div [@changeIcon]="line1State" class="bar1 bg-dark mx-2 my-1"></div>
-        <div [@changeIcon]="line2State" class="bar2 bg-dark mx-2 my-1"></div>
-        <div [@changeIcon]="line3State" class="bar3 bg-dark mx-2 my-1"></div>
-    </div>
+<div [@openClose]="menuState" (@openClose.start)="animationStartEvent($event)" (@openClose.done)="animationDoneEvent($event)" class="border-end bg-light px-0" id="sidebar-wrapper">
+   <app-menu-icon (click)="toggleSidebar()"></app-menu-icon> 
     <div class="px-0" id="sidebar">
         <ng-container *ngIf="show">
             <div class="pt-3 pb-4 me-3" id="links-menu">
