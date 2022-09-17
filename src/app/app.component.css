@@ -6,3 +6,35 @@
     padding-left: 0px;
     padding-right: 0px;
 }
+
+:host{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: grid;
+    grid-auto-rows: min-content;
+}
+
+header{
+    grid-row: 1;
+}
+
+main{
+    grid-row: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+}
+
+.wrapper{
+    flex: 1 1 auto;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: stretch;
+}

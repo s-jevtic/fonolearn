@@ -3,8 +3,14 @@
     --sidebar-wrapper-width: 18rem;
 }
 
+:host{
+    display: flex;
+    flex: 1 1 auto;
+    flex-flow: column;
+}
+
 #sidebar-wrapper{
-    height: 100%;
+    min-height: 100%;
     display: flex;
 }
 
