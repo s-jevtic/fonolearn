@@ -7,7 +7,7 @@
     padding-right: 0px;
 }
 
-:host{
+:host{ /* all of those are necessary for app-root to have full height and header not to be too tall */
     position: absolute;
     top: 0;
     left: 0;
@@ -21,7 +21,7 @@ header{
     grid-row: 1;
 }
 
-main{
+main{ /* all of those are necessary for main content to have full height */
     grid-row: 2;
     position: absolute;
     top: 0;
@@ -37,4 +37,9 @@ main{
     height: 100%;
     width: 100%;
     align-items: stretch;
+}
+
+#content{
+    align-items: center;
+    color: white;
 }
