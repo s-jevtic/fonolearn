@@ -6,7 +6,7 @@ import { sidebarAnimation } from '../animations';
   selector: 'app-useful-links',
   templateUrl: './useful-links.component.html',
   styleUrls: ['./useful-links.component.css'],
-  animations: [sidebarAnimation],
+  animations: [sidebarAnimation()],
 })
 export class UsefulLinksComponent implements OnInit {
 

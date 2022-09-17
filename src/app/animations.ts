@@ -1,6 +1,6 @@
 import { animate, state, style, transition, trigger } from "@angular/animations";
 
-export const sidebarAnimation = trigger('openClose', [
+export const sidebarAnimationDesktop = trigger('openClose', [
     state('open', style({
       width: 'calc(35px + 16rem)',
     })),
@@ -11,6 +11,26 @@ export const sidebarAnimation = trigger('openClose', [
       animate('0.3s ease-in-out')
     ]),
 ]);
+
+export const sidebarAnimationMobile = trigger('openClose', [
+  state('open', style({
+    width: '100vw',
+    position: 'absolute',
+    right: 0
+  })),
+  state('closed', style({
+    width: 'calc(35px + 3rem)',
+  })),
+  transition('open <=> closed', [
+    animate('0.3s ease-in-out')
+  ]),
+]);
+
+export function sidebarAnimation() {
+  const isMobile = matchMedia("(max-width: 768px)").matches;
+
+  return isMobile? sidebarAnimationMobile : sidebarAnimationDesktop;
+}
 
 export const menuIconAnimation = trigger('changeIcon', [
     state('cross1', style({

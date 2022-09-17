@@ -24,16 +24,15 @@
     margin: 0;
 }
 
-
-@media (max-width: var(--sidebar-wrapper-width)){
-    #sidebar-wrapper.toggle{
+/* @media (max-width: var(--sidebar-wrapper-width)){
+    #sidebar-wrapper{
         width: 100vw;
         margin-right: 0;
         position: absolute;
         left: 0;
         right: 0;
     }
-}
+} */
 
 hr.divider{
     margin: 0;
