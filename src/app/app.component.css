@@ -8,26 +8,17 @@
 }
 
 :host{ /* all of those are necessary for app-root to have full height and header not to be too tall */
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: grid;
-    grid-auto-rows: min-content;
+    display: flex;
+    flex-flow: column;
+    height: 100%;
 }
 
 header{
-    grid-row: 1;
+    flex: 0 1 auto;
 }
 
 main{ /* all of those are necessary for main content to have full height */
-    grid-row: 2;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    flex: 1 1 auto;
     display: flex;
 }
 
