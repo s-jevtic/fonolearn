@@ -1,3 +1,10 @@
+:root{
+    --closed-sidebar-width: calc(35px + 3rem);
+    --link-width: 15rem; /* maybe remove the constants and make the width automatic in the future? */
+    --open-sidebar-width: calc(var(--closed-sidebar-width) + var(--link-width));
+}
+
+
 html{
     font-family: 'DejaVu Sans', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
     height: 100%;

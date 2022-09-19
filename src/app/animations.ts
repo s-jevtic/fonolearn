@@ -14,8 +14,7 @@ export const sidebarAnimationDesktop = trigger('openClose', [
 
 export const sidebarAnimationMobile = trigger('openClose', [
   state('open', style({
-    width: '100vw',
-    right: 0
+    width: '100vw'
   })),
   state('closed', style({
     width: 'calc(35px + 3rem)',

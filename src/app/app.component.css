@@ -33,6 +33,12 @@ main{ /* all of those are necessary for main content to have full height */
 #content{
     align-items: center;
     color: white;
-    max-width: calc(100% - 35px - 3rem);
-    margin-right: calc(35px + 3rem);
+    flex: 1 1 auto;
+}
+
+@media only screen and (max-width: 768px){ /* so that there is enough space for a closed sidebar on mobile */
+    #content{
+        max-width: calc(100% - var(--closed-sidebar-width));
+        margin-right: var(--closed-sidebar-width);  
+    }
 }
