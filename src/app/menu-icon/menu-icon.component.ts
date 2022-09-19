@@ -19,9 +19,9 @@ export class MenuIconComponent implements OnInit {
 
   changeIcon()
   {
-    this.line1State = this.line1State == 'menu'? 'cross1' : 'menu';
-    this.line2State = this.line2State == 'menu'? 'invisible' : 'menu';
-    this.line3State = this.line3State == 'menu'? 'cross2' : 'menu';
+    this.line1State = this.line1State == 'menu' ? 'cross1' : 'menu';
+    this.line2State = this.line2State == 'menu' ? 'invisible' : 'menu';
+    this.line3State = this.line3State == 'menu' ? 'cross2' : 'menu';
   }
 
   line1State: string;

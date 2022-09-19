@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AnimationEvent } from '@angular/animations';
 import { sidebarAnimation } from '../animations';
+import { MenuIconComponent } from '../menu-icon/menu-icon.component';
 
 @Component({
   selector: 'app-useful-links',
@@ -12,6 +13,8 @@ export class UsefulLinksComponent implements OnInit {
 
   constructor() { }
 
+  @ViewChild(MenuIconComponent) menu:MenuIconComponent;
+
   ngOnInit(): void {
     this.menuState = 'closed';
     this.show = false;
@@ -19,11 +22,20 @@ export class UsefulLinksComponent implements OnInit {
   }
 
   toggleSidebar() {
-    this.menuState = this.menuState == 'closed'? 'open' : 'closed';
+    this.menuState = this.menuState == 'closed' ? 'open' : 'closed';
+    /*if (!this.toggled) {
+      this.menuState = 'open';
+    } else {
+      this.menuState = 'closed';
+    }*/
     this.toggled = !this.toggled;
   }
 
   animationStartEvent(event: AnimationEvent) {
+    if (event.fromState != 'void') {
+      this.menu.changeIcon();
+    }
+    console.log(event.toState);
     if(!this.toggled) {
       this.show = false;
     }
