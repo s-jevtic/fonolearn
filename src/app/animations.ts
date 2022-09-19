@@ -15,7 +15,6 @@ export const sidebarAnimationDesktop = trigger('openClose', [
 export const sidebarAnimationMobile = trigger('openClose', [
   state('open', style({
     width: '100vw',
-    position: 'absolute',
     right: 0
   })),
   state('closed', style({
@@ -28,7 +27,7 @@ export const sidebarAnimationMobile = trigger('openClose', [
 
 export function sidebarAnimation() {
   const isMobile = matchMedia("(max-width: 768px)").matches;
-
+  
   return isMobile? sidebarAnimationMobile : sidebarAnimationDesktop;
 }
 

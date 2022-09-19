@@ -33,4 +33,6 @@ main{ /* all of those are necessary for main content to have full height */
 #content{
     align-items: center;
     color: white;
+    max-width: calc(100% - 35px - 3rem);
+    margin-right: calc(35px + 3rem);
 }

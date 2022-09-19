@@ -19,6 +19,7 @@ export class UsefulLinksComponent implements OnInit {
     this.menuState = 'closed';
     this.show = false;
     this.toggled = false;
+    this.sidebarWrapper = document.getElementById("sidebar-wrapper");
   }
 
   toggleSidebar() {
@@ -29,6 +30,7 @@ export class UsefulLinksComponent implements OnInit {
       this.menuState = 'closed';
     }*/
     this.toggled = !this.toggled;
+    this.sidebarWrapper?.classList.toggle("toggled");
   }
 
   animationStartEvent(event: AnimationEvent) {
@@ -50,4 +52,5 @@ export class UsefulLinksComponent implements OnInit {
   menuState: string;
   show: boolean;
   toggled: boolean;
+  sidebarWrapper: HTMLElement | null;
 }
