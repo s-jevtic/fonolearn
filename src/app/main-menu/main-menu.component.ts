@@ -9,6 +9,10 @@ import { Click } from '../phones/click';
 import { Voicing } from '../phones/voicing';
 import { MannerOfArticulation } from '../phones/mannerofarticulation';
 import { PlaceOfArticulation } from '../phones/placeofarticulation';
+import { Vowel } from '../phones/vowel';
+import { VowelHeight } from '../phones/vowelheight';
+import { VowelBackness } from '../phones/vowelbackness';
+import { VowelRoundedness } from '../phones/roundedness';
 
 @Component({
   selector: 'app-main-menu',
@@ -25,8 +29,10 @@ export class MainMenuComponent implements OnInit {
   implosives: Implosive[];
   ejectives: Ejective[];
   clicks: Click[];
+  vowels: Vowel[];
+  vowelTable: Vowel[][][];
   
-  checked: boolean[];
+  checked: boolean[][];
 
   ngOnInit(): void {
     this.consonants = [
@@ -106,6 +112,23 @@ export class MainMenuComponent implements OnInit {
       new PulmonicConsonant("d͡ʑ", Voicing.Voiced, PlaceOfArticulation.AlveoloPalatal, MannerOfArticulation.Affricate, false),
       new PulmonicConsonant("ɖ͡ʐ", Voicing.Voiced, PlaceOfArticulation.Retroflex, MannerOfArticulation.Affricate, false),
 
+      new OtherPulmonic("ʍ", Voicing.Voiceless, MannerOfArticulation.Approximant, false, "voiceless labiovelar approximant/fricative"),
+      new OtherPulmonic("w", Voicing.Voiced, MannerOfArticulation.Approximant, false, "voiced labiovelar approximant"),
+      new OtherPulmonic("ɥ", Voicing.Voiced, MannerOfArticulation.Approximant, false, "voiced labiopalatal approximant"),
+      new OtherPulmonic("ɺ", Voicing.Voiced, MannerOfArticulation.TapFlap, false, "voiced alveolar lateral flap"),
+      new OtherPulmonic("ɧ", Voicing.Voiceless, MannerOfArticulation.Fricative, false, "simultaneous ʃ and x"),
+
+      new Implosive("ɓ", PlaceOfArticulation.Bilabial, false),
+      new Implosive("ɗ", PlaceOfArticulation.Alveolar, false),
+      new Implosive("ʄ", PlaceOfArticulation.Palatal, false),
+      new Implosive("ɠ", PlaceOfArticulation.Velar, false),
+      new Implosive("ʛ", PlaceOfArticulation.Uvular, false),
+
+      new Ejective("pʼ", PlaceOfArticulation.Bilabial, MannerOfArticulation.Stop, false),
+      new Ejective("tʼ", PlaceOfArticulation.Alveolar, MannerOfArticulation.Stop, false),
+      new Ejective("kʼ", PlaceOfArticulation.Velar, MannerOfArticulation.Stop, false),
+      new Ejective("sʼ", PlaceOfArticulation.Alveolar, MannerOfArticulation.Fricative, false),
+
       new Click("ʘ", PlaceOfArticulation.Bilabial, false, false),
       new Click("ǀ", PlaceOfArticulation.Dental, false, false),
       new Click("ǃ", PlaceOfArticulation.Alveolar, false, false),
@@ -137,10 +160,60 @@ export class MainMenuComponent implements OnInit {
       // console.log(consonant.symbol + ": " + (i + 1) + ", " + (j + 1) + "; " + consonant.manner + ", " + consonant.place);
       this.pulmonicTable[consonant.manner][consonant.place][consonant.voicing > 0 ? 1 : 0] = consonant;
     }
-    // console.log(this.pulmonicTable);
-    this.checked = [];
+
+    this.vowels = [
+      new Vowel("a", VowelHeight.Open, VowelBackness.Front, true),
+      new Vowel("æ", VowelHeight.NearOpen, VowelBackness.Front, false),
+      new Vowel("ɛ", VowelHeight.OpenMid, VowelBackness.Front, true),
+      new Vowel("e", VowelHeight.CloseMid, VowelBackness.Front, true),
+      new Vowel("ɪ", VowelHeight.NearClose, VowelBackness.Front, false),
+      new Vowel("i", VowelHeight.Close, VowelBackness.Front, true),
+
+      new Vowel("ɶ", VowelHeight.Open, VowelBackness.Front, false, VowelRoundedness.Compressed),
+      new Vowel("œ", VowelHeight.OpenMid, VowelBackness.Front, false, VowelRoundedness.Compressed),
+      new Vowel("ø", VowelHeight.CloseMid, VowelBackness.Front, false, VowelRoundedness.Compressed),
+      new Vowel("ʏ", VowelHeight.NearClose, VowelBackness.Front, false, VowelRoundedness.Compressed),
+      new Vowel("y", VowelHeight.Close, VowelBackness.Front, false, VowelRoundedness.Compressed),
+
+      new Vowel("ɐ", VowelHeight.NearOpen, VowelBackness.Central, false),
+      new Vowel("ɜ", VowelHeight.OpenMid, VowelBackness.Central, false),
+      new Vowel("ə", VowelHeight.Mid, VowelBackness.Central, false, VowelRoundedness.Unrounded, Voicing.Voiced, "mid central vowel (schwa)"),
+      new Vowel("ɘ", VowelHeight.CloseMid, VowelBackness.Central, false),
+      new Vowel("ɨ", VowelHeight.Close, VowelBackness.Central, false),
+
+      new Vowel("ɞ", VowelHeight.OpenMid, VowelBackness.Central, false, VowelRoundedness.RoundedUnspecified),
+      new Vowel("ɵ", VowelHeight.CloseMid, VowelBackness.Central, false, VowelRoundedness.RoundedUnspecified),
+      new Vowel("ʉ", VowelHeight.Close, VowelBackness.Central, false, VowelRoundedness.RoundedUnspecified),
+
+      new Vowel("ɑ", VowelHeight.Open, VowelBackness.Back, false),
+      new Vowel("ʌ", VowelHeight.OpenMid, VowelBackness.Back, false),
+      new Vowel("ɤ", VowelHeight.CloseMid, VowelBackness.Back, false),
+      new Vowel("ɯ", VowelHeight.Close, VowelBackness.Back, false),
+
+      new Vowel("ɒ", VowelHeight.Open, VowelBackness.Back, false, VowelRoundedness.Protruded),
+      new Vowel("ɔ", VowelHeight.OpenMid, VowelBackness.Back, true, VowelRoundedness.Protruded),
+      new Vowel("o", VowelHeight.CloseMid, VowelBackness.Back, true, VowelRoundedness.Protruded),
+      new Vowel("ʊ", VowelHeight.NearClose, VowelBackness.Back, false, VowelRoundedness.Protruded),
+      new Vowel("u", VowelHeight.Close, VowelBackness.Back, true, VowelRoundedness.Protruded)
+    ]
+
+    this.vowelTable = [[[]]];
+    for(let vowel of this.vowels) {
+      while(this.vowelTable.length <= vowel.height) {
+        this.vowelTable.push([[Vowel.NullVowel, Vowel.NullVowel]]);
+      }
+      while(this.vowelTable[vowel.height].length <= vowel.backness) {
+        this.vowelTable[vowel.height].push([Vowel.NullVowel, Vowel.NullVowel]);
+      }
+      this.vowelTable[vowel.height][vowel.backness][vowel.roundedness != VowelRoundedness.Unrounded ? 1 : 0] = vowel;
+    }
+
+    this.checked = [[], []];
     for(let p in this.consonants) {
-      this.checked.push(false);
+      this.checked[0].push(false);
+    }
+    for(let p in this.vowels) {
+      this.checked[1].push(false);
     }
 
     this.otherPulmonic = this.consonants.filter(c => c instanceof OtherPulmonic) as OtherPulmonic[];
@@ -157,12 +230,22 @@ export class MainMenuComponent implements OnInit {
     console.log(p.symbol + ": " + event.target.checked);
     let label = <HTMLLabelElement>document.getElementById("label" + p.symbol);
     if(event.target.checked == true) {
-      this.checked[this.consonants.indexOf(p)] = true;
+      if(this.consonants.indexOf(p) != -1) {
+        this.checked[0][this.consonants.indexOf(p)] = true;
+      }
+      else {
+        this.checked[1][this.vowels.indexOf(p as Vowel)] = true;
+      }
       label.classList.remove("btn-link");
       label.classList.add("btn-primary");
     }
     else {
-      this.checked[this.consonants.indexOf(p)] = false;
+      if(this.consonants.indexOf(p) != -1) {
+        this.checked[0][this.consonants.indexOf(p)] = true;
+      }
+      else {
+        this.checked[1][this.vowels.indexOf(p as Vowel)] = true;
+      }
       label.classList.remove("btn-primary");
       label.classList.add("btn-link");
     }

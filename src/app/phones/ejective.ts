@@ -19,10 +19,10 @@ export class Ejective extends Phone {
                 this.desc += "(unknown place of articulation) ";
                 console.log("place of articulation error for phone " + this.symbol);
         }
-        this.desc += "ejective ";
+        this.desc += "ejective";
         switch(this.manner) {
             case MannerOfArticulation.Stop: break;
-            case MannerOfArticulation.Fricative: this.desc += "fricative"; break;
+            case MannerOfArticulation.Fricative: this.desc += " fricative"; break;
             default:
                 this.desc += "(unknown manner of articulation) ";
                 console.log("manner of articulation error for phone " + this.symbol);

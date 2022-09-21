@@ -21,6 +21,8 @@ export class PulmonicConsonant extends Phone {
           case PlaceOfArticulation.Bilabial: this.desc += "bilabial "; break;
           case PlaceOfArticulation.Alveolar: this.desc += "alveolar "; break;
           case PlaceOfArticulation.Palatal: this.desc += "palatal "; break;
+          case PlaceOfArticulation.PalatoAlveolar: this.desc += "palato-alveolar "; break;
+          case PlaceOfArticulation.AlveoloPalatal: this.desc += "alveolo-palatal "; break;
           case PlaceOfArticulation.Velar: this.desc += "velar "; break;
           case PlaceOfArticulation.Uvular: this.desc += "uvular "; break;
           case PlaceOfArticulation.Pharyngeal: this.desc += "pharyngeal/epiglottal "; break;
