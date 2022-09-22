@@ -1,4 +1,4 @@
-{
+export const consonantList = {      
     "pulmonicConsonants": [
         {
             "symbol": "p",

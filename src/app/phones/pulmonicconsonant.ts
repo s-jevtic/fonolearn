@@ -1,9 +1,16 @@
 import { Phone } from './phone';
-import { MannerOfArticulation } from './mannerofarticulation';
-import { Voicing } from './voicing';
-import { PlaceOfArticulation } from './placeofarticulation';
-import { symlink } from 'original-fs';
-import { NonNullAssert } from '@angular/compiler';
+import { mannerFromString, MannerOfArticulation } from './mannerofarticulation';
+import { Voicing, voicingFromString } from './voicing';
+import { placeFromString, PlaceOfArticulation } from './placeofarticulation';
+
+export interface IPulmonicConsonant {
+  symbol: string;
+  voicing: string;
+  place: string;
+  manner: string;
+  clickable: boolean;
+  desc?: string;
+}
 
 export class PulmonicConsonant extends Phone {
 
@@ -52,7 +59,18 @@ export class PulmonicConsonant extends Phone {
     place: PlaceOfArticulation;
     manner: MannerOfArticulation;
     static NullConsonant = new PulmonicConsonant("", -1, -1, -1, false)
-    static fromJSON(data: any): PulmonicConsonant {
+    static fromObject(data: IPulmonicConsonant): PulmonicConsonant {
+      let symbol = data.symbol;
+      let voicing = voicingFromString(data.voicing);
+      let place = placeFromString(data.place);
+      let manner = mannerFromString(data.manner);
+      let clickable = data.clickable;
+      if(typeof(data.desc) === 'undefined') {
+        return new PulmonicConsonant(symbol, voicing, place, manner, clickable);
+      }
+      else {
+        return new PulmonicConsonant(symbol, voicing, place, manner, clickable);
+      }
       /*
       EXAMPLE:
                   "symbol": "h",
