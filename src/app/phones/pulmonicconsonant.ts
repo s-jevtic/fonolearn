@@ -2,6 +2,8 @@ import { Phone } from './phone';
 import { MannerOfArticulation } from './mannerofarticulation';
 import { Voicing } from './voicing';
 import { PlaceOfArticulation } from './placeofarticulation';
+import { symlink } from 'original-fs';
+import { NonNullAssert } from '@angular/compiler';
 
 export class PulmonicConsonant extends Phone {
 
@@ -50,4 +52,15 @@ export class PulmonicConsonant extends Phone {
     place: PlaceOfArticulation;
     manner: MannerOfArticulation;
     static NullConsonant = new PulmonicConsonant("", -1, -1, -1, false)
+    static fromJSON(data: any): PulmonicConsonant {
+      /*
+      EXAMPLE:
+                  "symbol": "h",
+            "voicing": "voiceless",
+            "place": "glottal",
+            "manner": "approximant",
+            "clickable": true,
+            "desc": "voiceless glottal approximant/fricative"
+      */
+    }
 }
