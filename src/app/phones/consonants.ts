@@ -175,6 +175,31 @@ export const consonantList = {
         },
 
         {
+            "symbol": "ⱱ",
+            "voicing": "voiced",
+            "place": "labiodental",
+            "manner": "tap-flap",
+            "clickable": true,
+            "desc": "(voiced) labiodental flap"
+        },
+        {
+            "symbol": "ɾ",
+            "voicing": "voiced",
+            "place": "alveolar",
+            "manner": "tap-flap",
+            "clickable": true,
+            "desc": "(voiced) alveolar tap"
+        },
+        {
+            "symbol": "ɽ",
+            "voicing": "voiced",
+            "place": "retroflex",
+            "manner": "tap-flap",
+            "clickable": true,
+            "desc": "(voiced) retroflex flap"
+        },
+
+        {
             "symbol": "ɸ",
             "voicing": "voiceless",
             "place": "bilabial",
