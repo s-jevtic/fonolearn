@@ -1,7 +1,7 @@
 import { Phone } from './phone';
-import { mannerFromString, MannerOfArticulation } from './mannerofarticulation';
-import { Voicing, voicingFromString } from './voicing';
-import { placeFromString, PlaceOfArticulation } from './placeofarticulation';
+import { MannerFromString, MannerOfArticulation } from './mannerofarticulation';
+import { Voicing, VoicingFromString } from './voicing';
+import { PlaceFromString, PlaceOfArticulation } from './placeofarticulation';
 
 export class PulmonicConsonant extends Phone {
 
@@ -61,9 +61,9 @@ export class PulmonicConsonant extends Phone {
 
     static fromObject(data: any): PulmonicConsonant {
       let symbol = data.symbol;
-      let voicing = voicingFromString(data.voicing);
-      let place = placeFromString(data.place);
-      let manner = mannerFromString(data.manner);
+      let voicing = VoicingFromString[data.voicing];
+      let place = PlaceFromString[data.place];
+      let manner = MannerFromString[data.manner];
       let clickable = data.clickable;
       if(typeof(data.desc) === 'undefined') {
         return new PulmonicConsonant(symbol, voicing, place, manner, clickable);
@@ -71,14 +71,5 @@ export class PulmonicConsonant extends Phone {
       else {
         return new PulmonicConsonant(symbol, voicing, place, manner, clickable);
       }
-      /*
-      EXAMPLE:
-                  "symbol": "h",
-            "voicing": "voiceless",
-            "place": "glottal",
-            "manner": "approximant",
-            "clickable": true,
-            "desc": "voiceless glottal approximant/fricative"
-      */
     }
 }
