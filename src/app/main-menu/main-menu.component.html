@@ -28,13 +28,18 @@
                                     <td>
                                         <div class="btn-group m-1" role="group">
                                             <ng-container *ngFor="let phone of position; let k = index">
-                                                <ng-container *ngIf="phone.clickable == true">
+                                                <ng-container *ngIf="phone.clickable == true; else noButton">
                                                     <input type="checkbox" class="btn-check custom-check" id="btncheck{{phone.symbol}}" (change)="ipaCheck($event, phone)" autocomplete="off">
                                                     <label class="btn btn-link shadow-none ipa-button ipa p-1" for="btncheck{{phone.symbol}}" data-toggle="tooltip" data-placement="top" title="{{phone.desc}}" id="label{{phone.symbol}}">{{ phone.symbol }}</label>
                                                 </ng-container>
-                                                <ng-container *ngIf="phone.clickable == false">
-                                                    <div class="p-1 ipa ipa-td" data-toggle="tooltip" data-placement="top" title="{{phone.desc}}">{{ phone.symbol }}</div>
-                                                </ng-container>
+                                                <ng-template #noButton>
+                                                    <ng-container *ngIf="phone.symbol != ''; else isNull">
+                                                        <div class="p-1 ipa ipa-td" data-toggle="tooltip" data-placement="top" title="{{phone.desc}}">{{ phone.symbol }}</div>
+                                                    </ng-container>
+                                                    <ng-template #isNull>
+                                                        <div class="p-1 ipa ipa-td"></div>
+                                                    </ng-template>
+                                                </ng-template>
                                             </ng-container>
                                         </div>
                                     </td>

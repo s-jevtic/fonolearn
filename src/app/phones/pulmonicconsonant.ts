@@ -5,14 +5,14 @@ import { PlaceFromString, PlaceOfArticulation } from './placeofarticulation';
 
 export class PulmonicConsonant extends Phone {
 
-    constructor(symbol: string, voicing: Voicing, place: PlaceOfArticulation, manner: MannerOfArticulation, clickable: boolean, desc: string = "") {
+    constructor(symbol: string, voicing: Voicing, place: PlaceOfArticulation, manner: MannerOfArticulation, clickable: boolean, desc?: string) {
       super();
 
       this.symbol = symbol;
       this.voicing = voicing;
       this.place = place;
       this.manner = manner;
-      // this.desc = "";
+      this.desc = "";
 
       switch(voicing) {
         case Voicing.Voiceless: this.desc += "voiceless "; break;
@@ -22,7 +22,10 @@ export class PulmonicConsonant extends Phone {
 
       switch(place) {
         case PlaceOfArticulation.Bilabial: this.desc += "bilabial "; break;
+        case PlaceOfArticulation.Labiodental: this.desc += "labiodental "; break;
+        case PlaceOfArticulation.Dental: this.desc += "dental "; break;
         case PlaceOfArticulation.Alveolar: this.desc += "alveolar "; break;
+        case PlaceOfArticulation.Retroflex: this.desc += "retroflex "; break;
         case PlaceOfArticulation.Palatal: this.desc += "palatal "; break;
         case PlaceOfArticulation.PalatoAlveolar: this.desc += "palato-alveolar "; break;
         case PlaceOfArticulation.AlveoloPalatal: this.desc += "alveolo-palatal "; break;
@@ -57,7 +60,7 @@ export class PulmonicConsonant extends Phone {
     place: PlaceOfArticulation;
     manner: MannerOfArticulation;
 
-    static NullConsonant = new PulmonicConsonant("", -1, -1, -1, false)
+    static NullConsonant = new PulmonicConsonant("", -1, -1, -1, false);
 
     static fromObject(data: any): PulmonicConsonant {
       let symbol = data.symbol;
@@ -69,7 +72,8 @@ export class PulmonicConsonant extends Phone {
         return new PulmonicConsonant(symbol, voicing, place, manner, clickable);
       }
       else {
-        return new PulmonicConsonant(symbol, voicing, place, manner, clickable);
+        let desc = data.desc;
+        return new PulmonicConsonant(symbol, voicing, place, manner, clickable, desc);
       }
     }
 }
