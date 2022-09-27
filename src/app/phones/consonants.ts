@@ -533,6 +533,13 @@ export const consonantList = {
             "desc": "voiced labiopalatal approximant"
         },
         {
+            "symbol": "ɬ",
+            "voicing": "voiced",
+            "manner": "lateral-approximant",
+            "clickable": true,
+            "desc": "voiced velarized alveolar lateral approximant"
+        },
+        {
             "symbol": "ɺ",
             "voicing": "voiced",
             "manner": "tap-flap",
