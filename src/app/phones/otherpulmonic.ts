@@ -1,6 +1,6 @@
 import { Phone } from './phone';
-import { MannerOfArticulation } from './mannerofarticulation';
-import { Voicing } from './voicing';
+import { MannerFromString, MannerOfArticulation } from './mannerofarticulation';
+import { Voicing, VoicingFromString } from './voicing';
 
 export class OtherPulmonic extends Phone {
     constructor(symbol: string, voicing: Voicing, manner: MannerOfArticulation, clickable: boolean, desc: string) {
@@ -13,4 +13,13 @@ export class OtherPulmonic extends Phone {
     }
     manner: MannerOfArticulation;
     voicing: Voicing;
+
+    static fromObject(data: any): OtherPulmonic {
+        let symbol = data.symbol;
+        let voicing = VoicingFromString[data.voicing];
+        let manner = MannerFromString[data.manner];
+        let clickable = data.clickable;
+        let desc = data.desc;
+        return new OtherPulmonic(symbol, voicing, manner, clickable, desc);
+    }
 }

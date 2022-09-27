@@ -628,32 +628,32 @@ export const consonantList = {
         {
             "symbol": "ɓ",
             "place": "bilabial",
-            "clickable": false
+            "clickable": true
         },
         {
             "symbol": "ɗ",
             "place": "alveolar",
-            "clickable": false
+            "clickable": true
         },
         {
             "symbol": "ᶑ",
             "place": "retroflex",
-            "clickable": false
+            "clickable": true
         },
         {
             "symbol": "ʄ",
             "place": "palatal",
-            "clickable": false
+            "clickable": true
         },
         {
             "symbol": "ɠ",
             "place": "velar",
-            "clickable": false
+            "clickable": true
         },
         {
             "symbol": "ʛ",
             "place": "uvular",
-            "clickable": false
+            "clickable": true
         }
     ],
     "ejectives": [

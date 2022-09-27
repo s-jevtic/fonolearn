@@ -17,7 +17,9 @@ export class PulmonicConsonant extends Phone {
       switch(voicing) {
         case Voicing.Voiceless: this.desc += "voiceless "; break;
         case Voicing.Voiced: this.desc += "voiced "; break;
-        default: this.desc += "(unknown voicing) "; console.log("voicing error");
+        case Voicing.BreathyVoiced: this.desc += "breathy voiced "; break;
+        default: this.desc += "(unknown voicing) ";
+        if(this.symbol != '') console.log("voicing error for phone " + this.symbol);
       }
 
       switch(place) {
@@ -33,7 +35,8 @@ export class PulmonicConsonant extends Phone {
         case PlaceOfArticulation.Uvular: this.desc += "uvular "; break;
         case PlaceOfArticulation.Pharyngeal: this.desc += "pharyngeal/epiglottal "; break;
         case PlaceOfArticulation.Glottal: this.desc += "glottal "; break;
-        default: this.desc += "(unknown place of articulation) "; console.log("place of articulation error")
+        default: this.desc += "(unknown place of articulation) ";
+        if(this.symbol != '') console.log("place of articulation error for phone " + this.symbol);
       }
 
       switch(manner) {
@@ -44,9 +47,11 @@ export class PulmonicConsonant extends Phone {
         case MannerOfArticulation.Fricative: this.desc += "fricative"; break;
         case MannerOfArticulation.LateralFricative: this.desc += "lateral fricative"; break;
         case MannerOfArticulation.Affricate: this.desc += "affricate"; break;
+        case MannerOfArticulation.LateralAffricate: this.desc += "lateral affricate"; break;
         case MannerOfArticulation.Approximant: this.desc += "approximant"; break;
         case MannerOfArticulation.LateralApproximant: this.desc += "lateral approximant"; break;
-        default: this.desc += "(unknown manner of articulation) "; console.log("manner of articulation error");
+        default: this.desc += "(unknown manner of articulation) ";
+        if(this.symbol != '') console.log("manner of articulation error for phone " + this.symbol);
       }
 
       if(typeof(desc) !== 'undefined') {

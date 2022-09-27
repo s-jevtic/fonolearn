@@ -1,13 +1,11 @@
 import { Phone } from './phone';
-import { Voicing } from './voicing';
-import { PlaceOfArticulation } from './placeofarticulation';
+import { PlaceFromString, PlaceOfArticulation } from './placeofarticulation';
 
 export class Click extends Phone {
     constructor(symbol: string, place: PlaceOfArticulation, lateral: boolean, clickable: boolean, desc?: string) {
         super();
         this.symbol = symbol;
         this.place = place;
-        this.voicing = Voicing.Voiced;
         this.lateral = lateral;
         this.desc = "";
         switch(this.place) {
@@ -33,6 +31,19 @@ export class Click extends Phone {
         }
     }
     place: PlaceOfArticulation;
-    voicing: Voicing;
     lateral: boolean;
+    
+    static fromObject(data: any): Click {
+        let symbol = data.symbol;
+        let place = PlaceFromString[data.place];
+        let lateral = data.lateral;
+        let clickable = data.clickable;
+        if(typeof(data.desc) === 'undefined') {
+            return new Click(symbol, place, lateral, clickable);
+        }
+        else {
+            let desc = data.desc;
+            return new Click(symbol, place, lateral, clickable, desc);
+        }
+    }
 }

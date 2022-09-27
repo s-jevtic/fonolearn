@@ -1,6 +1,6 @@
 import { Phone } from './phone';
 import { Voicing } from './voicing';
-import { PlaceOfArticulation } from './placeofarticulation';
+import { PlaceFromString, PlaceOfArticulation } from './placeofarticulation';
 
 export class Implosive extends Phone {
     constructor(symbol: string, place: PlaceOfArticulation, clickable: boolean, desc?: string) {
@@ -13,6 +13,7 @@ export class Implosive extends Phone {
             case PlaceOfArticulation.Bilabial: this.desc += "bilabial "; break;
             case PlaceOfArticulation.Dental: // not a mistake
             case PlaceOfArticulation.Alveolar: this.desc += "dental/alveolar "; break;
+            case PlaceOfArticulation.Retroflex: this.desc += "retroflex "; break;
             case PlaceOfArticulation.Palatal: this.desc += "palatal "; break;
             case PlaceOfArticulation.Velar: this.desc += "velar "; break;
             case PlaceOfArticulation.Uvular: this.desc += "uvular "; break;
@@ -28,4 +29,17 @@ export class Implosive extends Phone {
     }
     place: PlaceOfArticulation;
     voicing: Voicing;
+
+    static fromObject(data: any): Implosive {
+        let symbol = data.symbol;
+        let place = PlaceFromString[data.place];
+        let clickable = data.clickable;
+        if(typeof(data.desc) === 'undefined') {
+          return new Implosive(symbol, place, clickable);
+        }
+        else {
+          let desc = data.desc;
+          return new Implosive(symbol, place, clickable, desc);
+        }
+      }
 }

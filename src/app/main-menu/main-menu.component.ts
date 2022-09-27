@@ -114,36 +114,33 @@ export class MainMenuComponent implements OnInit {
       // new PulmonicConsonant("d͡ʑ", Voicing.Voiced, PlaceOfArticulation.AlveoloPalatal, MannerOfArticulation.Affricate, false),
       // new PulmonicConsonant("ɖ͡ʐ", Voicing.Voiced, PlaceOfArticulation.Retroflex, MannerOfArticulation.Affricate, false),
 
-      new OtherPulmonic("ʍ", Voicing.Voiceless, MannerOfArticulation.Approximant, false, "voiceless labiovelar approximant/fricative"),
-      new OtherPulmonic("w", Voicing.Voiced, MannerOfArticulation.Approximant, false, "voiced labiovelar approximant"),
-      new OtherPulmonic("ɥ", Voicing.Voiced, MannerOfArticulation.Approximant, false, "voiced labiopalatal approximant"),
-      new OtherPulmonic("ɺ", Voicing.Voiced, MannerOfArticulation.TapFlap, false, "voiced alveolar lateral flap"),
-      new OtherPulmonic("ɧ", Voicing.Voiceless, MannerOfArticulation.Fricative, false, "simultaneous ʃ and x"),
+      // new OtherPulmonic("ʍ", Voicing.Voiceless, MannerOfArticulation.Approximant, false, "voiceless labiovelar approximant/fricative"),
+      // new OtherPulmonic("w", Voicing.Voiced, MannerOfArticulation.Approximant, false, "voiced labiovelar approximant"),
+      // new OtherPulmonic("ɥ", Voicing.Voiced, MannerOfArticulation.Approximant, false, "voiced labiopalatal approximant"),
+      // new OtherPulmonic("ɺ", Voicing.Voiced, MannerOfArticulation.TapFlap, false, "voiced alveolar lateral flap"),
+      // new OtherPulmonic("ɧ", Voicing.Voiceless, MannerOfArticulation.Fricative, false, "simultaneous ʃ and x"),
 
-      new Implosive("ɓ", PlaceOfArticulation.Bilabial, false),
-      new Implosive("ɗ", PlaceOfArticulation.Alveolar, false),
-      new Implosive("ʄ", PlaceOfArticulation.Palatal, false),
-      new Implosive("ɠ", PlaceOfArticulation.Velar, false),
-      new Implosive("ʛ", PlaceOfArticulation.Uvular, false),
+      // new Implosive("ɓ", PlaceOfArticulation.Bilabial, false),
+      // new Implosive("ɗ", PlaceOfArticulation.Alveolar, false),
+      // new Implosive("ʄ", PlaceOfArticulation.Palatal, false),
+      // new Implosive("ɠ", PlaceOfArticulation.Velar, false),
+      // new Implosive("ʛ", PlaceOfArticulation.Uvular, false),
 
-      new Ejective("pʼ", PlaceOfArticulation.Bilabial, MannerOfArticulation.Stop, false),
-      new Ejective("tʼ", PlaceOfArticulation.Alveolar, MannerOfArticulation.Stop, false),
-      new Ejective("kʼ", PlaceOfArticulation.Velar, MannerOfArticulation.Stop, false),
-      new Ejective("sʼ", PlaceOfArticulation.Alveolar, MannerOfArticulation.Fricative, false),
+      // new Ejective("pʼ", PlaceOfArticulation.Bilabial, MannerOfArticulation.Stop, false),
+      // new Ejective("tʼ", PlaceOfArticulation.Alveolar, MannerOfArticulation.Stop, false),
+      // new Ejective("kʼ", PlaceOfArticulation.Velar, MannerOfArticulation.Stop, false),
+      // new Ejective("sʼ", PlaceOfArticulation.Alveolar, MannerOfArticulation.Fricative, false),
 
-      new Click("ʘ", PlaceOfArticulation.Bilabial, false, false),
-      new Click("ǀ", PlaceOfArticulation.Dental, false, false),
-      new Click("ǃ", PlaceOfArticulation.Alveolar, false, false),
-      new Click("ǂ", PlaceOfArticulation.PalatoAlveolar, false, false),
-      new Click("ǁ", PlaceOfArticulation.Alveolar, true, false),
+      // new Click("ʘ", PlaceOfArticulation.Bilabial, false, false),
+      // new Click("ǀ", PlaceOfArticulation.Dental, false, false),
+      // new Click("ǃ", PlaceOfArticulation.Alveolar, false, false),
+      // new Click("ǂ", PlaceOfArticulation.PalatoAlveolar, false, false),
+      // new Click("ǁ", PlaceOfArticulation.Alveolar, true, false),
     ];
 
-    let i = 0;
     this.pulmonicConsonants = [];
-    for(let p of consonantList.pulmonicConsonants) {
-      this.pulmonicConsonants.push(PulmonicConsonant.fromObject(p));
-      console.log(this.pulmonicConsonants[i])
-      i++;
+    for(let data of consonantList.pulmonicConsonants) {
+      this.pulmonicConsonants.push(PulmonicConsonant.fromObject(data));
     }
     this.pulmonicTable = [[[]]];
     for(let consonant of this.pulmonicConsonants)
@@ -212,15 +209,26 @@ export class MainMenuComponent implements OnInit {
       this.checked[1].push(false);
     }
 
-    this.otherPulmonic = this.consonants.filter(c => c instanceof OtherPulmonic) as OtherPulmonic[];
-    this.implosives = this.consonants.filter(c => c instanceof Implosive) as Implosive[];
-    this.ejectives = this.consonants.filter(c => c instanceof Ejective) as Ejective[];
-    this.clicks = this.consonants.filter(c => c instanceof Click) as Click[];
-  }
+    this.otherPulmonic = [];
+    for(let data of consonantList.otherPulmonic) {
+      this.otherPulmonic.push(OtherPulmonic.fromObject(data));
+    }
+    
+    this.implosives = [];
+    for(let data of consonantList.implosives) {
+      this.implosives.push(Implosive.fromObject(data));
+    }
 
-  // ipaClick(arg: PulmonicConsonant): void {      
-  //     console.log(arg);
-  // }
+    this.ejectives = [];
+    for(let data of consonantList.ejectives) {
+      this.ejectives.push(Ejective.fromObject(data));
+    }
+
+    this.clicks = [];
+    for(let data of consonantList.clicks) {
+      this.clicks.push(Click.fromObject(data));
+    }
+  }
   
   ipaCheck(event: any, p: Phone): void {
     console.log(p.symbol + ": " + event.target.checked);
