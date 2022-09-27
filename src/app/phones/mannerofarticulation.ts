@@ -6,6 +6,7 @@ export enum MannerOfArticulation {
     Fricative,
     LateralFricative,
     Affricate,
+    LateralAffricate,
     Approximant,
     LateralApproximant
   }
@@ -17,6 +18,7 @@ export const MannerFromString: any = {
   "tap-flap": MannerOfArticulation.TapFlap,
   "fricative": MannerOfArticulation.Fricative,
   "lateral-fricative": MannerOfArticulation.LateralFricative,
+  "lateral-affricate": MannerOfArticulation.LateralAffricate,
   "affricate": MannerOfArticulation.Affricate,
   "approximant": MannerOfArticulation.Approximant,
   "lateral-approximant": MannerOfArticulation.LateralApproximant

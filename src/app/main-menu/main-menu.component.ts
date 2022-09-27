@@ -146,27 +146,14 @@ export class MainMenuComponent implements OnInit {
       i++;
     }
     this.pulmonicTable = [[[]]];
-    for(let consonant of this.pulmonicConsonants) // maybe find a better way to implement this
+    for(let consonant of this.pulmonicConsonants)
     {
-      consonant = consonant as PulmonicConsonant;
-      // let i = this.pulmonicTable.length - 1;
-      // let j = this.pulmonicTable[i].length - 1;
-
-      // console.log(consonant.symbol + ": " + (i + 1) + "; " + (j + 1));
       while(this.pulmonicTable.length <= consonant.manner) {
-        // console.log(consonant.symbol + " (): " + this.pulmonicTable.length +  " <= " + consonant.manner);
-        // console.log(this.pulmonicTable)
         this.pulmonicTable.push([[PulmonicConsonant.NullConsonant, PulmonicConsonant.NullConsonant]]);
-        // i++;
       }
-      // console.log(consonant.symbol + ": " + (i + 1) + "; " + (j + 1));
       while(this.pulmonicTable[consonant.manner].length <= consonant.place) {
-        // console.log(consonant.symbol + " (P): " + this.pulmonicTable[i].length +  " <= " + consonant.place);
-        // console.log(this.pulmonicTable);
         this.pulmonicTable[consonant.manner].push([PulmonicConsonant.NullConsonant, PulmonicConsonant.NullConsonant]);
-        // j++;
       }
-      // console.log(consonant.symbol + ": " + (i + 1) + ", " + (j + 1) + "; " + consonant.manner + ", " + consonant.place);
       this.pulmonicTable[consonant.manner][consonant.place][consonant.voicing > 0 ? 1 : 0] = consonant;
     }
 

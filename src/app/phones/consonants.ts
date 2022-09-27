@@ -176,14 +176,14 @@ export const consonantList = {
         {
             "symbol": "ʜ",
             "voicing": "voiceless",
-            "place": "pharynɡeal",
+            "place": "pharyngeal",
             "manner": "trill",
             "clickable": true
         },
         {
             "symbol": "ʢ",
             "voicing": "voiced",
-            "place": "pharynɡeal",
+            "place": "pharyngeal",
             "manner": "trill",
             "clickable": true
         },
@@ -378,7 +378,7 @@ export const consonantList = {
         },
         {
             "symbol": "ɮ",
-            "voicing": "voiceless",
+            "voicing": "voiced",
             "place": "alveolar",
             "manner": "lateral-fricative",
             "clickable": true
