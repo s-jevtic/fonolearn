@@ -495,6 +495,27 @@ export const consonantList = {
             "clickable": true
         },
         {
+            "symbol": "c͡ç",
+            "voicing": "voiceless",
+            "place": "palatal",
+            "manner": "affricate",
+            "clickable": true
+        },
+        {
+            "symbol": "k͡x",
+            "voicing": "voiceless",
+            "place": "velar",
+            "manner": "affricate",
+            "clickable": true
+        },
+        {
+            "symbol": "q͡χ",
+            "voicing": "voiceless",
+            "place": "uvular",
+            "manner": "affricate",
+            "clickable": true
+        },
+        {
             "symbol": "t͡ɬ",
             "voicing": "voiceless",
             "place": "alveolar",
@@ -534,6 +555,27 @@ export const consonantList = {
             "symbol": "ɖ͡ʐ",
             "voicing": "voiced",
             "place": "retroflex",
+            "manner": "affricate",
+            "clickable": true
+        },
+        {
+            "symbol": "ɟ͡ʝ",
+            "voicing": "voiced",
+            "place": "palatal",
+            "manner": "affricate",
+            "clickable": true
+        },
+        {
+            "symbol": "ɡ͡ɣ",
+            "voicing": "voiced",
+            "place": "velar",
+            "manner": "affricate",
+            "clickable": true
+        },
+        {
+            "symbol": "ɢ͡ʁ",
+            "voicing": "voiced",
+            "place": "uvular",
             "manner": "affricate",
             "clickable": true
         }
