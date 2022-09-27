@@ -88,7 +88,7 @@ export const consonantList = {
             "clickable": true
         },
         {
-            "symbol": "g",
+            "symbol": "ɡ",
             "voicing": "voiced",
             "place": "velar",
             "manner": "stop",
@@ -170,6 +170,20 @@ export const consonantList = {
             "symbol": "ʀ",
             "voicing": "voiced",
             "place": "uvular",
+            "manner": "trill",
+            "clickable": true
+        },
+        {
+            "symbol": "ʜ",
+            "voicing": "voiceless",
+            "place": "pharynɡeal",
+            "manner": "trill",
+            "clickable": true
+        },
+        {
+            "symbol": "ʢ",
+            "voicing": "voiced",
+            "place": "pharynɡeal",
             "manner": "trill",
             "clickable": true
         },
@@ -356,7 +370,7 @@ export const consonantList = {
         },
 
         {
-            "symbol": "ɫ",
+            "symbol": "ɬ",
             "voicing": "voiceless",
             "place": "alveolar",
             "manner": "lateral-fricative",
@@ -480,6 +494,20 @@ export const consonantList = {
             "manner": "affricate",
             "clickable": true
         },
+        {
+            "symbol": "t͡ɬ",
+            "voicing": "voiceless",
+            "place": "alveolar",
+            "manner": "lateral-affricate",
+            "clickable": true
+        },
+        {
+            "symbol": "d͡ɮ",
+            "voicing": "voiced",
+            "place": "alveolar",
+            "manner": "lateral-affricate",
+            "clickable": true
+        },
 
         {
             "symbol": "d͡z",
@@ -533,7 +561,7 @@ export const consonantList = {
             "desc": "voiced labiopalatal approximant"
         },
         {
-            "symbol": "ɬ",
+            "symbol": "ɫ",
             "voicing": "voiced",
             "manner": "lateral-approximant",
             "clickable": true,
@@ -566,6 +594,11 @@ export const consonantList = {
             "clickable": false
         },
         {
+            "symbol": "ᶑ",
+            "place": "retroflex",
+            "clickable": false
+        },
+        {
             "symbol": "ʄ",
             "place": "palatal",
             "clickable": false
@@ -595,7 +628,25 @@ export const consonantList = {
             "clickable": true
         },
         {
+            "symbol": "ʈʼ",
+            "place": "retroflex",
+            "manner": "stop",
+            "clickable": true
+        },
+        {
+            "symbol": "cʼ",
+            "place": "alveolar",
+            "manner": "stop",
+            "clickable": true
+        },
+        {
             "symbol": "kʼ",
+            "place": "velar",
+            "manner": "stop",
+            "clickable": true
+        },
+        {
+            "symbol": "qʼ",
             "place": "velar",
             "manner": "stop",
             "clickable": true
@@ -615,25 +666,25 @@ export const consonantList = {
             "clickable": true
         },
         {
-            "symbol": "ʘ",
+            "symbol": "ǀ",
             "place": "dental",
             "lateral": false,
             "clickable": true
         },
         {
-            "symbol": "ʘ",
+            "symbol": "ǃ",
             "place": "alveolar",
             "lateral": false,
             "clickable": true
         },
         {
-            "symbol": "ʘ",
+            "symbol": "ǂ",
             "place": "palato-alveolar",
             "lateral": false,
             "clickable": true
         },
         {
-            "symbol": "ʘ",
+            "symbol": "ǁ",
             "place": "alveolar",
             "lateral": true,
             "clickable": true
