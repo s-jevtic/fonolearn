@@ -6,5 +6,6 @@ export class Phone {
     }
     symbol: string;
     desc: string;
+    filename: string;
     clickable: boolean;
 }

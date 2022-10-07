@@ -7,22 +7,21 @@ import { Implosive } from '../phones/implosive';
 import { Ejective } from '../phones/ejective';
 import { Click } from '../phones/click';
 import { Voicing } from '../phones/voicing';
-import { MannerOfArticulation } from '../phones/mannerofarticulation';
-import { PlaceOfArticulation } from '../phones/placeofarticulation';
 import { Vowel } from '../phones/vowel';
 import { VowelHeight } from '../phones/vowelheight';
 import { VowelBackness } from '../phones/vowelbackness';
 import { VowelRoundedness } from '../phones/roundedness';
-import { consonantList } from '../phones/consonants';
+import { PhoneDataService } from '../phone-data.service';
 
 @Component({
   selector: 'app-main-menu',
   templateUrl: './main-menu.component.html',
-  styleUrls: ['./main-menu.component.css']
+  styleUrls: ['./main-menu.component.css'],
+  providers: [ PhoneDataService ]
 })
 export class MainMenuComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private phoneData: PhoneDataService) { }
 
   consonants: Phone[];
   pulmonicConsonants: PulmonicConsonant[];
@@ -37,111 +36,16 @@ export class MainMenuComponent implements OnInit {
   checked: boolean[][];
 
   ngOnInit(): void {
-    this.consonants = [
-      // new PulmonicConsonant("p", Voicing.Voiceless, PlaceOfArticulation.Bilabial, MannerOfArticulation.Stop, true),
-      // new PulmonicConsonant("t", Voicing.Voiceless, PlaceOfArticulation.Alveolar, MannerOfArticulation.Stop, true),
-      // new PulmonicConsonant("ʈ", Voicing.Voiceless, PlaceOfArticulation.Retroflex, MannerOfArticulation.Stop, false),
-      // new PulmonicConsonant("c", Voicing.Voiceless, PlaceOfArticulation.Palatal, MannerOfArticulation.Stop, false),
-      // new PulmonicConsonant("k", Voicing.Voiceless, PlaceOfArticulation.Velar, MannerOfArticulation.Stop, true),
-      // new PulmonicConsonant("q", Voicing.Voiceless, PlaceOfArticulation.Uvular, MannerOfArticulation.Stop, false),
-      // new PulmonicConsonant("ʡ", Voicing.Voiceless, PlaceOfArticulation.Pharyngeal, MannerOfArticulation.Stop, false, "epiglottal plosive"),
-      // new PulmonicConsonant("ʔ", Voicing.Voiceless, PlaceOfArticulation.Glottal, MannerOfArticulation.Stop, false, "glottal stop"),
+  
+    this.pulmonicConsonants = this.phoneData.pulmonicConsonants;
+    this.otherPulmonic = this.phoneData.otherPulmonic;
+    this.implosives = this.phoneData.implosives;
+    this.ejectives = this.phoneData.ejectives;
+    this.clicks = this.phoneData.clicks;
 
-      // new PulmonicConsonant("b", Voicing.Voiced, PlaceOfArticulation.Bilabial, MannerOfArticulation.Stop, true),
-      // new PulmonicConsonant("d", Voicing.Voiced, PlaceOfArticulation.Alveolar, MannerOfArticulation.Stop, true),
-      // new PulmonicConsonant("ɖ", Voicing.Voiced, PlaceOfArticulation.Retroflex, MannerOfArticulation.Stop, false),
-      // new PulmonicConsonant("ɟ", Voicing.Voiced, PlaceOfArticulation.Palatal, MannerOfArticulation.Stop, false),
-      // new PulmonicConsonant("g", Voicing.Voiced, PlaceOfArticulation.Velar, MannerOfArticulation.Stop, true),
-      // new PulmonicConsonant("ɢ", Voicing.Voiced, PlaceOfArticulation.Uvular, MannerOfArticulation.Stop, false),
-
-      // new PulmonicConsonant("m", Voicing.Voiced, PlaceOfArticulation.Bilabial, MannerOfArticulation.Nasal, false),
-      // new PulmonicConsonant("ɱ", Voicing.Voiced, PlaceOfArticulation.Labiodental, MannerOfArticulation.Nasal, false),
-      // new PulmonicConsonant("n", Voicing.Voiced, PlaceOfArticulation.Alveolar, MannerOfArticulation.Nasal, false),
-      // new PulmonicConsonant("ɳ", Voicing.Voiced, PlaceOfArticulation.Retroflex, MannerOfArticulation.Nasal, false),
-      // new PulmonicConsonant("ɲ", Voicing.Voiced, PlaceOfArticulation.Palatal, MannerOfArticulation.Nasal, false),
-      // new PulmonicConsonant("ŋ", Voicing.Voiced, PlaceOfArticulation.Velar, MannerOfArticulation.Nasal, false),
-      // new PulmonicConsonant("ɴ", Voicing.Voiced, PlaceOfArticulation.Uvular, MannerOfArticulation.Nasal, false),
-      
-      // new PulmonicConsonant("ʙ", Voicing.Voiced, PlaceOfArticulation.Bilabial, MannerOfArticulation.Trill, false),
-      // new PulmonicConsonant("r", Voicing.Voiced, PlaceOfArticulation.Alveolar, MannerOfArticulation.Trill, false),
-      // new PulmonicConsonant("ʀ", Voicing.Voiced, PlaceOfArticulation.Uvular, MannerOfArticulation.Trill, false),
-
-      // new PulmonicConsonant("ɸ", Voicing.Voiceless, PlaceOfArticulation.Bilabial, MannerOfArticulation.Fricative, false),
-      // new PulmonicConsonant("f", Voicing.Voiceless, PlaceOfArticulation.Labiodental, MannerOfArticulation.Fricative, false),
-      // new PulmonicConsonant("θ", Voicing.Voiceless, PlaceOfArticulation.Dental, MannerOfArticulation.Fricative, false),
-      // new PulmonicConsonant("s", Voicing.Voiceless, PlaceOfArticulation.Alveolar, MannerOfArticulation.Fricative, false),
-      // new PulmonicConsonant("ʃ", Voicing.Voiceless, PlaceOfArticulation.PalatoAlveolar, MannerOfArticulation.Fricative, false),
-      // new PulmonicConsonant("ɕ", Voicing.Voiceless, PlaceOfArticulation.AlveoloPalatal, MannerOfArticulation.Fricative, false),
-      // new PulmonicConsonant("ʂ", Voicing.Voiceless, PlaceOfArticulation.Retroflex, MannerOfArticulation.Fricative, false),
-      // new PulmonicConsonant("ç", Voicing.Voiceless, PlaceOfArticulation.Palatal, MannerOfArticulation.Fricative, false),
-      // new PulmonicConsonant("x", Voicing.Voiceless, PlaceOfArticulation.Velar, MannerOfArticulation.Fricative, false),
-      // new PulmonicConsonant("χ", Voicing.Voiceless, PlaceOfArticulation.Uvular, MannerOfArticulation.Fricative, false),
-      // new PulmonicConsonant("ħ", Voicing.Voiceless, PlaceOfArticulation.Pharyngeal, MannerOfArticulation.Fricative, false),
-      // new PulmonicConsonant("β", Voicing.Voiced, PlaceOfArticulation.Bilabial, MannerOfArticulation.Fricative, false),
-      // new PulmonicConsonant("v", Voicing.Voiced, PlaceOfArticulation.Labiodental, MannerOfArticulation.Fricative, false),
-      // new PulmonicConsonant("ð", Voicing.Voiced, PlaceOfArticulation.Dental, MannerOfArticulation.Fricative, false),
-      // new PulmonicConsonant("z", Voicing.Voiced, PlaceOfArticulation.Alveolar, MannerOfArticulation.Fricative, false),
-      // new PulmonicConsonant("ʒ", Voicing.Voiced, PlaceOfArticulation.PalatoAlveolar, MannerOfArticulation.Fricative, false),
-      // new PulmonicConsonant("ʑ", Voicing.Voiced, PlaceOfArticulation.AlveoloPalatal, MannerOfArticulation.Fricative, false),
-      // new PulmonicConsonant("ʐ", Voicing.Voiced, PlaceOfArticulation.Retroflex, MannerOfArticulation.Fricative, false),
-      // new PulmonicConsonant("ʝ", Voicing.Voiced, PlaceOfArticulation.Palatal, MannerOfArticulation.Fricative, false),
-      // new PulmonicConsonant("ɣ", Voicing.Voiced, PlaceOfArticulation.Velar, MannerOfArticulation.Fricative, false),
-      // new PulmonicConsonant("ʁ", Voicing.Voiced, PlaceOfArticulation.Uvular, MannerOfArticulation.Fricative, false),
-      // new PulmonicConsonant("ʕ", Voicing.Voiced, PlaceOfArticulation.Pharyngeal, MannerOfArticulation.Fricative, false),
-
-      // new PulmonicConsonant("ɬ", Voicing.Voiceless, PlaceOfArticulation.Alveolar, MannerOfArticulation.LateralFricative, false),
-      // new PulmonicConsonant("ɮ", Voicing.Voiced, PlaceOfArticulation.Alveolar, MannerOfArticulation.LateralFricative, false),
-
-      // new PulmonicConsonant("h", Voicing.Voiceless, PlaceOfArticulation.Glottal, MannerOfArticulation.Approximant, false, "voiceless glottal approximant/fricative"),
-      // new PulmonicConsonant("ʋ", Voicing.Voiced, PlaceOfArticulation.Labiodental, MannerOfArticulation.Approximant, false),
-      // new PulmonicConsonant("ɹ", Voicing.Voiced, PlaceOfArticulation.Alveolar, MannerOfArticulation.Approximant, false),
-      // new PulmonicConsonant("ɻ", Voicing.Voiced, PlaceOfArticulation.Retroflex, MannerOfArticulation.Approximant, false),
-      // new PulmonicConsonant("j", Voicing.Voiced, PlaceOfArticulation.Palatal, MannerOfArticulation.Approximant, false),
-      // new PulmonicConsonant("ɰ", Voicing.Voiced, PlaceOfArticulation.Velar, MannerOfArticulation.Approximant, false),
-      // new PulmonicConsonant("ɦ", Voicing.BreathyVoiced, PlaceOfArticulation.Glottal, MannerOfArticulation.Approximant, false, "breathy voiced glottal approximant/fricative"),
-
-      // new PulmonicConsonant("l", Voicing.Voiced, PlaceOfArticulation.Alveolar, MannerOfArticulation.LateralApproximant, false),
-      // new PulmonicConsonant("ɭ", Voicing.Voiced, PlaceOfArticulation.Retroflex, MannerOfArticulation.LateralApproximant, false),
-      // new PulmonicConsonant("ʎ", Voicing.Voiced, PlaceOfArticulation.Palatal, MannerOfArticulation.LateralApproximant, false),
-      // new PulmonicConsonant("ʟ", Voicing.Voiced, PlaceOfArticulation.Velar, MannerOfArticulation.LateralApproximant, false),
-
-      // new PulmonicConsonant("t͡s", Voicing.Voiceless, PlaceOfArticulation.Alveolar, MannerOfArticulation.Affricate, false),
-      // new PulmonicConsonant("t͡ʃ", Voicing.Voiceless, PlaceOfArticulation.PalatoAlveolar, MannerOfArticulation.Affricate, false),
-      // new PulmonicConsonant("t͡ɕ", Voicing.Voiceless, PlaceOfArticulation.AlveoloPalatal, MannerOfArticulation.Affricate, false),
-      // new PulmonicConsonant("ʈ͡ʂ", Voicing.Voiceless, PlaceOfArticulation.Retroflex, MannerOfArticulation.Affricate, false),
-      // new PulmonicConsonant("d͡z", Voicing.Voiced, PlaceOfArticulation.Alveolar, MannerOfArticulation.Affricate, false),
-      // new PulmonicConsonant("d͡ʒ", Voicing.Voiced, PlaceOfArticulation.PalatoAlveolar, MannerOfArticulation.Affricate, false),
-      // new PulmonicConsonant("d͡ʑ", Voicing.Voiced, PlaceOfArticulation.AlveoloPalatal, MannerOfArticulation.Affricate, false),
-      // new PulmonicConsonant("ɖ͡ʐ", Voicing.Voiced, PlaceOfArticulation.Retroflex, MannerOfArticulation.Affricate, false),
-
-      // new OtherPulmonic("ʍ", Voicing.Voiceless, MannerOfArticulation.Approximant, false, "voiceless labiovelar approximant/fricative"),
-      // new OtherPulmonic("w", Voicing.Voiced, MannerOfArticulation.Approximant, false, "voiced labiovelar approximant"),
-      // new OtherPulmonic("ɥ", Voicing.Voiced, MannerOfArticulation.Approximant, false, "voiced labiopalatal approximant"),
-      // new OtherPulmonic("ɺ", Voicing.Voiced, MannerOfArticulation.TapFlap, false, "voiced alveolar lateral flap"),
-      // new OtherPulmonic("ɧ", Voicing.Voiceless, MannerOfArticulation.Fricative, false, "simultaneous ʃ and x"),
-
-      // new Implosive("ɓ", PlaceOfArticulation.Bilabial, false),
-      // new Implosive("ɗ", PlaceOfArticulation.Alveolar, false),
-      // new Implosive("ʄ", PlaceOfArticulation.Palatal, false),
-      // new Implosive("ɠ", PlaceOfArticulation.Velar, false),
-      // new Implosive("ʛ", PlaceOfArticulation.Uvular, false),
-
-      // new Ejective("pʼ", PlaceOfArticulation.Bilabial, MannerOfArticulation.Stop, false),
-      // new Ejective("tʼ", PlaceOfArticulation.Alveolar, MannerOfArticulation.Stop, false),
-      // new Ejective("kʼ", PlaceOfArticulation.Velar, MannerOfArticulation.Stop, false),
-      // new Ejective("sʼ", PlaceOfArticulation.Alveolar, MannerOfArticulation.Fricative, false),
-
-      // new Click("ʘ", PlaceOfArticulation.Bilabial, false, false),
-      // new Click("ǀ", PlaceOfArticulation.Dental, false, false),
-      // new Click("ǃ", PlaceOfArticulation.Alveolar, false, false),
-      // new Click("ǂ", PlaceOfArticulation.PalatoAlveolar, false, false),
-      // new Click("ǁ", PlaceOfArticulation.Alveolar, true, false),
-    ];
-
-    this.pulmonicConsonants = [];
-    for(let data of consonantList.pulmonicConsonants) {
-      this.pulmonicConsonants.push(PulmonicConsonant.fromObject(data));
-    }
+    this.consonants = [];
+    this.consonants = this.consonants.concat(this.pulmonicConsonants, this.otherPulmonic, this.implosives, this.ejectives, this.clicks);
+    
     this.pulmonicTable = [[[]]];
     for(let consonant of this.pulmonicConsonants)
     {
@@ -208,26 +112,6 @@ export class MainMenuComponent implements OnInit {
     for(let p in this.vowels) {
       this.checked[1].push(false);
     }
-
-    this.otherPulmonic = [];
-    for(let data of consonantList.otherPulmonic) {
-      this.otherPulmonic.push(OtherPulmonic.fromObject(data));
-    }
-    
-    this.implosives = [];
-    for(let data of consonantList.implosives) {
-      this.implosives.push(Implosive.fromObject(data));
-    }
-
-    this.ejectives = [];
-    for(let data of consonantList.ejectives) {
-      this.ejectives.push(Ejective.fromObject(data));
-    }
-
-    this.clicks = [];
-    for(let data of consonantList.clicks) {
-      this.clicks.push(Click.fromObject(data));
-    }
   }
   
   ipaCheck(event: any, p: Phone): void {
@@ -253,5 +137,8 @@ export class MainMenuComponent implements OnInit {
       label.classList.remove("btn-primary");
       label.classList.add("btn-link");
     }
+
+    this.phoneData.checked = this.checked;
+    console.log(this.phoneData.checked, this.checked);
   }
 }
