@@ -16,12 +16,11 @@ import { PhoneDataService } from '../phone-data.service';
 @Component({
   selector: 'app-main-menu',
   templateUrl: './main-menu.component.html',
-  styleUrls: ['./main-menu.component.css'],
-  providers: [ PhoneDataService ]
+  styleUrls: ['./main-menu.component.css']
 })
 export class MainMenuComponent implements OnInit {
 
-  constructor(private router: Router, private phoneData: PhoneDataService) { }
+  constructor(private router: Router, private phoneDataService: PhoneDataService) { }
 
   consonants: Phone[];
   pulmonicConsonants: PulmonicConsonant[];
@@ -37,11 +36,11 @@ export class MainMenuComponent implements OnInit {
 
   ngOnInit(): void {
   
-    this.pulmonicConsonants = this.phoneData.pulmonicConsonants;
-    this.otherPulmonic = this.phoneData.otherPulmonic;
-    this.implosives = this.phoneData.implosives;
-    this.ejectives = this.phoneData.ejectives;
-    this.clicks = this.phoneData.clicks;
+    this.pulmonicConsonants = this.phoneDataService.pulmonicConsonants;
+    this.otherPulmonic = this.phoneDataService.otherPulmonic;
+    this.implosives = this.phoneDataService.implosives;
+    this.ejectives = this.phoneDataService.ejectives;
+    this.clicks = this.phoneDataService.clicks;
 
     this.consonants = [];
     this.consonants = this.consonants.concat(this.pulmonicConsonants, this.otherPulmonic, this.implosives, this.ejectives, this.clicks);
@@ -138,7 +137,7 @@ export class MainMenuComponent implements OnInit {
       label.classList.add("btn-link");
     }
 
-    this.phoneData.checked = this.checked;
-    console.log(this.phoneData.checked, this.checked);
+    this.phoneDataService.checked = this.checked;
+    console.log(this.phoneDataService.checked, this.checked);
   }
 }

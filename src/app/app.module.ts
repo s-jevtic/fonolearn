@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IpaComponent } from './ipa/ipa.component';
 import { MainMenuComponent } from './main-menu/main-menu.component';
+import { PhoneDataService } from './phone-data.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,6 @@ import { MainMenuComponent } from './main-menu/main-menu.component';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

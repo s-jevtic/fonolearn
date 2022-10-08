@@ -7,8 +7,7 @@ import { Vowel } from '../phones/vowel';
 @Component({
   selector: 'app-ipa',
   templateUrl: './ipa.component.html',
-  styleUrls: ['./ipa.component.css'],
-  providers: [ PhoneDataService ]
+  styleUrls: ['./ipa.component.css']
 })
 export class IpaComponent implements OnInit {
 
