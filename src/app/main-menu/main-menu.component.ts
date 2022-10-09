@@ -12,6 +12,7 @@ import { VowelHeight } from '../phones/vowelheight';
 import { VowelBackness } from '../phones/vowelbackness';
 import { VowelRoundedness } from '../phones/roundedness';
 import { PhoneDataService } from '../phone-data.service';
+import { premadeSets } from '../phones/premade-sets';
 
 @Component({
   selector: 'app-main-menu',
@@ -22,19 +23,8 @@ export class MainMenuComponent implements OnInit {
 
   constructor(private router: Router, private phoneDataService: PhoneDataService) { }
 
-  consonants: Phone[];
-  pulmonicConsonants: PulmonicConsonant[];
-  pulmonicTable: PulmonicConsonant[][][];
-  otherPulmonic: OtherPulmonic[];
-  implosives: Implosive[];
-  ejectives: Ejective[];
-  clicks: Click[];
-  vowels: Vowel[];
-  vowelTable: Vowel[][][];
-  
-  checked: boolean[][];
-
   ngOnInit(): void {
+    this.premadeSets = premadeSets;
   
     this.pulmonicConsonants = this.phoneDataService.pulmonicConsonants;
     this.otherPulmonic = this.phoneDataService.otherPulmonic;
@@ -111,10 +101,11 @@ export class MainMenuComponent implements OnInit {
     for(let p in this.vowels) {
       this.checked[1].push(false);
     }
+    console.log(this.consonants);
+    console.log(this.vowels);
   }
   
   ipaCheck(event: any, p: Phone): void {
-    console.log(p.symbol + ": " + event.target.checked);
     let label = <HTMLLabelElement>document.getElementById("label" + p.symbol);
     if(event.target.checked == true) {
       if(this.consonants.indexOf(p) != -1) {
@@ -138,6 +129,120 @@ export class MainMenuComponent implements OnInit {
     }
 
     this.phoneDataService.checked = this.checked;
-    console.log(this.phoneDataService.checked, this.checked);
   }
+
+  ipaToggle(p: Phone): void { // similar to ipaCheck, but not meant for use with HTML
+    let label = <HTMLLabelElement>document.getElementById("label" + p.symbol);
+    if ((label == undefined) || (label == null)) {
+      console.log("No button for " + p.symbol + ", skipping...")
+      return;
+    }
+
+    label.classList.toggle("btn-primary");
+    label.classList.toggle("btn-link");
+
+    if (this.consonants.includes(p)) {
+      this.checked[0][this.consonants.indexOf(p)] = !this.checked[0][this.consonants.indexOf(p)];
+    }
+    else if (this.vowels.includes(p as Vowel)) {
+      let v = p as Vowel;
+      this.checked[1][this.vowels.indexOf(v)] = !this.checked[1][this.vowels.indexOf(v)];
+    }
+
+    this.phoneDataService.checked = this.checked;
+  }
+
+  loadSet(event: any, premadeSet: any): void {
+    if (premadeSet != undefined) {
+      let checked: boolean[][] = [[], []];
+
+      for (let c of this.consonants) {
+        if (premadeSet.consonants.includes(c.symbol)) {
+          checked[0].push(true);
+        }
+        else {
+          checked[0].push(false);
+        }
+      }
+      for (let v of this.vowels) {
+        if (premadeSet.vowels.includes(v.symbol)) {
+          checked[1].push(true);
+        }
+        else {
+          checked[1].push(false);
+        }
+      }
+
+      this.consonants.forEach(p => {
+        if (checked[0][this.consonants.indexOf(p)] != this.checked[0][this.consonants.indexOf(p)]) {
+          this.ipaToggle(p);
+        }
+      });
+      /*
+        If the consonant should be checked and is already checked, do nothing.
+        If it is not checked and should not be checked, do nothing.
+        Else, ipaCheck(...) ...
+      */
+      this.vowels.forEach(p => {
+        if (checked[1][this.vowels.indexOf(p)] != this.checked[1][this.vowels.indexOf(p)]) {
+          this.ipaToggle(p);
+        }
+      });
+      // same, but for vowels
+    }
+    else {
+      console.log("Error: desired set ('" + premadeSet.setName + "') does not exist")
+    }
+  }
+
+  selectConsonants(event: any): void {
+    this.consonants.forEach(p => {
+      if (!this.checked[0][this.consonants.indexOf(p)]) {
+        this.ipaToggle(p);
+      }
+    });
+    this.vowels.forEach(p => {
+      if (this.checked[1][this.consonants.indexOf(p)]) {
+        this.ipaToggle(p);
+      }
+    });
+  }
+  selectVowels(event: any): void {
+    this.consonants.forEach(p => {
+      if (this.checked[0][this.consonants.indexOf(p)]) {
+        this.ipaToggle(p);
+      }
+    });
+    this.vowels.forEach(p => {
+      if (!this.checked[1][this.consonants.indexOf(p)]) {
+        this.ipaToggle(p);
+      }
+    });
+  }
+  selectAll(event: any): void {
+    this.consonants.forEach(p => {
+      if (!this.checked[0][this.consonants.indexOf(p)]) {
+        this.ipaToggle(p);
+      }
+    });
+    this.vowels.forEach(p => {
+      if (!this.checked[1][this.consonants.indexOf(p)]) {
+        this.ipaToggle(p);
+      }
+    });
+  }
+
+  premadeSets: any;
+
+  consonants: Phone[];
+  pulmonicConsonants: PulmonicConsonant[];
+  pulmonicTable: PulmonicConsonant[][][];
+  otherPulmonic: OtherPulmonic[];
+  implosives: Implosive[];
+  ejectives: Ejective[];
+  clicks: Click[];
+  vowels: Vowel[];
+  vowelTable: Vowel[][][];
+  
+  checked: boolean[][];
 }
