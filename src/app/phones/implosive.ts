@@ -34,12 +34,17 @@ export class Implosive extends Phone {
         let symbol = data.symbol;
         let place = PlaceFromString[data.place];
         let clickable = data.clickable;
-        if(typeof(data.desc) === 'undefined') {
-          return new Implosive(symbol, place, clickable);
+        let p;
+        if (!data.desc) {
+          p = new Implosive(symbol, place, clickable);
         }
         else {
           let desc = data.desc;
-          return new Implosive(symbol, place, clickable, desc);
+          p = new Implosive(symbol, place, clickable, desc);
         }
+        if(data.alias) {
+          p.alias = data.alias;
+        }
+        return p;
       }
 }

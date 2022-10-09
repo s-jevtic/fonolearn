@@ -8,4 +8,5 @@ export class Phone {
     desc: string;
     filename: string;
     clickable: boolean;
+    alias: string;
 }

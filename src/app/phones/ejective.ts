@@ -42,12 +42,17 @@ export class Ejective extends Phone {
         let place = PlaceFromString[data.place];
         let manner = MannerFromString[data.manner];
         let clickable = data.clickable;
-        if(typeof(data.desc) === 'undefined') {
-            return new Ejective(symbol, place, manner, clickable);
+        let p;
+        if (!data.desc) {
+            p = new Ejective(symbol, place, manner, clickable);
         }
         else {
             let desc = data.desc;
-            return new Ejective(symbol, place, manner, clickable, desc);
+            p = new Ejective(symbol, place, manner, clickable, desc);
         }
+        if (data.alias) {
+            p.alias = data.alias;
+        }
+        return p;
     }
 }

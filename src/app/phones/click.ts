@@ -38,12 +38,17 @@ export class Click extends Phone {
         let place = PlaceFromString[data.place];
         let lateral = data.lateral;
         let clickable = data.clickable;
-        if(typeof(data.desc) === 'undefined') {
-            return new Click(symbol, place, lateral, clickable);
+        let p;
+        if (!data.desc) {
+            p = new Click(symbol, place, lateral, clickable);
         }
         else {
             let desc = data.desc;
-            return new Click(symbol, place, lateral, clickable, desc);
+            p = new Click(symbol, place, lateral, clickable, desc);
         }
+        if (data.alias) {
+            p.alias = data.alias;
+        }
+        return p;
     }
 }

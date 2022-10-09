@@ -73,12 +73,17 @@ export class PulmonicConsonant extends Phone {
       let place = PlaceFromString[data.place];
       let manner = MannerFromString[data.manner];
       let clickable = data.clickable;
-      if(typeof(data.desc) === 'undefined') {
-        return new PulmonicConsonant(symbol, voicing, place, manner, clickable);
+      let p;
+      if (!data.desc) {
+        p = new PulmonicConsonant(symbol, voicing, place, manner, clickable);
       }
       else {
         let desc = data.desc;
-        return new PulmonicConsonant(symbol, voicing, place, manner, clickable, desc);
+        p = new PulmonicConsonant(symbol, voicing, place, manner, clickable, desc);
       }
+      if (data.alias) {
+        p.alias = data.alias;
+      }
+      return p;
     }
 }

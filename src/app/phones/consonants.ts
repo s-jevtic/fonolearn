@@ -468,6 +468,7 @@ export const consonantList = {
 
         {
             "symbol": "t͡s",
+            "alias": "ts",
             "voicing": "voiceless",
             "place": "alveolar",
             "manner": "affricate",
@@ -475,6 +476,7 @@ export const consonantList = {
         },
         {
             "symbol": "t͡ʃ",
+            "alias": "tʃ",
             "voicing": "voiceless",
             "place": "palato-alveolar",
             "manner": "affricate",
@@ -482,6 +484,7 @@ export const consonantList = {
         },
         {
             "symbol": "t͡ɕ",
+            "alias": "tɕ",
             "voicing": "voiceless",
             "place": "alveolo-palatal",
             "manner": "affricate",
@@ -489,6 +492,7 @@ export const consonantList = {
         },
         {
             "symbol": "ʈ͡ʂ",
+            "alias": "ʈʂ",
             "voicing": "voiceless",
             "place": "retroflex",
             "manner": "affricate",
@@ -496,6 +500,7 @@ export const consonantList = {
         },
         {
             "symbol": "c͡ç",
+            "alias": "cç",
             "voicing": "voiceless",
             "place": "palatal",
             "manner": "affricate",
@@ -503,6 +508,7 @@ export const consonantList = {
         },
         {
             "symbol": "k͡x",
+            "alias": "kx",
             "voicing": "voiceless",
             "place": "velar",
             "manner": "affricate",
@@ -510,6 +516,7 @@ export const consonantList = {
         },
         {
             "symbol": "q͡χ",
+            "alias": "qχ",
             "voicing": "voiceless",
             "place": "uvular",
             "manner": "affricate",
@@ -517,6 +524,7 @@ export const consonantList = {
         },
         {
             "symbol": "t͡ɬ",
+            "alias": "tɬ",
             "voicing": "voiceless",
             "place": "alveolar",
             "manner": "lateral-affricate",
@@ -524,6 +532,7 @@ export const consonantList = {
         },
         {
             "symbol": "d͡ɮ",
+            "alias": "dɮ",
             "voicing": "voiced",
             "place": "alveolar",
             "manner": "lateral-affricate",
@@ -532,6 +541,7 @@ export const consonantList = {
 
         {
             "symbol": "d͡z",
+            "alias": "dz",
             "voicing": "voiced",
             "place": "alveolar",
             "manner": "affricate",
@@ -539,6 +549,7 @@ export const consonantList = {
         },
         {
             "symbol": "d͡ʒ",
+            "alias": "dʒ",
             "voicing": "voiced",
             "place": "palato-alveolar",
             "manner": "affricate",
@@ -546,6 +557,7 @@ export const consonantList = {
         },
         {
             "symbol": "d͡ʑ",
+            "alias": "dʑ",
             "voicing": "voiced",
             "place": "alveolo-palatal",
             "manner": "affricate",
@@ -553,6 +565,7 @@ export const consonantList = {
         },
         {
             "symbol": "ɖ͡ʐ",
+            "alias": "dʐ",
             "voicing": "voiced",
             "place": "retroflex",
             "manner": "affricate",
@@ -560,6 +573,7 @@ export const consonantList = {
         },
         {
             "symbol": "ɟ͡ʝ",
+            "alias": "ɟʝ",
             "voicing": "voiced",
             "place": "palatal",
             "manner": "affricate",
@@ -567,6 +581,7 @@ export const consonantList = {
         },
         {
             "symbol": "ɡ͡ɣ",
+            "alias": "ɡɣ",
             "voicing": "voiced",
             "place": "velar",
             "manner": "affricate",
@@ -574,6 +589,7 @@ export const consonantList = {
         },
         {
             "symbol": "ɢ͡ʁ",
+            "alias": "ɢʁ",
             "voicing": "voiced",
             "place": "uvular",
             "manner": "affricate",
@@ -703,30 +719,35 @@ export const consonantList = {
     "clicks": [
         {
             "symbol": "ʘ",
+            "alias": "kʘ",
             "place": "bilabial",
             "lateral": false,
             "clickable": true
         },
         {
             "symbol": "ǀ",
+            "alias": "kǀ",
             "place": "dental",
             "lateral": false,
             "clickable": true
         },
         {
             "symbol": "ǃ",
+            "alias": "kǃ",
             "place": "alveolar",
             "lateral": false,
             "clickable": true
         },
         {
             "symbol": "ǂ",
+            "alias": "kǂ",
             "place": "palato-alveolar",
             "lateral": false,
             "clickable": true
         },
         {
             "symbol": "ǁ",
+            "alias": "kǁ",
             "place": "alveolar",
             "lateral": true,
             "clickable": true

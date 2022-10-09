@@ -20,6 +20,10 @@ export class OtherPulmonic extends Phone {
         let manner = MannerFromString[data.manner];
         let clickable = data.clickable;
         let desc = data.desc;
-        return new OtherPulmonic(symbol, voicing, manner, clickable, desc);
+        let p = new OtherPulmonic(symbol, voicing, manner, clickable, desc);
+        if (data.alias) {
+            p.alias = data.alias
+        }
+        return p;
     }
 }
