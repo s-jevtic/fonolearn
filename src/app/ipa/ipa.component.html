@@ -19,7 +19,7 @@
             </div>
         </div>
     </ng-container>
-    <ng-container *ngIf="(selectedPhones.length == 0) or (selectedPhones === undefined)">
+    <ng-container *ngIf="noneSelected">
         <div class="d-flex justify-content-center">  
             <div class="alert alert-danger alert-dismissible fade show" role="alert" id="none-selected-alert">
                 Warning: no sounds selected!
