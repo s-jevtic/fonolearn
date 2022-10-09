@@ -101,8 +101,14 @@ export class MainMenuComponent implements OnInit {
     for(let p in this.vowels) {
       this.checked[1].push(false);
     }
-    console.log(this.consonants);
-    console.log(this.vowels);
+  }
+
+  ipa(event: any): void {
+    let beginButton = document.getElementById("begin-button")!;
+    if (this.checked.flat().indexOf(true) == -1) { // if there is no true element in checked
+      console.log("No phones selected!"); // placeholder, should make this an alert that pops up in front of the buttons
+    }
+    this.router.navigate(["./ipa"]);
   }
   
   ipaCheck(event: any, p: Phone): void {
@@ -245,4 +251,6 @@ export class MainMenuComponent implements OnInit {
   vowelTable: Vowel[][][];
   
   checked: boolean[][];
+
+  noneSelectedAlert: boolean;
 }

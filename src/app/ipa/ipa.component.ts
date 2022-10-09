@@ -71,9 +71,13 @@ export class IpaComponent implements OnInit {
 
   playSound(): void {
     let audio = new Audio();
-    audio.src = '../../assets/phones/' + this.randomPhones[this.correctIndex].alias + '.mp3';
+
+    let filename = this.randomPhones[this.correctIndex].alias ?? this.randomPhones[this.correctIndex].symbol;
+    audio.src = '../../assets/phones/' + filename + '.mp3';
+
     audio.load();
     audio.play();
+
     this.listened = true;
   }
 

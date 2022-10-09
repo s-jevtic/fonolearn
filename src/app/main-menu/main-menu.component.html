@@ -1,6 +1,6 @@
 <div class="container-fluid d-flex justify-content-center px-3 my-4">
     <div class="btn-group">
-        <button class="btn btn-lg btn-primary" role="button" [routerLink]="['/ipa']">Begin with selected sounds</button>
+        <button class="btn btn-lg btn-primary" role="button" id="begin-button" (click)="ipa($event)">Begin with selected sounds</button>
         <button class="btn btn-lg btn-secondary dropdown-toggle dropdown-toggle-split" id="soundSetPicker" data-bs-toggle="dropdown" aria-expanded="false">Pick premade set of sounds</button>
         <ul class="dropdown-menu" aria-labelledby="soundSetPicker">
             <li><button class="dropdown-item" (click)="selectAll($event)">all</button></li>
@@ -9,9 +9,6 @@
             <ng-container *ngFor="let s of premadeSets">
                 <li><button class="dropdown-item" (click)="loadSet($event, s)">{{ s.setName }}</button></li>
             </ng-container>
-            <!-- <li><a class="dropdown-item" [routerLink]="['/ipa']" [queryParams]="{set: 'v'}">vowels</a></li> -->
-            <!-- <li><a class="dropdown-item" [routerLink]="['/ipa']" [queryParams]="{set: 'p'}">pulmonic consonants</a></li> -->
-            <!-- <li><a class="dropdown-item" [routerLink]="['/ipa']" [queryParams]="{set: 'a'}">all</a></li> -->
         </ul>
     </div>
 </div>
