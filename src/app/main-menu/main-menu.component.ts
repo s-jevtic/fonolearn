@@ -139,13 +139,15 @@ export class MainMenuComponent implements OnInit {
 
   ipaToggle(p: Phone): void { // similar to ipaCheck, but not meant for use with HTML
     let label = <HTMLLabelElement>document.getElementById("label" + p.symbol);
-    if ((label == undefined) || (label == null)) {
+    let button = <HTMLInputElement>document.getElementById("btncheck" + p.symbol);
+    if (!(label && button)) {
       console.log("No button for " + p.symbol + ", skipping...")
       return;
     }
 
     label.classList.toggle("btn-primary");
     label.classList.toggle("btn-link");
+    button.checked = !button.checked;
 
     if (this.consonants.includes(p)) {
       this.checked[0][this.consonants.indexOf(p)] = !this.checked[0][this.consonants.indexOf(p)];
