@@ -4,6 +4,7 @@ import { consonantList } from './phones/consonants';
 import { Ejective } from './phones/ejective';
 import { Implosive } from './phones/implosive';
 import { OtherPulmonic } from './phones/otherpulmonic';
+import { Phone } from './phones/phone';
 import { PulmonicConsonant } from './phones/pulmonicconsonant';
 
 @Injectable({
@@ -13,7 +14,7 @@ export class PhoneDataService {
 
   constructor() {
 
-    this.checked = [[], []];
+    this.phoneChecked = new Map<Phone, boolean>;
 
     this.pulmonicConsonants = [];
     for(let data of consonantList.pulmonicConsonants) {
@@ -47,5 +48,5 @@ export class PhoneDataService {
   ejectives: Ejective[];
   clicks: Click[];
 
-  checked: boolean[][];
+  phoneChecked: Map<Phone, boolean>;
 }

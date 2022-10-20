@@ -11,7 +11,7 @@ import { Vowel } from '../phones/vowel';
 })
 export class IpaComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private phoneData: PhoneDataService) { }
+  constructor(private route: ActivatedRoute, private phoneDataService: PhoneDataService) { }
 
   // set: string;
 
@@ -21,18 +21,18 @@ export class IpaComponent implements OnInit {
   ngOnInit(): void {
     this.noneSelected = true;
 
-    let pulmonicConsonants = this.phoneData.pulmonicConsonants;
-    let otherPulmonic = this.phoneData.otherPulmonic;
-    let implosives = this.phoneData.implosives;
-    let ejectives = this.phoneData.ejectives;
-    let clicks = this.phoneData.clicks;
+    let pulmonicConsonants = this.phoneDataService.pulmonicConsonants;
+    let otherPulmonic = this.phoneDataService.otherPulmonic;
+    let implosives = this.phoneDataService.implosives;
+    let ejectives = this.phoneDataService.ejectives;
+    let clicks = this.phoneDataService.clicks;
 
     this.consonants = [];
     this.consonants = this.consonants.concat(pulmonicConsonants, otherPulmonic, implosives, ejectives, clicks);
-    this.selectedConsonants = this.consonants.filter((_, i) => this.phoneData.checked[0][i]);
+    this.selectedConsonants = this.consonants.filter(p => this.phoneDataService.phoneChecked.get(p));
 
     this.vowels = []; // placeholder
-    this.selectedVowels = this.vowels.filter((_, i) => this.phoneData.checked[1][i]);
+    this.selectedVowels = this.vowels.filter(p => this.phoneDataService.phoneChecked.get(p));
 
     this.selectedPhones = this.selectedConsonants.concat(this.selectedVowels)
 
