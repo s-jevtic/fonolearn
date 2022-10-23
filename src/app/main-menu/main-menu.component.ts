@@ -69,7 +69,7 @@ export class MainMenuComponent implements OnInit {
     if (Array.from(this.phoneChecked.values()).indexOf(true) == -1) { // if there is no true element in checked
       alert("No phones selected!"); // placeholder, should make this a Bootstrap alert
     }
-    this.router.navigate(["./ipa"]);
+    else this.router.navigate(["./ipa"]);
   }
   
   ipaCheck(event: any, p: Phone): void {
