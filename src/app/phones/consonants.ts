@@ -440,7 +440,7 @@ export const consonantList = {
         {
             "symbol": "l",
             "voicing": "voiced",
-            "place": "labiodental",
+            "place": "alveolar",
             "manner": "lateral-approximant",
             "clickable": true
         },
@@ -467,6 +467,14 @@ export const consonantList = {
         },
 
         {
+            "symbol": "t͡θ",
+            "alias": "t̪θ",
+            "voicing": "voiceless",
+            "place": "dental",
+            "manner": "affricate",
+            "clickable": true
+        },
+        {
             "symbol": "t͡s",
             "alias": "ts",
             "voicing": "voiceless",
@@ -476,7 +484,7 @@ export const consonantList = {
         },
         {
             "symbol": "t͡ʃ",
-            "alias": "tʃ",
+            "alias": "t̠ʃ",
             "voicing": "voiceless",
             "place": "palato-alveolar",
             "manner": "affricate",
@@ -522,23 +530,15 @@ export const consonantList = {
             "manner": "affricate",
             "clickable": true
         },
-        {
-            "symbol": "t͡ɬ",
-            "alias": "tɬ",
-            "voicing": "voiceless",
-            "place": "alveolar",
-            "manner": "lateral-affricate",
-            "clickable": true
-        },
-        {
-            "symbol": "d͡ɮ",
-            "alias": "dɮ",
-            "voicing": "voiced",
-            "place": "alveolar",
-            "manner": "lateral-affricate",
-            "clickable": true
-        },
 
+        {
+            "symbol": "d͡ð",
+            "alias": "d̪ð",
+            "voicing": "voiced",
+            "place": "dental",
+            "manner": "affricate",
+            "clickable": true
+        },
         {
             "symbol": "d͡z",
             "alias": "dz",
@@ -549,7 +549,7 @@ export const consonantList = {
         },
         {
             "symbol": "d͡ʒ",
-            "alias": "dʒ",
+            "alias": "d̠ʒ",
             "voicing": "voiced",
             "place": "palato-alveolar",
             "manner": "affricate",
@@ -594,7 +594,24 @@ export const consonantList = {
             "place": "uvular",
             "manner": "affricate",
             "clickable": true
-        }
+        },
+
+        {
+            "symbol": "t͡ɬ",
+            "alias": "tɬ",
+            "voicing": "voiceless",
+            "place": "alveolar",
+            "manner": "lateral-affricate",
+            "clickable": true
+        },
+        {
+            "symbol": "d͡ɮ",
+            "alias": "dɮ",
+            "voicing": "voiced",
+            "place": "alveolar",
+            "manner": "lateral-affricate",
+            "clickable": true
+        },
     ],
     "otherPulmonic": [
         {
