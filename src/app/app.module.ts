@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IpaComponent } from './ipa/ipa.component';
 import { MainMenuComponent } from './main-menu/main-menu.component';
-import { PhoneDataService } from './phone-data.service';
 
 @NgModule({
   declarations: [

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { PhoneDataService } from '../phone-data.service';
 import { Phone } from '../phones/phone';
 import { Vowel } from '../phones/vowel';
@@ -12,11 +12,6 @@ import { Vowel } from '../phones/vowel';
 export class IpaComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private phoneDataService: PhoneDataService) { }
-
-  // set: string;
-
-  // links: string[];
-  // symbols: string[];
 
   ngOnInit(): void {
     this.noneSelected = true;
