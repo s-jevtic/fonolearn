@@ -31,7 +31,7 @@ export class IpaComponent implements OnInit {
     this.consonants = this.consonants.concat(pulmonicConsonants, otherPulmonic, implosives, ejectives, clicks);
     this.selectedConsonants = this.consonants.filter(p => this.phoneDataService.phoneChecked.get(p));
 
-    this.vowels = []; // placeholder
+    this.vowels = this.phoneDataService.vowels;
     this.selectedVowels = this.vowels.filter(p => this.phoneDataService.phoneChecked.get(p));
 
     this.selectedPhones = this.selectedConsonants.concat(this.selectedVowels)

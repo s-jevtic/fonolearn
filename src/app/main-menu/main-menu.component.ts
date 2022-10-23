@@ -47,41 +47,43 @@ export class MainMenuComponent implements OnInit {
       this.pulmonicTable[consonant.manner][consonant.place][consonant.voicing > 0 ? 1 : 0] = consonant;
     }
 
-    this.vowels = [
-      new Vowel("a", VowelHeight.Open, VowelBackness.Front, true),
-      new Vowel("æ", VowelHeight.NearOpen, VowelBackness.Front, false),
-      new Vowel("ɛ", VowelHeight.OpenMid, VowelBackness.Front, true),
-      new Vowel("e", VowelHeight.CloseMid, VowelBackness.Front, true),
-      new Vowel("ɪ", VowelHeight.NearClose, VowelBackness.Front, false),
-      new Vowel("i", VowelHeight.Close, VowelBackness.Front, true),
+    // this.vowels = [
+    //   new Vowel("a", VowelHeight.Open, VowelBackness.Front, true),
+    //   new Vowel("æ", VowelHeight.NearOpen, VowelBackness.Front, false),
+    //   new Vowel("ɛ", VowelHeight.OpenMid, VowelBackness.Front, true),
+    //   new Vowel("e", VowelHeight.CloseMid, VowelBackness.Front, true),
+    //   new Vowel("ɪ", VowelHeight.NearClose, VowelBackness.Front, false),
+    //   new Vowel("i", VowelHeight.Close, VowelBackness.Front, true),
 
-      new Vowel("ɶ", VowelHeight.Open, VowelBackness.Front, false, VowelRoundedness.Compressed),
-      new Vowel("œ", VowelHeight.OpenMid, VowelBackness.Front, false, VowelRoundedness.Compressed),
-      new Vowel("ø", VowelHeight.CloseMid, VowelBackness.Front, false, VowelRoundedness.Compressed),
-      new Vowel("ʏ", VowelHeight.NearClose, VowelBackness.Front, false, VowelRoundedness.Compressed),
-      new Vowel("y", VowelHeight.Close, VowelBackness.Front, false, VowelRoundedness.Compressed),
+    //   new Vowel("ɶ", VowelHeight.Open, VowelBackness.Front, false, VowelRoundedness.Compressed),
+    //   new Vowel("œ", VowelHeight.OpenMid, VowelBackness.Front, false, VowelRoundedness.Compressed),
+    //   new Vowel("ø", VowelHeight.CloseMid, VowelBackness.Front, false, VowelRoundedness.Compressed),
+    //   new Vowel("ʏ", VowelHeight.NearClose, VowelBackness.Front, false, VowelRoundedness.Compressed),
+    //   new Vowel("y", VowelHeight.Close, VowelBackness.Front, false, VowelRoundedness.Compressed),
 
-      new Vowel("ɐ", VowelHeight.NearOpen, VowelBackness.Central, false),
-      new Vowel("ɜ", VowelHeight.OpenMid, VowelBackness.Central, false),
-      new Vowel("ə", VowelHeight.Mid, VowelBackness.Central, false, VowelRoundedness.Unrounded, Voicing.Voiced, "mid central vowel (schwa)"),
-      new Vowel("ɘ", VowelHeight.CloseMid, VowelBackness.Central, false),
-      new Vowel("ɨ", VowelHeight.Close, VowelBackness.Central, false),
+    //   new Vowel("ɐ", VowelHeight.NearOpen, VowelBackness.Central, false),
+    //   new Vowel("ɜ", VowelHeight.OpenMid, VowelBackness.Central, false),
+    //   new Vowel("ə", VowelHeight.Mid, VowelBackness.Central, false, VowelRoundedness.Unrounded, Voicing.Voiced, "mid central vowel (schwa)"),
+    //   new Vowel("ɘ", VowelHeight.CloseMid, VowelBackness.Central, false),
+    //   new Vowel("ɨ", VowelHeight.Close, VowelBackness.Central, false),
 
-      new Vowel("ɞ", VowelHeight.OpenMid, VowelBackness.Central, false, VowelRoundedness.RoundedUnspecified),
-      new Vowel("ɵ", VowelHeight.CloseMid, VowelBackness.Central, false, VowelRoundedness.RoundedUnspecified),
-      new Vowel("ʉ", VowelHeight.Close, VowelBackness.Central, false, VowelRoundedness.RoundedUnspecified),
+    //   new Vowel("ɞ", VowelHeight.OpenMid, VowelBackness.Central, false, VowelRoundedness.RoundedUnspecified),
+    //   new Vowel("ɵ", VowelHeight.CloseMid, VowelBackness.Central, false, VowelRoundedness.RoundedUnspecified),
+    //   new Vowel("ʉ", VowelHeight.Close, VowelBackness.Central, false, VowelRoundedness.RoundedUnspecified),
 
-      new Vowel("ɑ", VowelHeight.Open, VowelBackness.Back, false),
-      new Vowel("ʌ", VowelHeight.OpenMid, VowelBackness.Back, false),
-      new Vowel("ɤ", VowelHeight.CloseMid, VowelBackness.Back, false),
-      new Vowel("ɯ", VowelHeight.Close, VowelBackness.Back, false),
+    //   new Vowel("ɑ", VowelHeight.Open, VowelBackness.Back, false),
+    //   new Vowel("ʌ", VowelHeight.OpenMid, VowelBackness.Back, false),
+    //   new Vowel("ɤ", VowelHeight.CloseMid, VowelBackness.Back, false),
+    //   new Vowel("ɯ", VowelHeight.Close, VowelBackness.Back, false),
 
-      new Vowel("ɒ", VowelHeight.Open, VowelBackness.Back, false, VowelRoundedness.Protruded),
-      new Vowel("ɔ", VowelHeight.OpenMid, VowelBackness.Back, true, VowelRoundedness.Protruded),
-      new Vowel("o", VowelHeight.CloseMid, VowelBackness.Back, true, VowelRoundedness.Protruded),
-      new Vowel("ʊ", VowelHeight.NearClose, VowelBackness.Back, false, VowelRoundedness.Protruded),
-      new Vowel("u", VowelHeight.Close, VowelBackness.Back, true, VowelRoundedness.Protruded)
-    ]
+    //   new Vowel("ɒ", VowelHeight.Open, VowelBackness.Back, false, VowelRoundedness.Protruded),
+    //   new Vowel("ɔ", VowelHeight.OpenMid, VowelBackness.Back, true, VowelRoundedness.Protruded),
+    //   new Vowel("o", VowelHeight.CloseMid, VowelBackness.Back, true, VowelRoundedness.Protruded),
+    //   new Vowel("ʊ", VowelHeight.NearClose, VowelBackness.Back, false, VowelRoundedness.Protruded),
+    //   new Vowel("u", VowelHeight.Close, VowelBackness.Back, true, VowelRoundedness.Protruded)
+    // ]
+
+    this.vowels = this.phoneDataService.vowels;
 
     this.vowelTable = [[[]]];
     for(let vowel of this.vowels) {
@@ -93,6 +95,7 @@ export class MainMenuComponent implements OnInit {
       }
       this.vowelTable[vowel.height][vowel.backness][vowel.roundedness != VowelRoundedness.Unrounded ? 1 : 0] = vowel;
     }
+    console.log(this.vowelTable);
 
     // this.checked = [[], []];
     // for(let p in this.consonants) {

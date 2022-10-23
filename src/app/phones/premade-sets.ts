@@ -7,6 +7,6 @@ export const premadeSets = [
     {
         setName: "Serbo-Croatian [Bosnian/Montenegrin/Croatian/Serbian]",
         consonants: ["m", "n", "ɲ", "p", "t", "t͡s", "t͡ɕ", "t͡ʃ", "k", "b", "d", "d͡ʑ", "d͡ʒ", "ɡ", "f", "s", "ʃ", "x", "z", "ʒ", "r", "ʋ", "j", "ɫ", "ʎ"],
-        vowels: ["a", "e", "i", "o", "u"]
+        vowels: ["ä", "e", "i", "o", "u"]
     },
 ]

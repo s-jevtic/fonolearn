@@ -1,8 +1,8 @@
 import { Phone } from './phone';
-import { VowelHeight } from './vowelheight';
-import { VowelBackness } from './vowelbackness';
-import { Voicing } from './voicing';
-import { VowelRoundedness } from './roundedness';
+import { HeightFromString, VowelHeight } from './vowelheight';
+import { BacknessFromString, VowelBackness } from './vowelbackness';
+import { Voicing, VoicingFromString } from './voicing';
+import { RoundednessFromString, VowelRoundedness } from './roundedness';
 
 export class Vowel extends Phone {
 
@@ -62,5 +62,36 @@ export class Vowel extends Phone {
     height: VowelHeight;
     backness: VowelBackness;
     voicing: Voicing;
+
     static NullVowel = new Vowel("", -1, -1, false);
+
+    static fromObject(data: any): Vowel {
+        let symbol = data.symbol;
+        let voicing = VoicingFromString[data.voicing];
+        let height = HeightFromString[data.height];
+        let backness = BacknessFromString[data.backness];
+        let roundedness = RoundednessFromString[data.roundedness];
+        let clickable = data.clickable;
+        let p;
+        if (data.roundedness) {
+            if (data.voicing) {
+                if (data.desc) {
+                    p = new Vowel(symbol, height, backness, clickable, roundedness, voicing, data.desc);
+                }
+                else {
+                    p = new Vowel(symbol, height, backness, clickable, roundedness, voicing);
+                }
+            }
+            else {
+                p = new Vowel(symbol, height, backness, clickable, roundedness);
+            }
+        }
+        else {
+            p = new Vowel(symbol, height, backness, clickable);
+        }
+        if (data.alias) {
+          p.alias = data.alias;
+        }
+        return p;
+      }
 }

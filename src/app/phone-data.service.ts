@@ -6,6 +6,8 @@ import { Implosive } from './phones/implosive';
 import { OtherPulmonic } from './phones/otherpulmonic';
 import { Phone } from './phones/phone';
 import { PulmonicConsonant } from './phones/pulmonicconsonant';
+import { Vowel } from './phones/vowel';
+import { vowelList } from './phones/vowels';
 
 @Injectable({
   providedIn: 'root'
@@ -40,6 +42,11 @@ export class PhoneDataService {
     for(let data of consonantList.clicks) {
       this.clicks.push(Click.fromObject(data));
     }
+
+    this.vowels = [];
+    for(let data of vowelList) {
+      this.vowels.push(Vowel.fromObject(data));
+    }
   }
 
   pulmonicConsonants: PulmonicConsonant[];
@@ -47,6 +54,8 @@ export class PhoneDataService {
   implosives: Implosive[];
   ejectives: Ejective[];
   clicks: Click[];
+
+  vowels: Vowel[];
 
   phoneChecked: Map<Phone, boolean>;
 }
