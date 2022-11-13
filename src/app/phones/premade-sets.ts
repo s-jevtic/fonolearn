@@ -9,4 +9,9 @@ export const premadeSets = [
         consonants: ["m", "n", "ɲ", "p", "t", "t͡s", "t͡ɕ", "t͡ʃ", "k", "b", "d", "d͡ʑ", "d͡ʒ", "ɡ", "f", "s", "ʃ", "x", "z", "ʒ", "r", "ʋ", "j", "ɫ", "ʎ"],
         vowels: ["ä", "e", "i", "o", "u"]
     },
+    {
+        setName: "French (Standard)",
+        consonants: ["m", "n", "ɲ", "p", "b", "t", "d", "k", "ɡ", "f", "v", "s", "z", "l", "ʃ", "ʒ", "ʁ", "j", "ɥ", "w"],
+        vowels: ["a", "ɛ̃", "ɛ", "œ", "ə", "ø", "e", "i", "y", "u", "o", "ɔ̃", "ɔ", "ɑ̃"]
+    }
 ]
