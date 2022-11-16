@@ -18,7 +18,6 @@ import { MainMenuComponent } from './main-menu/main-menu.component';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

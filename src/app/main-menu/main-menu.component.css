@@ -1,0 +1,19 @@
+.vr{
+    padding: 0;
+}
+
+#sound-picker .row{
+    justify-content: space-around;
+}
+
+@media screen and (max-width: 992px  /* 992 because of the Bootstrap lg breakpoint */) {
+    .vr{
+        display: none;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    hr.h4-divider{
+        display: none;
+    }
+}

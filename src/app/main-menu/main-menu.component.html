@@ -1,12 +1,164 @@
-<div class="container-fluid d-flex justify-content-center dropdown px-3 my-4">
-    <button class="btn btn-lg btn-primary dropdown-toggle" role="button" id="soundSetPicker" data-bs-toggle="dropdown" aria-expanded="false">Pick set of sounds</button>
-    <ul class="dropdown-menu" aria-labelledby="soundSetPicker">
-        <li><a class="dropdown-item" [routerLink]="['/ipa']" [queryParams]="{set: 'v'}">vowels</a></li>
-        <li><a class="dropdown-item" [routerLink]="['/ipa']" [queryParams]="{set: 'p'}">pulmonic consonants</a></li>
-        <li><a class="dropdown-item" [routerLink]="['/ipa']" [queryParams]="{set: 'a'}">all</a></li>
-    </ul>
+<div class="container-fluid d-flex justify-content-center px-3 my-4">
+    <div class="btn-group">
+        <button class="btn btn-lg btn-primary" role="button" id="begin-button" (click)="ipa($event)">Begin with selected sounds</button>
+        <button class="btn btn-lg btn-secondary dropdown-toggle dropdown-toggle-split" id="soundSetPicker" data-bs-toggle="dropdown" aria-expanded="false">Pick premade set of sounds</button>
+        <ul class="dropdown-menu" aria-labelledby="soundSetPicker">
+            <li><button class="dropdown-item" (click)="selectAll($event)">all</button></li>
+            <li><button class="dropdown-item" (click)="selectConsonants($event)">consonants only</button></li>
+            <li><button class="dropdown-item" (click)="selectVowels($event)">vowels only</button></li>
+            <ng-container *ngFor="let s of premadeSets">
+                <li><button class="dropdown-item" (click)="loadSet($event, s)">{{ s.setName }}</button></li>
+            </ng-container>
+        </ul>
+    </div>
 </div>
-<!-- <div class="container-fluid d-flex justify-content-center px-3 my-3">
-    <a class="btn btn-lg btn-primary mx-3" type="button" href="ipa">Begin</a>
-    <button class="btn btn-lg btn-secondary mx-3" type="button">Izađi</button>
-</div> -->
+
+<h2>Sound picker</h2>
+
+<div class="container-fluid" id="sound-picker">
+    <hr class="phone-class-divider mx-3 my-4"/>
+    <h3>Consonants</h3>
+    <div class="row d-flex align-items-center py-3 px-5">
+        <div class="col-sm-4">
+            <h4>Pulmonic (table)</h4>
+        </div>
+        <div class="vr"></div>
+        <hr class="h4-divider"/>
+        <div class="col-lg-7 d-flex justify-content-center">
+            <div class="table-responsive">
+                <table class="table-borderless">
+                    <tbody>
+                        <ng-container *ngFor="let row of pulmonicTable; let i = index">
+                            <tr>
+                                <ng-container *ngFor="let position of row; let j = index">
+                                    <td>
+                                        <div class="btn-group m-1" role="group">
+                                            <ng-container *ngFor="let phone of position; let k = index">
+                                                <ng-container *ngIf="phone.clickable == true; else noButton">
+                                                    <input type="checkbox" class="btn-check custom-check" id="btncheck{{phone.symbol}}" (change)="ipaCheck($event, phone)" autocomplete="off">
+                                                    <label class="btn btn-link shadow-none ipa-button ipa p-1" for="btncheck{{phone.symbol}}" data-toggle="tooltip" data-placement="top" title="{{phone.desc}}" id="label{{phone.symbol}}">{{ phone.symbol }}</label>
+                                                </ng-container>
+                                                <ng-template #noButton>
+                                                    <ng-container *ngIf="phone.symbol != ''; else isNull">
+                                                        <div class="p-1 ipa ipa-td" data-toggle="tooltip" data-placement="top" title="{{phone.desc}}">{{ phone.symbol }}</div>
+                                                    </ng-container>
+                                                    <ng-template #isNull>
+                                                        <div class="p-1 ipa ipa-td"></div>
+                                                    </ng-template>
+                                                </ng-template>
+                                            </ng-container>
+                                        </div>
+                                    </td>
+                                </ng-container>
+                            </tr>
+                        </ng-container>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <hr class="consonant-class-divider mx-5 my-3"/>
+    <div class="row d-flex align-items-center py-3 px-5">
+        <div class="col-sm-4">
+            <h4>Coarticulated and other pulmonic</h4>
+        </div>
+        <div class="vr"></div>
+        <hr class="h4-divider"/>
+        <div class="col-lg-7 d-flex justify-content-center">
+            <ng-container *ngFor="let phone of otherPulmonic">
+                <ng-container *ngIf="phone.clickable">
+                    <input type="checkbox" class="btn-check custom-check" id="btncheck{{phone.symbol}}" (change)="ipaCheck($event, phone)" autocomplete="off">
+                    <label class="btn btn-link shadow-none ipa-button ipa p-1 m-1" for="btncheck{{phone.symbol}}" data-toggle="tooltip" data-placement="top" title="{{phone.desc}}" id="label{{phone.symbol}}">{{ phone.symbol }}</label>
+                </ng-container>
+                <ng-container *ngIf="!phone.clickable">
+                    <div class="p-1 m-1 ipa ipa-td" data-toggle="tooltip" data-placement="top" title="{{phone.desc}}">{{ phone.symbol }}</div>
+                </ng-container>
+            </ng-container>
+        </div>
+    </div>
+    <hr class="consonant-class-divider mx-5 my-3"/>
+    <div class="row d-flex align-items-center py-3 px-5">
+        <div class="col-sm-4">
+            <h4>Implosives</h4>
+        </div>
+        <div class="vr"></div>
+        <hr class="h4-divider"/>
+        <div class="col-lg-7 d-flex justify-content-center">
+            <ng-container *ngFor="let phone of implosives">
+                <ng-container *ngIf="phone.clickable">
+                    <input type="checkbox" class="btn-check custom-check" id="btncheck{{phone.symbol}}" (change)="ipaCheck($event, phone)" autocomplete="off">
+                    <label class="btn btn-link shadow-none ipa-button ipa p-1 m-1" for="btncheck{{phone.symbol}}" data-toggle="tooltip" data-placement="top" title="{{phone.desc}}" id="label{{phone.symbol}}">{{ phone.symbol }}</label>
+                </ng-container>
+                <ng-container *ngIf="!phone.clickable">
+                    <div class="p-1 m-1 ipa ipa-td" data-toggle="tooltip" data-placement="top" title="{{phone.desc}}">{{ phone.symbol }}</div>
+                </ng-container>
+            </ng-container>
+        </div>
+    </div>
+    <hr class="consonant-class-divider mx-5 my-3"/>
+    <div class="row d-flex align-items-center py-3 px-5">
+        <div class="col-sm-4">
+            <h4>Ejectives</h4>
+        </div>
+        <div class="vr"></div>
+        <hr class="h4-divider"/>
+        <div class="col-lg-7 d-flex justify-content-center">
+            <ng-container *ngFor="let phone of ejectives">
+                <ng-container *ngIf="phone.clickable">
+                    <input type="checkbox" class="btn-check custom-check" id="btncheck{{phone.symbol}}" (change)="ipaCheck($event, phone)" autocomplete="off">
+                    <label class="btn btn-link shadow-none ipa-button ipa p-1 m-1" for="btncheck{{phone.symbol}}" data-toggle="tooltip" data-placement="top" title="{{phone.desc}}" id="label{{phone.symbol}}">{{ phone.symbol }}</label>
+                </ng-container>
+                <ng-container *ngIf="!phone.clickable">
+                    <div class="p-1 m-1 ipa ipa-td" data-toggle="tooltip" data-placement="top" title="{{phone.desc}}">{{ phone.symbol }}</div>
+                </ng-container>
+            </ng-container>
+        </div>
+    </div>
+    <hr class="consonant-class-divider mx-5 my-3"/>
+    <div class="row d-flex align-items-center py-3 px-5">
+        <div class="col-sm-4">
+            <h4>Clicks</h4>
+        </div>
+        <div class="vr"></div>
+        <hr class="h4-divider"/>
+        <div class="col-lg-7 d-flex justify-content-center">
+            <ng-container *ngFor="let phone of clicks">
+                <ng-container *ngIf="phone.clickable">
+                    <input type="checkbox" class="btn-check custom-check" id="btncheck{{phone.symbol}}" (change)="ipaCheck($event, phone)" autocomplete="off">
+                    <label class="btn btn-link shadow-none ipa-button ipa p-1 m-1" for="btncheck{{phone.symbol}}" data-toggle="tooltip" data-placement="top" title="{{phone.desc}}" id="label{{phone.symbol}}">{{ phone.symbol }}</label>
+                </ng-container>
+                <ng-container *ngIf="!phone.clickable">
+                    <div class="p-1 m-1 ipa ipa-td" data-toggle="tooltip" data-placement="top" title="{{phone.desc}}">{{ phone.symbol }}</div>
+                </ng-container>
+            </ng-container>
+        </div>
+    </div>
+    <hr class="phone-class-divider mx-3 my-4"/>
+    <h3>Vowels</h3>
+    <div class="table-responsive d-flex justify-content-center">
+        <table class="table-borderless">
+            <tbody>
+                <ng-container *ngFor="let row of vowelTable; let i = index">
+                    <tr>
+                        <ng-container *ngFor="let position of row; let j = index">
+                            <td>
+                                <div class="btn-group m-1" role="group">
+                                    <ng-container *ngFor="let phone of position; let k = index">
+                                        <ng-container *ngIf="phone.clickable">
+                                            <input type="checkbox" class="btn-check custom-check" id="btncheck{{phone.symbol}}" (change)="ipaCheck($event, phone)" autocomplete="off">
+                                            <label class="btn btn-link shadow-none ipa-button ipa p-1" for="btncheck{{phone.symbol}}" data-toggle="tooltip" data-placement="top" title="{{phone.desc}}" id="label{{phone.symbol}}">{{ phone.symbol }}</label>
+                                        </ng-container>
+                                        <ng-container *ngIf="!phone.clickable">
+                                            <div class="p-1 ipa ipa-td" data-toggle="tooltip" data-placement="top" title="{{phone.desc}}">{{ phone.symbol }}</div>
+                                        </ng-container>
+                                    </ng-container>
+                                </div>
+                            </td>
+                        </ng-container>
+                    </tr>
+                </ng-container>
+            </tbody>
+        </table>
+    </div>
+    <hr class="phone-class-divider mx-3 my-4"/>
+</div>

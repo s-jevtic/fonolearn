@@ -2,10 +2,32 @@
 html{
     font-family: 'DejaVu Sans', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
     /*background-color: black;*/
-    /*color: white;*/
-    /*text-align: center;*/
+    text-align: center;
+}
+
+body{
+    color: white !important;
+}
+
+header{
+    color: #212529;
 }
 
 .ipa{
-    font-family: 'DejaVu Serif';
+    font-family: 'IPA Kiel', 'DejaVu Serif';
+    font-size: large;
+}
+
+.ipa-button {
+    height: 35px;
+    width: 35px;
+    text-align: center;
+    color: --bs-color-success;
+    text-decoration: none;
+}
+
+.ipa-td {
+    height: 35px;
+    width: 35px;
+    text-align: center;
 }
