@@ -1,16 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
-html{
-    font-family: 'DejaVu Sans', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
-    /*background-color: black;*/
-    text-align: center;
+:root{
+    /* made using Mozilla color picker */
+    --dark-color-bg: #12171B;
+    --dark-color-fg: #DDE3E7;
+    --dark-color-main: #0A6CAD;
+    --dark-color-main-hl: #0C8ADD;
+    --dark-color-main-sh: #074E7D;
+    --dark-color-pos: #0AAD4B;
+    --dark-color-pos-hl: #0CDD60;
+    --dark-color-pos-sh: #077D36;
+    --dark-color-neg: #AD0A1A;
+    --dark-color-neg-hl: #DD0C21;
+    --dark-color-neg-sh: #7D0713;
+    --dark-color-neu: #535D64;
+    --dark-color-neu-hl: #6A777F;
+    --dark-color-neu-sh: #3C4348;
+
+    --bs-border-radius: 0.1825rem;
+    --bs-border-radius-sm: 0.125rem;
+    --bs-border-radius-lg: 0.25rem;
+    --bs-border-radius-xl: 0.5rem;
+    --bs-border-radius-2xl: 1rem;
 }
 
 body{
-    color: white !important;
+    font-family: 'DejaVu Sans', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+    text-align: center;
+    color: var(--dark-color-fg) !important;
 }
 
 header{
-    color: #212529;
+    color: var(--dark-color-bg);
 }
 
 .ipa{
@@ -19,15 +39,79 @@ header{
 }
 
 .ipa-button {
-    height: 35px;
-    width: 35px;
+    height: 2.25rem;
+    width: 2.25rem;
     text-align: center;
-    color: --bs-color-success;
+    color: var(--dark-color-main);
     text-decoration: none;
+    --bs-btn-border-radius: 0.375rem !important;
+}
+
+.bg-light {
+    background-color: var(--dark-color-fg) !important;
+}
+
+.bg-dark {
+    background-color: var(--dark-color-bg) !important;
+}
+
+.btn {
+    border: none;
+    --bs-btn-border-radius: 0;
+}
+
+.btn-primary {
+    background-color: var(--dark-color-main) !important;
+}
+.btn-primary:hover {
+    background-color: var(--dark-color-main-hl) !important;
+}
+.btn-primary:focus {
+    background-color: var(--dark-color-main-sh) !important;
+}
+
+.btn-success {
+    background-color: var(--dark-color-pos) !important;
+}
+.btn-success:hover {
+    background-color: var(--dark-color-pos-hl) !important;
+}
+.btn-success:focus {
+    background-color: var(--dark-color-pos-sh) !important;
+}
+
+.btn-danger {
+    background-color: var(--dark-color-neg) !important;
+}
+.btn-danger:hover {
+    background-color: var(--dark-color-neg-hl) !important;
+}
+.btn-danger:focus {
+    background-color: var(--dark-color-neg-sh) !important;
+}
+
+.btn-secondary {
+    background-color: var(--dark-color-neu) !important;
+}
+.btn-secondary:hover {
+    background-color: var(--dark-color-neu-hl) !important;
+}
+.btn-secondary:focus {
+    background-color: var(--dark-color-neu-sh) !important;
+}
+
+.btn-link {
+    color: var(--dark-color-main) !important;
+}
+.btn-link:hover {
+    color: var(--dark-color-main-hl) !important;
+}
+.btn-link:focus {
+    border: 1px solid var(--dark-color-main-sh) !important;
 }
 
 .ipa-td {
-    height: 35px;
-    width: 35px;
+    height: 2.25rem;
+    width: 2.25rem;
     text-align: center;
 }
