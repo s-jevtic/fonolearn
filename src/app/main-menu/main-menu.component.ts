@@ -66,7 +66,7 @@ export class MainMenuComponent implements OnInit {
 
   ipa(event: any): void {
     let beginButton = document.getElementById("begin-button")!;
-    if (Array.from(this.phoneChecked.values()).indexOf(true) == -1) { // if there is no true element in checked
+    if (this.noneSelected()) { // if there is no true element in checked
       alert("No phones selected!"); // placeholder, should make this a Bootstrap alert
     }
     else this.router.navigate(["./ipa"]);
@@ -153,6 +153,10 @@ export class MainMenuComponent implements OnInit {
         this.ipaToggle(p);
       }
     });
+  }
+
+  noneSelected(): boolean {
+    return Array.from(this.phoneChecked.values()).indexOf(true) == -1;
   }
 
   premadeSets: any;

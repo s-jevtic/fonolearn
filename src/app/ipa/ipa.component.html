@@ -9,25 +9,27 @@
         </div>
         <div class="align-content-center my-4">
             <div class="d-flex justify-content-center mb-3" *ngIf="listened">
-                <button class="btn ipa mx-3 py-1" [ngClass]="{'btn-primary' : clicked[0] == 0, 'btn-danger' : clicked[0] == 1, 'btn-success' : clicked[0] == 2}" type="button" (click)="checkAnswer(0)">{{ randomPhones[0].symbol }}</button>
-                <button class="btn ipa mx-3 py-1" [ngClass]="{'btn-primary' : clicked[1] == 0, 'btn-danger' : clicked[1] == 1, 'btn-success' : clicked[1] == 2}" type="button" (click)="checkAnswer(1)">{{ randomPhones[1].symbol }}</button>
-                <button class="btn ipa mx-3 py-1" [ngClass]="{'btn-primary' : clicked[2] == 0, 'btn-danger' : clicked[2] == 1, 'btn-success' : clicked[2] == 2}" type="button" (click)="checkAnswer(2)">{{ randomPhones[2].symbol }}</button>
+                <button class="btn ipa guess-btn mx-3 py-1" [ngClass]="{'btn-primary' : clicked[0] == 0, 'btn-danger' : clicked[0] == 1, 'btn-success' : clicked[0] == 2}" type="button" (click)="checkAnswer(0)">{{ randomPhones[0].symbol }}</button>
+                <button class="btn ipa guess-btn mx-3 py-1" [ngClass]="{'btn-primary' : clicked[1] == 0, 'btn-danger' : clicked[1] == 1, 'btn-success' : clicked[1] == 2}" type="button" (click)="checkAnswer(1)">{{ randomPhones[1].symbol }}</button>
+                <button class="btn ipa guess-btn mx-3 py-1" [ngClass]="{'btn-primary' : clicked[2] == 0, 'btn-danger' : clicked[2] == 1, 'btn-success' : clicked[2] == 2}" type="button" (click)="checkAnswer(2)">{{ randomPhones[2].symbol }}</button>
             </div>
-            <div class="d-flex justify-content-center text-light mt-3" *ngIf="tried">
-                <p class="mb-0" *ngIf="guessed">Correct!</p>
-                <p class="mb-0" *ngIf="!guessed">Try again...</p>
+            <div class="d-flex justify-content-center text-light mt-3" id="ipa-vspace">
+                <ng-container *ngIf="tried">
+                    <p class="mb-0" *ngIf="guessed">Correct!</p>
+                    <p class="mb-0" *ngIf="!guessed">Try again...</p>
+                </ng-container>
             </div>
         </div>
     </ng-container>
-    <ng-container *ngIf="noneSelected">
-        <div class="d-flex justify-content-center">  
-            <div class="alert alert-danger alert-dismissible fade show" role="alert" id="none-selected-alert">
-                Warning: no sounds selected!
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        </div> 
-    </ng-container>
-    <div class="d-flex justify-content-center my-3">
+    <div class="d-flex justify-content-center">  
+        <ng-container *ngIf="noneSelected">
+                <div class="alert alert-danger alert-dismissible fade show" role="alert" id="none-selected-alert">
+                    Warning: no sounds selected!
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+        </ng-container>
+    </div> 
+    <div class="d-flex justify-content-center">
         <a class="btn btn-lg btn-link mx-3" type="button" href="">Exit</a>
     </div>
 </div>

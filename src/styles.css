@@ -3,6 +3,7 @@
     /* made using Mozilla color picker */
     --dark-color-bg: #12171B;
     --dark-color-fg: #DDE3E7;
+    --dark-color-text: #DDE3E7;
     --dark-color-main: #0A6CAD;
     --dark-color-main-hl: #0C8ADD;
     --dark-color-main-sh: #074E7D;
@@ -16,6 +17,9 @@
     --dark-color-neu-hl: #6A777F;
     --dark-color-neu-sh: #3C4348;
 
+    --light-color-bg: var(--dark-color-fg);
+    --light-color-text: var(--dark-color-bg);
+
     --bs-border-radius: 0.1825rem;
     --bs-border-radius-sm: 0.125rem;
     --bs-border-radius-lg: 0.25rem;
@@ -26,11 +30,11 @@
 body{
     font-family: 'DejaVu Sans', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
     text-align: center;
-    color: var(--dark-color-fg) !important;
+    color: var(--dark-color-text) !important;
 }
 
 header{
-    color: var(--dark-color-bg);
+    color: var(--light-color-text);
 }
 
 .ipa{
@@ -39,8 +43,8 @@ header{
 }
 
 .ipa-button {
-    height: 2.25rem;
-    width: 2.25rem;
+    height: 2.5rem;
+    width: 2.5rem;
     text-align: center;
     color: var(--dark-color-main);
     text-decoration: none;
@@ -48,7 +52,7 @@ header{
 }
 
 .bg-light {
-    background-color: var(--dark-color-fg) !important;
+    background-color: var(--light-color-bg) !important;
 }
 
 .bg-dark {
@@ -111,7 +115,42 @@ header{
 }
 
 .ipa-td {
-    height: 2.25rem;
-    width: 2.25rem;
+    height: 2.5rem;
+    width: 2.5rem;
     text-align: center;
+}
+
+.guess-btn {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.alert-danger {
+    background-color: var(--dark-color-neg-hl);
+    border-color: var(--dark-color-neg-sh);
+    border-radius: 0;
+    color: var(--light-color-text);
+}
+
+#ipa-vspace {
+    height: 1rem;
+}
+
+#begin-button, #begin-button-disabled, #soundSetPicker {
+    width: 20rem;
+}
+
+.dropdown-menu {
+    border-radius: 0;
+}
+.dropdown-menu.bg-dark {
+    border-color: var(--dark-color-neu-hl);
+    background-color: var(--dark-color-bg);
+    color: var(--dark-color-text);
+}
+.dropdown-menu.bg-dark .dropdown-item {
+    color: var(--dark-color-text);
+}
+.dropdown-menu.bg-dark .dropdown-item:hover {
+    background-color: var(--dark-color-neu-hl);
 }

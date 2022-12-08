@@ -1,8 +1,9 @@
 <div class="container-fluid d-flex justify-content-center px-3 my-4">
     <div class="btn-group">
-        <button class="btn btn-lg btn-primary" role="button" id="begin-button" (click)="ipa($event)">Begin with selected sounds</button>
+        <button class="btn btn-lg btn-primary disabled" role="button" id="begin-button-disabled" *ngIf="noneSelected()">Select some sounds first!</button>
+        <button class="btn btn-lg btn-primary" role="button" id="begin-button" *ngIf="!noneSelected()" (click)="ipa($event)">Begin with selected sounds</button>
         <button class="btn btn-lg btn-secondary dropdown-toggle dropdown-toggle-split" id="soundSetPicker" data-bs-toggle="dropdown" aria-expanded="false">Pick premade set of sounds</button>
-        <ul class="dropdown-menu" aria-labelledby="soundSetPicker">
+        <ul class="dropdown-menu bg-dark" aria-labelledby="soundSetPicker">
             <li><button class="dropdown-item" (click)="selectAll($event)">all</button></li>
             <li><button class="dropdown-item" (click)="selectConsonants($event)">consonants only</button></li>
             <li><button class="dropdown-item" (click)="selectVowels($event)">vowels only</button></li>
@@ -19,12 +20,12 @@
     <hr class="phone-class-divider mx-3 my-4"/>
     <h3>Consonants</h3>
     <div class="row d-flex align-items-center py-3 px-5">
-        <div class="col-sm-4">
+        <div class="col-sm-3">
             <h4>Pulmonic (table)</h4>
         </div>
         <div class="vr"></div>
         <hr class="h4-divider"/>
-        <div class="col-lg-7 d-flex justify-content-center">
+        <div class="col-lg-8 d-flex justify-content-center">
             <div class="table-responsive">
                 <table class="table-borderless">
                     <tbody>
@@ -59,12 +60,12 @@
     </div>
     <hr class="consonant-class-divider mx-5 my-3"/>
     <div class="row d-flex align-items-center py-3 px-5">
-        <div class="col-sm-4">
+        <div class="col-sm-3">
             <h4>Coarticulated and other pulmonic</h4>
         </div>
         <div class="vr"></div>
         <hr class="h4-divider"/>
-        <div class="col-lg-7 d-flex justify-content-center">
+        <div class="col-lg-8 d-flex justify-content-center">
             <ng-container *ngFor="let phone of otherPulmonic">
                 <ng-container *ngIf="phone.clickable">
                     <input type="checkbox" class="btn-check custom-check" id="btncheck{{phone.symbol}}" (change)="ipaCheck($event, phone)" autocomplete="off">
@@ -78,12 +79,12 @@
     </div>
     <hr class="consonant-class-divider mx-5 my-3"/>
     <div class="row d-flex align-items-center py-3 px-5">
-        <div class="col-sm-4">
+        <div class="col-sm-3">
             <h4>Implosives</h4>
         </div>
         <div class="vr"></div>
         <hr class="h4-divider"/>
-        <div class="col-lg-7 d-flex justify-content-center">
+        <div class="col-lg-8 d-flex justify-content-center">
             <ng-container *ngFor="let phone of implosives">
                 <ng-container *ngIf="phone.clickable">
                     <input type="checkbox" class="btn-check custom-check" id="btncheck{{phone.symbol}}" (change)="ipaCheck($event, phone)" autocomplete="off">
@@ -97,12 +98,12 @@
     </div>
     <hr class="consonant-class-divider mx-5 my-3"/>
     <div class="row d-flex align-items-center py-3 px-5">
-        <div class="col-sm-4">
+        <div class="col-sm-3">
             <h4>Ejectives</h4>
         </div>
         <div class="vr"></div>
         <hr class="h4-divider"/>
-        <div class="col-lg-7 d-flex justify-content-center">
+        <div class="col-lg-8 d-flex justify-content-center">
             <ng-container *ngFor="let phone of ejectives">
                 <ng-container *ngIf="phone.clickable">
                     <input type="checkbox" class="btn-check custom-check" id="btncheck{{phone.symbol}}" (change)="ipaCheck($event, phone)" autocomplete="off">
@@ -116,12 +117,12 @@
     </div>
     <hr class="consonant-class-divider mx-5 my-3"/>
     <div class="row d-flex align-items-center py-3 px-5">
-        <div class="col-sm-4">
+        <div class="col-sm-3">
             <h4>Clicks</h4>
         </div>
         <div class="vr"></div>
         <hr class="h4-divider"/>
-        <div class="col-lg-7 d-flex justify-content-center">
+        <div class="col-lg-8 d-flex justify-content-center">
             <ng-container *ngFor="let phone of clicks">
                 <ng-container *ngIf="phone.clickable">
                     <input type="checkbox" class="btn-check custom-check" id="btncheck{{phone.symbol}}" (change)="ipaCheck($event, phone)" autocomplete="off">
