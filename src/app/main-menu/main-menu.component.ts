@@ -65,11 +65,7 @@ export class MainMenuComponent implements OnInit {
   }
 
   ipa(event: any): void {
-    let beginButton = document.getElementById("begin-button")!;
-    if (this.noneSelected()) { // if there is no true element in checked
-      alert("No phones selected!"); // placeholder, should make this a Bootstrap alert
-    }
-    else this.router.navigate(["./ipa"]);
+    this.router.navigate(["./ipa"]);
   }
   
   ipaCheck(event: any, p: Phone): void {
