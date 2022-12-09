@@ -2,7 +2,7 @@
 :root{
     /* made using Mozilla color picker */
     --dark-color-bg: #12171B;
-    --dark-color-fg: #DDE3E7;
+    --dark-color-fg: #27343E;
     --dark-color-text: #DDE3E7;
     --dark-color-main: #0A6CAD;
     --dark-color-main-hl: #0C8ADD;
@@ -17,7 +17,7 @@
     --dark-color-neu-hl: #6A777F;
     --dark-color-neu-sh: #3C4348;
 
-    --light-color-bg: var(--dark-color-fg);
+    --light-color-bg: #DDE3E7;
     --light-color-text: var(--dark-color-bg);
 
     --bs-border-radius: 0.1825rem;
@@ -40,15 +40,6 @@ header{
 .ipa{
     font-family: 'IPA Kiel', 'DejaVu Serif';
     font-size: large;
-}
-
-.ipa-button {
-    height: 2.5rem;
-    width: 2.5rem;
-    text-align: center;
-    color: var(--dark-color-main);
-    text-decoration: none;
-    --bs-btn-border-radius: 0.375rem !important;
 }
 
 .bg-light {
@@ -153,4 +144,31 @@ header{
 }
 .dropdown-menu.bg-dark .dropdown-item:hover {
     background-color: var(--dark-color-neu-hl);
+}
+
+.nav-tabs {
+    color: var(--dark-color-main);
+    --bs-nav-tabs-border-color: var(--light-color-bg);
+    --bs-nav-tabs-border-radius: 0;
+    --bs-nav-tabs-link-hover-border-color: var(--dark-color-main-hl);
+    --bs-nav-tabs-link-active-color: var(--light-color-text);
+    --bs-nav-tabs-link-active-bg: var(--light-color-bg);
+    --bs-nav-tabs-link-active-border-color: var(--dark-color-main-sh);
+}
+
+.ipa-button {
+    height: 2.5rem;
+    width: 2.5rem;
+    text-align: center;
+    text-decoration: none;
+    --bs-btn-border-radius: 0.375rem !important;
+}
+.ipa-button.btn-link {
+    color: var(--dark-color-main-hl) !important;
+}
+.ipa-button.btn-link:hover {
+    color: var(--dark-color-main) !important;
+}
+.ipa-button.btn-link:active {
+    color: var(--dark-color-main-sh) !important;
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Phone } from '../phones/phone';
 import { PulmonicConsonant } from '../phones/pulmonicconsonant';
@@ -18,7 +18,7 @@ import { premadeSets } from '../phones/premade-sets';
 })
 export class MainMenuComponent implements OnInit {
 
-  constructor(private router: Router, private phoneDataService: PhoneDataService) { }
+  constructor(private router: Router, private phoneDataService: PhoneDataService, private zone: NgZone) { }
 
   ngOnInit(): void {
     this.premadeSets = premadeSets;
@@ -62,6 +62,21 @@ export class MainMenuComponent implements OnInit {
     this.consonants.concat(this.vowels).forEach(p => {
       this.phoneChecked.set(p, false);
     })
+
+    let mobileMQ = matchMedia('(max-width: 400px)');
+
+    if (mobileMQ.matches) {
+        this.zone.run(() => {
+            document.getElementById("main-buttons")?.classList.remove('btn-group');
+            document.getElementById("main-buttons")?.classList.add('btn-group-vertical');
+        });
+    }
+    else {
+      this.zone.run(() => {
+        document.getElementById("main-buttons")?.classList.remove('btn-group-vertical');
+        document.getElementById("main-buttons")?.classList.add('btn-group');
+      });
+    }
   }
 
   ipa(event: any): void {
