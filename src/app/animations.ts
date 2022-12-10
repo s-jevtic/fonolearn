@@ -1,4 +1,5 @@
 import { animate, state, style, transition, trigger } from "@angular/animations";
+import { isMobile } from "./app.component";
 
 export const sidebarAnimationDesktop = trigger('openClose', [
     state('open', style({
@@ -25,8 +26,6 @@ export const sidebarAnimationMobile = trigger('openClose', [
 ]);
 
 export function sidebarAnimation() {
-  const isMobile = matchMedia("(max-width: 768px)").matches;
-  
   return isMobile? sidebarAnimationMobile : sidebarAnimationDesktop;
 }
 

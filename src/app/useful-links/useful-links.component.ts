@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, NgZone, OnInit, ViewChild } from '@angular/core';
 import { AnimationEvent } from '@angular/animations';
 import { sidebarAnimation } from '../animations';
 import { MenuIconComponent } from '../menu-icon/menu-icon.component';
@@ -11,7 +11,7 @@ import { MenuIconComponent } from '../menu-icon/menu-icon.component';
 })
 export class UsefulLinksComponent implements OnInit {
 
-  constructor() { }
+  constructor(private zone: NgZone) { }
 
   @ViewChild(MenuIconComponent) menu:MenuIconComponent;
 
@@ -30,7 +30,8 @@ export class UsefulLinksComponent implements OnInit {
       this.menuState = 'closed';
     }*/
     this.toggled = !this.toggled;
-    this.sidebarWrapper?.classList.toggle("toggled");
+    this.sidebarWrapper!.classList.toggle("toggled");
+    // this.sidebarWrapper.style.setProperty("width", this.mobileMQ.matches? "100vw" : "var(--open-sidebar-width)");
   }
 
   animationStartEvent(event: AnimationEvent) {

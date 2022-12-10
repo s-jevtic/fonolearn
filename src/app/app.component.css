@@ -14,12 +14,14 @@
 }
 
 header{
-    flex: 0 1 auto;
+    flex: 0 0 auto;
 }
 
 main{ /* all of those are necessary for main content to have full height */
     flex: 1 1 auto;
     display: flex;
+    position: relative;
+    max-width: 100vw;
 }
 
 .wrapper{
@@ -27,18 +29,20 @@ main{ /* all of those are necessary for main content to have full height */
     display: flex;
     height: 100%;
     width: 100%;
-    align-items: stretch;
+    /* align-items: stretch; */
 }
 
 #content{
     align-items: center;
     color: white;
     flex: 1 1 auto;
+    margin: 0 var(--closed-sidebar-width);
+    overflow: hidden;
 }
 
 @media only screen and (max-width: 768px){ /* so that there is enough space for a closed sidebar on mobile */
-    #content{
+    /* #content{
         max-width: calc(100% - var(--closed-sidebar-width));
         margin-right: var(--closed-sidebar-width);  
-    }
+    } */
 }
