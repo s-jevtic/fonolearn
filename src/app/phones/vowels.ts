@@ -8,7 +8,7 @@ export const vowelList = [
         "roundedness": "unrounded",
         "height": "close",
         "backness": "front",
-        "clickable": "true"
+        "clickable": true
     },
     {
         "symbol": "y",
@@ -16,7 +16,7 @@ export const vowelList = [
         "roundedness": "rounded",
         "height": "close",
         "backness": "front",
-        "clickable": "true"
+        "clickable": true
     },
     {
         "symbol": "ɨ",
@@ -24,7 +24,7 @@ export const vowelList = [
         "roundedness": "unrounded",
         "height": "close",
         "backness": "central",
-        "clickable": "true"
+        "clickable": true
     },
     {
         "symbol": "ʉ",
@@ -32,7 +32,7 @@ export const vowelList = [
         "roundedness": "rounded",
         "height": "close",
         "backness": "central",
-        "clickable": "true"
+        "clickable": true
     },
     {
         "symbol": "ɯ",
@@ -40,7 +40,7 @@ export const vowelList = [
         "roundedness": "unrounded",
         "height": "close",
         "backness": "back",
-        "clickable": "true"
+        "clickable": true
     },
     {
         "symbol": "u",
@@ -48,7 +48,7 @@ export const vowelList = [
         "roundedness": "rounded",
         "height": "close",
         "backness": "back",
-        "clickable": "true"
+        "clickable": true
     },
   
   
@@ -59,7 +59,7 @@ export const vowelList = [
         "roundedness": "rounded",
         "height": "near-close",
         "backness": "back",
-        "clickable": "true"
+        "clickable": true
     },
     {
         "symbol": "ɪ",
@@ -67,7 +67,7 @@ export const vowelList = [
         "roundedness": "unrounded",
         "height": "near-close",
         "backness": "front",
-        "clickable": "true"
+        "clickable": true
     },
     {
         "symbol": "ʏ",
@@ -75,7 +75,7 @@ export const vowelList = [
         "roundedness": "rounded",
         "height": "near-close",
         "backness": "front",
-        "clickable": "true"
+        "clickable": true
     },
   
   
@@ -86,7 +86,7 @@ export const vowelList = [
         "roundedness": "unrounded",
         "height": "close-mid",
         "backness": "front",
-        "clickable": "true"
+        "clickable": true
     },
     {
         "symbol": "ø",
@@ -94,7 +94,7 @@ export const vowelList = [
         "roundedness": "rounded",
         "height": "close-mid",
         "backness": "front",
-        "clickable": "true"
+        "clickable": true
     },
     {
         "symbol": "ɘ",
@@ -102,7 +102,7 @@ export const vowelList = [
         "roundedness": "unrounded",
         "height": "close-mid",
         "backness": "central",
-        "clickable": "true"
+        "clickable": true
     },
     {
         "symbol": "ɵ",
@@ -110,7 +110,7 @@ export const vowelList = [
         "roundedness": "rounded",
         "height": "close-mid",
         "backness": "central",
-        "clickable": "true"
+        "clickable": true
     },
     {
         "symbol": "ɤ",
@@ -118,7 +118,7 @@ export const vowelList = [
         "roundedness": "unrounded",
         "height": "close-mid",
         "backness": "back",
-        "clickable": "true"
+        "clickable": true
     },
     {
         "symbol": "o",
@@ -126,7 +126,7 @@ export const vowelList = [
         "roundedness": "rounded",
         "height": "close-mid",
         "backness": "back",
-        "clickable": "true"
+        "clickable": true
     },
   
   
@@ -137,7 +137,7 @@ export const vowelList = [
         "roundedness": "unrounded",
         "height": "mid",
         "backness": "central",
-        "clickable": "true",
+        "clickable": true,
         "desc": "mid central vowel (schwa)"
     },
   
@@ -149,7 +149,7 @@ export const vowelList = [
         "roundedness": "unrounded",
         "height": "open-mid",
         "backness": "front",
-        "clickable": "true"
+        "clickable": true
     },
     {
         "symbol": "œ",
@@ -157,7 +157,7 @@ export const vowelList = [
         "roundedness": "rounded",
         "height": "open-mid",
         "backness": "front",
-        "clickable": "true"
+        "clickable": true
     },
     {
         "symbol": "ɜ",
@@ -165,7 +165,7 @@ export const vowelList = [
         "roundedness": "unrounded",
         "height": "open-mid",
         "backness": "central",
-        "clickable": "true"
+        "clickable": true
     },
     {
         "symbol": "ɞ",
@@ -173,7 +173,7 @@ export const vowelList = [
         "roundedness": "rounded",
         "height": "open-mid",
         "backness": "central",
-        "clickable": "true"
+        "clickable": true
     },
     {
         "symbol": "ʌ",
@@ -181,7 +181,7 @@ export const vowelList = [
         "roundedness": "unrounded",
         "height": "open-mid",
         "backness": "back",
-        "clickable": "true"
+        "clickable": true
     },
     {
         "symbol": "ɔ",
@@ -189,7 +189,7 @@ export const vowelList = [
         "roundedness": "rounded",
         "height": "open-mid",
         "backness": "back",
-        "clickable": "true"
+        "clickable": true
     },
   
   
@@ -200,7 +200,7 @@ export const vowelList = [
         "roundedness": "unrounded",
         "height": "near-open",
         "backness": "front",
-        "clickable": "true"
+        "clickable": true
     },
     {
         "symbol": "ɐ",
@@ -208,7 +208,7 @@ export const vowelList = [
         "roundedness": "unrounded",
         "height": "near-open",
         "backness": "central",
-        "clickable": "true"
+        "clickable": true
     },
   
   
@@ -219,7 +219,7 @@ export const vowelList = [
         "roundedness": "unrounded",
         "height": "open",
         "backness": "front",
-        "clickable": "true"
+        "clickable": true
     },
     {
         "symbol": "ɶ",
@@ -227,7 +227,7 @@ export const vowelList = [
         "roundedness": "rounded",
         "height": "open",
         "backness": "front",
-        "clickable": "true"
+        "clickable": true
     },
     {
         "symbol": "ä",
@@ -235,7 +235,7 @@ export const vowelList = [
         "roundedness": "unrounded",
         "height": "open",
         "backness": "central",
-        "clickable": "true"
+        "clickable": false
     },
     {
         "symbol": "ɑ",
@@ -243,7 +243,7 @@ export const vowelList = [
         "roundedness": "unrounded",
         "height": "open",
         "backness": "back",
-        "clickable": "true"
+        "clickable": true
     },
     {
         "symbol": "ɒ",
@@ -251,7 +251,7 @@ export const vowelList = [
         "roundedness": "rounded",
         "height": "open",
         "backness": "back",
-        "clickable": "true"
+        "clickable": true
     }
   
   
