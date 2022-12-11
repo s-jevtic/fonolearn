@@ -66,10 +66,10 @@ export class MainMenuComponent implements OnInit {
     let mobileMQ = matchMedia('(max-width: 768px)');
 
     if (mobileMQ.matches) {
-        this.zone.run(() => {
-            document.getElementById("main-buttons")?.classList.remove('btn-group');
-            document.getElementById("main-buttons")?.classList.add('btn-group-vertical');
-        });
+      this.zone.run(() => {
+        document.getElementById("main-buttons")?.classList.remove('btn-group');
+        document.getElementById("main-buttons")?.classList.add('btn-group-vertical');
+      });
     }
     else {
       this.zone.run(() => {
