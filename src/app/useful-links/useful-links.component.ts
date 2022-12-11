@@ -2,12 +2,13 @@ import { Component, NgZone, OnInit, ViewChild } from '@angular/core';
 import { AnimationEvent } from '@angular/animations';
 import { sidebarAnimation } from '../animations';
 import { MenuIconComponent } from '../menu-icon/menu-icon.component';
+import { isMobile } from '../app.component';
 
 @Component({
   selector: 'app-useful-links',
   templateUrl: './useful-links.component.html',
   styleUrls: ['./useful-links.component.css'],
-  animations: [sidebarAnimation()],
+  animations: [sidebarAnimation],
 })
 export class UsefulLinksComponent implements OnInit {
 
@@ -23,22 +24,20 @@ export class UsefulLinksComponent implements OnInit {
   }
 
   toggleSidebar() {
-    this.menuState = this.menuState == 'closed' ? 'open' : 'closed';
-    /*if (!this.toggled) {
-      this.menuState = 'open';
-    } else {
-      this.menuState = 'closed';
-    }*/
+    if (isMobile) {
+      this.menuState = this.menuState == 'closed' ? 'open-full' : 'closed';
+    }
+    else {
+      this.menuState = this.menuState == 'closed' ? 'open' : 'closed';
+    }
     this.toggled = !this.toggled;
     this.sidebarWrapper!.classList.toggle("toggled");
-    // this.sidebarWrapper.style.setProperty("width", this.mobileMQ.matches? "100vw" : "var(--open-sidebar-width)");
   }
 
   animationStartEvent(event: AnimationEvent) {
-    if (event.fromState != 'void') {
+    if (event.fromState == 'closed' || (event.toState == 'closed' && event.fromState != 'void')) {
       this.menu.changeIcon();
     }
-    console.log(event.toState);
     if(!this.toggled) {
       this.show = false;
     }
