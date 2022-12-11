@@ -63,7 +63,7 @@ export class MainMenuComponent implements OnInit {
       this.phoneChecked.set(p, false);
     })
 
-    let mobileMQ = matchMedia('(max-width: 400px)');
+    let mobileMQ = matchMedia('(max-width: 768px)');
 
     if (mobileMQ.matches) {
         this.zone.run(() => {
