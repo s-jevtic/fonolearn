@@ -12,8 +12,38 @@ html{
 
 body{
     height: 100%;
+    color: white !important;
 }
 
 .ipa{
     font-family: 'DejaVu Serif';
+    /*background-color: black;*/
+    text-align: center;
+}
+
+body{
+    
+}
+
+header{
+    color: #212529;
+}
+
+.ipa{
+    font-family: 'IPA Kiel', 'DejaVu Serif';
+    font-size: large;
+}
+
+.ipa-button {
+    height: 35px;
+    width: 35px;
+    text-align: center;
+    color: --bs-color-success;
+    text-decoration: none;
+}
+
+.ipa-td {
+    height: 35px;
+    width: 35px;
+    text-align: center;
 }

@@ -1,2 +1,2 @@
-# ipaapp
+# fonolearn
 Today? A web app for guessing IPA characters given a sound. Tomorrow? Who knows...
