@@ -12,7 +12,6 @@ html{
 
 body{
     height: 100%;
-    color: white !important;
 }
 
 .ipa{
@@ -21,12 +20,13 @@ body{
     text-align: center;
 }
 
-body{
-    
-}
-
 header{
     color: #212529;
+}
+
+main {
+    text-align: center;
+    color: white;
 }
 
 .ipa{
