@@ -21,6 +21,13 @@ export class AppComponent {
     let mobileMQ = matchMedia('(max-width: 768px)');
     isMobile = mobileMQ.matches;
 
+    if (isMobile) {
+      document.getElementById("content")!.style.setProperty("margin-left", "0");
+    }
+    else {
+      document.getElementById("content")!.style.setProperty("margin-left", "var(--closed-sidebar-width)");
+    }
+
     mobileMQ.addEventListener("change",
       mobileMQ => {
         this.zone.runOutsideAngular(() => {

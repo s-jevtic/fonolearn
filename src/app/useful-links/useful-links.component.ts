@@ -49,6 +49,18 @@ export class UsefulLinksComponent implements OnInit {
     }
   }
 
+  onLeftSwipe(evt: Event) {
+    if (this.menuState == 'closed') {
+      this.toggleSidebar();
+    }
+  }
+
+  onRightSwipe(evt: Event) {
+    if (this.menuState !== 'closed') {
+      this.toggleSidebar();
+    }
+  }
+
   menuState: string;
   show: boolean;
   toggled: boolean;

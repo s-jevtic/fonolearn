@@ -1,4 +1,4 @@
-<div [@openClose]="menuState" (@openClose.start)="animationStartEvent($event)" (@openClose.done)="animationDoneEvent($event)" class="border-end bg-light px-0" id="sidebar-wrapper">
+<div (swipeLeft)="onLeftSwipe($event)" (swipeRight)="onRightSwipe($event)" [@openClose]="menuState" (@openClose.start)="animationStartEvent($event)" (@openClose.done)="animationDoneEvent($event)" class="border-end bg-light px-0" id="sidebar-wrapper">
    <app-menu-icon (click)="toggleSidebar()"></app-menu-icon> 
     <div class="px-0" id="sidebar">
         <ng-container *ngIf="show">
