@@ -1,0 +1,34 @@
+:host{
+    display: flex;
+    flex: 1 0 auto;
+    flex-flow: column;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    z-index: 1;
+}
+
+#sidebar-wrapper{
+    min-height: 100%;
+    display: flex;
+    border-top: 1px solid var(--bs-dark);
+}
+
+@media only screen and (max-width: 768px) { /* so that the open sidebar covers the entire viewport on mobile */
+    /* #sidebar-wrapper{
+        position: absolute;
+        right: 0;
+    } */
+}
+
+#menu-icon{
+    float: left;
+}
+
+#sidebar{
+    width: var(--link-width);
+    min-height: 100%;
+    margin: 0;
+}
+
