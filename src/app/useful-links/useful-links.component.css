@@ -16,13 +16,6 @@
     color: var(--bs-dark);
 }
 
-@media only screen and (max-width: 768px) { /* so that the open sidebar covers the entire viewport on mobile */
-    /* #sidebar-wrapper{
-        position: absolute;
-        right: 0;
-    } */
-}
-
 #menu-icon{
     float: left;
 }
