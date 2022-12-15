@@ -25,16 +25,32 @@
     --bs-border-radius-lg: 0.25rem;
     --bs-border-radius-xl: 0.5rem;
     --bs-border-radius-2xl: 1rem;
+
+    --closed-sidebar-width: calc(35px + 3rem);
+    --link-width: 15rem; /* maybe remove the constants and make the width automatic in the future? */
+    --open-sidebar-width: calc(var(--closed-sidebar-width) + var(--link-width));
 }
 
 body{
     font-family: 'DejaVu Sans', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
     text-align: center;
     color: var(--dark-color-text) !important;
+    height: 100%;
+}
+
+.ipa{
+    font-family: 'DejaVu Serif';
+    /*background-color: black;*/
+    text-align: center;
 }
 
 header{
     color: var(--light-color-text);
+}
+
+main {
+    text-align: center;
+    color: white;
 }
 
 .ipa{

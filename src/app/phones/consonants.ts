@@ -565,7 +565,7 @@ export const consonantList = {
         },
         {
             "symbol": "ɖ͡ʐ",
-            "alias": "dʐ",
+            "alias": "ɖʐ",
             "voicing": "voiced",
             "place": "retroflex",
             "manner": "affricate",
@@ -639,7 +639,7 @@ export const consonantList = {
             "symbol": "ɫ",
             "voicing": "voiced",
             "manner": "lateral-approximant",
-            "clickable": true,
+            "clickable": false,
             "desc": "voiced velarized alveolar lateral approximant"
         },
         {
@@ -653,7 +653,7 @@ export const consonantList = {
             "symbol": "ɧ",
             "voicing": "voiceless",
             "manner": "fricative",
-            "clickable": true,
+            "clickable": false,
             "desc": "simultaneous ʃ and x"
         }
     ],
