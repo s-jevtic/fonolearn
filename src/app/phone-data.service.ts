@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { Click } from './phones/click';
 import { consonantList } from './phones/consonants';
 import { Ejective } from './phones/ejective';
@@ -13,8 +14,8 @@ import { vowelList } from './phones/vowels';
   providedIn: 'root'
 })
 export class PhoneDataService {
-
   constructor() {
+    this.noOfChoices = 3;
 
     this.phoneChecked = new Map<Phone, boolean>;
 
@@ -49,6 +50,18 @@ export class PhoneDataService {
     }
   }
 
+  // from Angular docs
+  private selectionClearedSource = new Subject<void>();
+  selectionCleared$ = this.selectionClearedSource.asObservable();
+
+  clear(): void {
+    this.selectionClearedSource.next();
+  }
+
+  selectionCount(): number {
+    return this.vowels.length + this.clicks.length + this.ejectives.length + this.implosives.length + this.otherPulmonic.length + this.pulmonicConsonants.length;
+  }
+
   pulmonicConsonants: PulmonicConsonant[];
   otherPulmonic: OtherPulmonic[];
   implosives: Implosive[];
@@ -58,4 +71,6 @@ export class PhoneDataService {
   vowels: Vowel[];
 
   phoneChecked: Map<Phone, boolean>;
+
+  noOfChoices: number;
 }

@@ -3,6 +3,7 @@ import { AnimationEvent } from '@angular/animations';
 import { sidebarAnimation } from '../animations';
 import { MenuIconComponent } from '../menu-icon/menu-icon.component';
 import { isMobile } from '../app.component';
+import { PhoneDataService } from '../phone-data.service';
 
 @Component({
   selector: 'app-useful-links',
@@ -12,7 +13,7 @@ import { isMobile } from '../app.component';
 })
 export class UsefulLinksComponent implements OnInit {
 
-  constructor(private zone: NgZone) { }
+  constructor(private zone: NgZone, private phoneDataService: PhoneDataService) { }
 
   @ViewChild(MenuIconComponent) menu:MenuIconComponent;
 
@@ -59,6 +60,14 @@ export class UsefulLinksComponent implements OnInit {
     if (this.menuState !== 'closed') {
       this.toggleSidebar();
     }
+  }
+
+  clearSelection(): void {
+    this.phoneDataService.clear();
+  }
+
+  mainMenuActive(): boolean {
+    return document.getElementById("sound-picker-container")? true : false; // kind of a workaround, checking if an element *inside* the main menu exists
   }
 
   menuState: string;

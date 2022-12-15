@@ -87,9 +87,18 @@ export class MainMenuComponent implements OnInit {
           });
         }
       });
+    
+    this.phoneDataService.selectionCleared$.subscribe(
+      () => {
+        this.clearSelection();
+      });
+
+    this.noOfChoices = 0;
   }
 
   ipa(event: any): void {
+    this.noOfChoices = parseInt((<HTMLInputElement>document.getElementById("no-of-choices")).value); // yes, this seems to be necessary
+    this.phoneDataService.noOfChoices = this.noOfChoices;
     this.router.navigate(["./ipa"]);
   }
   
@@ -175,9 +184,22 @@ export class MainMenuComponent implements OnInit {
       }
     });
   }
+  clearSelection(): void {
+    this.consonants.forEach(p => {
+      if (this.phoneChecked.get(p)) {
+        this.ipaToggle(p);
+      }
+    });
+    this.vowels.forEach(p => {
+      if (this.phoneChecked.get(p)) {
+        this.ipaToggle(p);
+      }
+    });
+  }
 
-  noneSelected(): boolean {
-    return Array.from(this.phoneChecked.values()).indexOf(true) == -1;
+  notEnoughSelected(): boolean {
+    this.noOfChoices = parseInt((<HTMLInputElement>document.getElementById("no-of-choices")).value); // yes, this seems to be necessary
+    return this.phoneDataService.selectionCount() < this.noOfChoices; // not enough phones are selected if there are more choices than selected phones
   }
 
   premadeSets: any;
@@ -195,6 +217,7 @@ export class MainMenuComponent implements OnInit {
   
   checked: boolean[][];
   phoneChecked: Map<Phone, boolean>;
+  noOfChoices: number;
 
   noneSelectedAlert: boolean;
 }
