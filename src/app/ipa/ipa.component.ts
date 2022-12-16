@@ -49,6 +49,7 @@ export class IpaComponent implements OnInit {
     this.arg = -1;
     this.genRandomSymbols();
     this.playSound();
+    // document.getElementById("hintbutton")?.setAttribute("cPopover", this.randomPhones[this.correctIndex].desc);
   }
 
   guessedCount = 0;

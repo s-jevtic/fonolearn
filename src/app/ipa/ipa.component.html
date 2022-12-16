@@ -18,7 +18,7 @@
                 <p class="mb-0" *ngIf="!guessed">Try again...</p>
             </div>
             <div class="d-flex justify-content-center text-light mt-3">
-                <button class="btn btn-warning mx-3" id="hintbutton" type="button" [cPopover]="this.randomPhones[this.correctIndex].desc" [cPopoverTrigger]="'focus'" [cPopoverPlacement]="'right'">Hint</button>
+                <button class="btn btn-warning mx-3" id="hintbutton" type="button" ngbPopover="{{this.randomPhones[this.correctIndex].desc}}" placement="right">Hint</button>
             </div>
         </div>
     </ng-container>
