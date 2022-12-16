@@ -10,6 +10,8 @@ import { MainMenuComponent } from './main-menu/main-menu.component';
 import { UsefulLinksComponent } from './useful-links/useful-links.component';
 import { MenuIconComponent } from './menu-icon/menu-icon.component';
 
+import { PopoverModule } from '@coreui/angular';
+
 import * as Hammer from 'hammerjs';
 import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 
@@ -32,7 +34,8 @@ export class MyHammerConfig extends HammerGestureConfig {
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    HammerModule
+    HammerModule,
+    PopoverModule,
   ],
   providers: [
     {

@@ -38,6 +38,7 @@ export class IpaComponent implements OnInit {
       this.noneSelected = false;
       this.newGuess();
     }
+
   }
 
   newGuess(): void {
