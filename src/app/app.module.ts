@@ -12,6 +12,7 @@ import { MenuIconComponent } from './menu-icon/menu-icon.component';
 
 import * as Hammer from 'hammerjs';
 import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 export class MyHammerConfig extends HammerGestureConfig {
   override overrides = <any> {
@@ -32,7 +33,8 @@ export class MyHammerConfig extends HammerGestureConfig {
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    HammerModule
+    HammerModule,
+    NgbModule
   ],
   providers: [
     {
