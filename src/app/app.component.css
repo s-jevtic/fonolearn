@@ -35,7 +35,7 @@ main{ /* all of those are necessary for main content to have full height */
 
 #content{
     align-items: center;
-    color: white;
+    color: var(--dark-color-text) !important;
     flex: 1 1 auto;
     margin: 0 var(--closed-sidebar-width);
     overflow: hidden;

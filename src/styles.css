@@ -18,7 +18,8 @@
     --dark-color-neu-sh: #3C4348;
 
     --light-color-bg: #DDE3E7;
-    --light-color-text: var(--dark-color-bg);
+    --light-color-fg: #E4E5E6;
+    --light-color-text: #18191A;
 
     --bs-border-radius: 0.1825rem;
     --bs-border-radius-sm: 0.125rem;
@@ -51,7 +52,7 @@ header{
 
 main {
     text-align: center;
-    color: white;
+    color: var(--dark-color-text) !important;
     height: 100%;
 }
 
@@ -189,4 +190,27 @@ main {
 }
 .ipa-button.btn-link:active {
     color: var(--dark-color-main-sh) !important;
+}
+
+.form-control {
+    border-color: var(--dark-color-neu-hl);
+    background-color: var(--light-color-fg);
+    color: var(--light-color-text);
+    border-radius: 0;
+}
+
+.form-text {
+    color: var(--dark-color-neu-sh);
+}
+
+a {
+    color: var(--dark-color-main);
+}
+
+a:hover {
+    color: var(--dark-color-main-hl);
+}
+
+a:active {
+    color: var(--dark-color-main-sh);
 }
