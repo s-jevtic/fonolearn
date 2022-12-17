@@ -70,52 +70,57 @@ main {
 
 .btn-primary {
     background-color: var(--dark-color-main) !important;
+    border: 5px solid transparent !important;
 }
 .btn-primary:hover {
-    background-color: var(--dark-color-main-hl) !important;
+    border: 5px solid var(--dark-color-main-hl) !important;
 }
 .btn-primary:focus {
-    background-color: var(--dark-color-main-sh) !important;
+    border: 5px solid var(--dark-color-main-sh) !important;
 }
 
 .btn-success {
     background-color: var(--dark-color-pos) !important;
+    border: 5px solid transparent !important;
 }
 .btn-success:hover {
-    background-color: var(--dark-color-pos-hl) !important;
+    border: 5px solid var(--dark-color-pos-hl) !important;
 }
 .btn-success:focus {
-    background-color: var(--dark-color-pos-sh) !important;
+    border: 5px solid var(--dark-color-pos-sh) !important;
 }
 
 .btn-danger {
     background-color: var(--dark-color-neg) !important;
+    border: 5px solid transparent !important;
 }
 .btn-danger:hover {
-    background-color: var(--dark-color-neg-hl) !important;
+    border: 5px solid var(--dark-color-neg-hl) !important;
 }
 .btn-danger:focus {
-    background-color: var(--dark-color-neg-sh) !important;
+    border: 5px solid var(--dark-color-neg-sh) !important;
 }
 
 .btn-secondary {
     background-color: var(--dark-color-neu) !important;
+    border: 5px solid transparent !important;
 }
 .btn-secondary:hover {
-    background-color: var(--dark-color-neu-hl) !important;
+    border: 5px solid var(--dark-color-neu-hl) !important;
 }
 .btn-secondary:focus {
-    background-color: var(--dark-color-neu-sh) !important;
+    border: 5px solid var(--dark-color-neu-sh) !important;
 }
 
 .btn-link {
     color: var(--dark-color-main) !important;
+    border: 5px solid transparent !important;
 }
 .btn-link:hover {
     color: var(--dark-color-main-hl) !important;
 }
 .btn-link:focus {
-    border: 1px solid var(--dark-color-main-sh) !important;
+    border: 5px solid var(--dark-color-main-sh) !important;
 }
 
 .ipa-td {
