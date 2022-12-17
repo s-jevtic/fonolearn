@@ -92,13 +92,9 @@ export class MainMenuComponent implements OnInit {
       () => {
         this.clearSelection();
       });
-
-    this.noOfChoices = 0;
   }
 
   ipa(event: any): void {
-    this.noOfChoices = parseInt((<HTMLInputElement>document.getElementById("no-of-choices")).value); // yes, this seems to be necessary
-    this.phoneDataService.noOfChoices = this.noOfChoices;
     this.router.navigate(["./ipa"]);
   }
   
@@ -197,9 +193,27 @@ export class MainMenuComponent implements OnInit {
     });
   }
 
+  selectionCount(): number {
+    let count = 0;
+    this.consonants.forEach(p => {
+      if (this.phoneChecked.get(p)) {
+        count++;
+      }
+    });
+    this.vowels.forEach(p => {
+      if (this.phoneChecked.get(p)) {
+        count++;
+      }
+    });
+    return count;
+  }
+
   notEnoughSelected(): boolean {
-    this.noOfChoices = parseInt((<HTMLInputElement>document.getElementById("no-of-choices")).value); // yes, this seems to be necessary
-    return this.phoneDataService.selectionCount() < this.noOfChoices; // not enough phones are selected if there are more choices than selected phones
+    return this.selectionCount() < this.phoneDataService.noOfChoices; // not enough phones are selected if there are more choices than selected phones
+  }
+
+  noOfChoices(): number {
+    return this.phoneDataService.noOfChoices;
   }
 
   premadeSets: any;
@@ -217,7 +231,6 @@ export class MainMenuComponent implements OnInit {
   
   checked: boolean[][];
   phoneChecked: Map<Phone, boolean>;
-  noOfChoices: number;
 
   noneSelectedAlert: boolean;
 }

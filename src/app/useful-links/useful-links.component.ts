@@ -70,6 +70,10 @@ export class UsefulLinksComponent implements OnInit {
     return document.getElementById("sound-picker-container")? true : false; // kind of a workaround, checking if an element *inside* the main menu exists
   }
 
+  checkNumber(): void {
+    this.phoneDataService.noOfChoices = parseInt((<HTMLInputElement> document.getElementById('no-of-choices')).value)
+  }
+
   menuState: string;
   show: boolean;
   toggled: boolean;

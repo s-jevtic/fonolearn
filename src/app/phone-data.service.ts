@@ -58,10 +58,6 @@ export class PhoneDataService {
     this.selectionClearedSource.next();
   }
 
-  selectionCount(): number {
-    return this.vowels.length + this.clicks.length + this.ejectives.length + this.implosives.length + this.otherPulmonic.length + this.pulmonicConsonants.length;
-  }
-
   pulmonicConsonants: PulmonicConsonant[];
   otherPulmonic: OtherPulmonic[];
   implosives: Implosive[];

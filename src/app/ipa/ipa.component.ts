@@ -38,7 +38,7 @@ export class IpaComponent implements OnInit {
 
     this.clicked = Array<number>(this.noOfChoices).fill(0);
 
-    if (this.selectedPhones.length != 0) {
+    if (this.selectedPhones.length < this.noOfChoices) {
       this.noneSelected = false;
       this.newGuess();
     }
