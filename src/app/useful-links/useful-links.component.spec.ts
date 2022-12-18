@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { UsefulLinksComponent } from './useful-links.component';
 
@@ -8,7 +9,8 @@ describe('UsefulLinksComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UsefulLinksComponent ]
+      declarations: [ UsefulLinksComponent ],
+      imports: [ BrowserAnimationsModule ]
     })
     .compileComponents();
 
