@@ -11,7 +11,7 @@ import { UsefulLinksComponent } from './useful-links/useful-links.component';
 })
 
 export class AppComponent {
-  title = 'IPAapp';
+  title = 'fonolearn';
 
   constructor(private zone: NgZone) { }
 
