@@ -2,7 +2,3 @@
     background-color: var(--dark-color-fg);
     align-self: center;
 }
-
-#begin-button-disabled {
-    pointer-events: auto;
-}

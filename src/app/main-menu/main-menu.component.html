@@ -1,6 +1,8 @@
 <div class="container-fluid d-flex justify-content-center px-3 my-4">
     <div class="btn-group" id="main-buttons">
-        <button class="btn btn-lg btn-primary disabled" role="button" id="begin-button-disabled" *ngIf="notEnoughSelected()" placement="bottom" ngbTooltip="Select at least {{ noOfChoices() }} sounds.">Select some sounds first!</button>
+        <span *ngIf="notEnoughSelected()" placement="bottom" ngbTooltip="Select at least {{ noOfChoices() }} sounds.">
+            <button class="btn btn-lg btn-primary disabled" role="button" id="begin-button-disabled">Select some sounds first!</button>
+        </span>
         <button class="btn btn-lg btn-primary" role="button" id="begin-button" *ngIf="!notEnoughSelected()" (click)="ipa($event)">Begin with selected sounds</button>
         <button class="btn btn-lg btn-secondary dropdown-toggle dropdown-toggle-split" id="soundSetPicker" data-bs-toggle="dropdown" aria-expanded="false">Pick premade set of sounds</button>
         <ul class="dropdown-menu bg-dark" aria-labelledby="soundSetPicker">
