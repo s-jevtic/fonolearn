@@ -2,3 +2,18 @@
     background-color: var(--dark-color-fg);
     align-self: center;
 }
+
+#picker-dropdown {
+    z-index: 2;
+}
+
+@media only screen and (max-width: 768px) {
+    #main-buttons, #main-buttons .btn, #picker-dropdown {
+        max-width: calc((100vw - var(--closed-sidebar-width)) * 0.75);
+        flex-grow: 0;
+    }
+    #main-buttons .btn, #picker-dropdown .dropdown-item {
+        display: inline;
+        white-space: normal;
+    }
+}

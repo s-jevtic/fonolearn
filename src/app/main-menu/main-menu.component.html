@@ -5,7 +5,7 @@
         </span>
         <button class="btn btn-lg btn-primary" role="button" id="begin-button" *ngIf="!notEnoughSelected()" (click)="ipa($event)">Begin with selected sounds</button>
         <button class="btn btn-lg btn-secondary dropdown-toggle dropdown-toggle-split" id="soundSetPicker" data-bs-toggle="dropdown" aria-expanded="false">Pick premade set of sounds</button>
-        <ul class="dropdown-menu bg-dark" aria-labelledby="soundSetPicker">
+        <ul class="dropdown-menu bg-dark" id="picker-dropdown" aria-labelledby="soundSetPicker">
             <li><button class="dropdown-item" (click)="selectAll($event)">all</button></li>
             <li><button class="dropdown-item" (click)="selectConsonants($event)">consonants only</button></li>
             <li><button class="dropdown-item" (click)="selectVowels($event)">vowels only</button></li>
