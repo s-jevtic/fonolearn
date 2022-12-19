@@ -54,11 +54,11 @@
                                             <ng-container *ngFor="let phone of position; let k = index">
                                                 <ng-container *ngIf="phone.clickable == true; else noButton">
                                                     <input type="checkbox" class="btn-check custom-check" id="btncheck{{phone.symbol}}" (change)="ipaCheck($event, phone)" autocomplete="off">
-                                                    <label class="btn btn-link shadow-none ipa-button ipa p-1" for="btncheck{{phone.symbol}}" data-toggle="tooltip" data-placement="top" title="{{phone.desc}}" id="label{{phone.symbol}}">{{ phone.symbol }}</label>
+                                                    <label class="btn btn-link shadow-none ipa-button ipa p-1" for="btncheck{{phone.symbol}}" placement="top" ngbTooltip="{{phone.desc}}" id="label{{phone.symbol}}">{{ phone.symbol }}</label>
                                                 </ng-container>
                                                 <ng-template #noButton>
                                                     <ng-container *ngIf="phone.symbol != ''; else isNull">
-                                                        <div class="p-1 ipa ipa-td" data-toggle="tooltip" data-placement="top" title="{{phone.desc}}">{{ phone.symbol }}</div>
+                                                        <div class="p-1 ipa ipa-td" placement="top" ngbTooltip="{{phone.desc}}">{{ phone.symbol }}</div>
                                                     </ng-container>
                                                     <ng-template #isNull>
                                                         <div class="p-1 ipa ipa-td"></div>
@@ -78,10 +78,10 @@
             <ng-container *ngFor="let phone of otherPulmonic">
                 <ng-container *ngIf="phone.clickable">
                     <input type="checkbox" class="btn-check custom-check" id="btncheck{{phone.symbol}}" (change)="ipaCheck($event, phone)" autocomplete="off">
-                    <label class="btn btn-link shadow-none ipa-button ipa p-1 m-1" for="btncheck{{phone.symbol}}" data-toggle="tooltip" data-placement="top" title="{{phone.desc}}" id="label{{phone.symbol}}">{{ phone.symbol }}</label>
+                    <label class="btn btn-link shadow-none ipa-button ipa p-1 m-1" for="btncheck{{phone.symbol}}" placement="top" ngbTooltip="{{phone.desc}}" id="label{{phone.symbol}}">{{ phone.symbol }}</label>
                 </ng-container>
                 <ng-container *ngIf="!phone.clickable">
-                    <div class="p-1 m-1 ipa ipa-td" data-toggle="tooltip" data-placement="top" title="{{phone.desc}}">{{ phone.symbol }}</div>
+                    <div class="p-1 m-1 ipa ipa-td" placement="top" ngbTooltip="{{phone.desc}}">{{ phone.symbol }}</div>
                 </ng-container>
             </ng-container>
         </div>
@@ -89,10 +89,10 @@
             <ng-container *ngFor="let phone of implosives">
                 <ng-container *ngIf="phone.clickable">
                     <input type="checkbox" class="btn-check custom-check" id="btncheck{{phone.symbol}}" (change)="ipaCheck($event, phone)" autocomplete="off">
-                    <label class="btn btn-link shadow-none ipa-button ipa p-1 m-1" for="btncheck{{phone.symbol}}" data-toggle="tooltip" data-placement="top" title="{{phone.desc}}" id="label{{phone.symbol}}">{{ phone.symbol }}</label>
+                    <label class="btn btn-link shadow-none ipa-button ipa p-1 m-1" for="btncheck{{phone.symbol}}" placement="top" ngbTooltip="{{phone.desc}}" id="label{{phone.symbol}}">{{ phone.symbol }}</label>
                 </ng-container>
                 <ng-container *ngIf="!phone.clickable">
-                    <div class="p-1 m-1 ipa ipa-td" data-toggle="tooltip" data-placement="top" title="{{phone.desc}}">{{ phone.symbol }}</div>
+                    <div class="p-1 m-1 ipa ipa-td" placement="top" ngbTooltip="{{phone.desc}}">{{ phone.symbol }}</div>
                 </ng-container>
             </ng-container>
         </div>
@@ -100,10 +100,10 @@
             <ng-container *ngFor="let phone of ejectives">
                 <ng-container *ngIf="phone.clickable">
                     <input type="checkbox" class="btn-check custom-check" id="btncheck{{phone.symbol}}" (change)="ipaCheck($event, phone)" autocomplete="off">
-                    <label class="btn btn-link shadow-none ipa-button ipa p-1 m-1" for="btncheck{{phone.symbol}}" data-toggle="tooltip" data-placement="top" title="{{phone.desc}}" id="label{{phone.symbol}}">{{ phone.symbol }}</label>
+                    <label class="btn btn-link shadow-none ipa-button ipa p-1 m-1" for="btncheck{{phone.symbol}}" placement="top" ngbTooltip="{{phone.desc}}" id="label{{phone.symbol}}">{{ phone.symbol }}</label>
                 </ng-container>
                 <ng-container *ngIf="!phone.clickable">
-                    <div class="p-1 m-1 ipa ipa-td" data-toggle="tooltip" data-placement="top" title="{{phone.desc}}">{{ phone.symbol }}</div>
+                    <div class="p-1 m-1 ipa ipa-td" placement="top" ngbTooltip="{{phone.desc}}">{{ phone.symbol }}</div>
                 </ng-container>
             </ng-container>
         </div>
@@ -111,10 +111,10 @@
             <ng-container *ngFor="let phone of clicks">
                 <ng-container *ngIf="phone.clickable">
                     <input type="checkbox" class="btn-check custom-check" id="btncheck{{phone.symbol}}" (change)="ipaCheck($event, phone)" autocomplete="off">
-                    <label class="btn btn-link shadow-none ipa-button ipa p-1 m-1" for="btncheck{{phone.symbol}}" data-toggle="tooltip" data-placement="top" title="{{phone.desc}}" id="label{{phone.symbol}}">{{ phone.symbol }}</label>
+                    <label class="btn btn-link shadow-none ipa-button ipa p-1 m-1" for="btncheck{{phone.symbol}}" placement="top" ngbTooltip="{{phone.desc}}" id="label{{phone.symbol}}">{{ phone.symbol }}</label>
                 </ng-container>
                 <ng-container *ngIf="!phone.clickable">
-                    <div class="p-1 m-1 ipa ipa-td" data-toggle="tooltip" data-placement="top" title="{{phone.desc}}">{{ phone.symbol }}</div>
+                    <div class="p-1 m-1 ipa ipa-td" placement="top" ngbTooltip="{{phone.desc}}">{{ phone.symbol }}</div>
                 </ng-container>
             </ng-container>
         </div>
@@ -130,10 +130,10 @@
                                             <ng-container *ngFor="let phone of position; let k = index">
                                                 <ng-container *ngIf="phone.clickable">
                                                     <input type="checkbox" class="btn-check custom-check" id="btncheck{{phone.symbol}}" (change)="ipaCheck($event, phone)" autocomplete="off">
-                                                    <label class="btn btn-link shadow-none ipa-button ipa p-1" for="btncheck{{phone.symbol}}" data-toggle="tooltip" data-placement="top" title="{{phone.desc}}" id="label{{phone.symbol}}">{{ phone.symbol }}</label>
+                                                    <label class="btn btn-link shadow-none ipa-button ipa p-1" for="btncheck{{phone.symbol}}" placement="top" ngbTooltip="{{phone.desc}}" id="label{{phone.symbol}}">{{ phone.symbol }}</label>
                                                 </ng-container>
                                                 <ng-container *ngIf="!phone.clickable">
-                                                    <div class="p-1 ipa ipa-td" data-toggle="tooltip" data-placement="top" title="{{phone.desc}}">{{ phone.symbol }}</div>
+                                                    <div class="p-1 ipa ipa-td" placement="top" ngbTooltip="{{phone.desc}}">{{ phone.symbol }}</div>
                                                 </ng-container>
                                             </ng-container>
                                         </div>
