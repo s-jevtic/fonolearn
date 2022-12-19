@@ -40,8 +40,7 @@ body{
 }
 
 .ipa{
-    font-family: 'IPA Kiel', 'DejaVu Serif';
-    font-family: 'DejaVu Serif';
+    font-family: 'IPA Kiel', 'Doulos SIL', 'DejaVu Serif';
     text-align: center;
     font-size: large;
 }
