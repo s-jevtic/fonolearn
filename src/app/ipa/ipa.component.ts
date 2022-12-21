@@ -42,7 +42,6 @@ export class IpaComponent implements OnInit {
   }
 
   newGuess(): void {
-    this.listened = false;
     this.guessed = false;
     this.tried = false;
     this.clicked = [0, 0, 0]
@@ -74,8 +73,6 @@ export class IpaComponent implements OnInit {
 
     audio.load();
     audio.play();
-
-    this.listened = true;
   }
 
   checkAnswer(arg: number) {
@@ -93,7 +90,6 @@ export class IpaComponent implements OnInit {
 
   noneSelected: boolean;
 
-  listened: boolean;
   tried: boolean;
   guessed: boolean;
   arg: number;
