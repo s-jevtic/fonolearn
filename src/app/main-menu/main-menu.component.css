@@ -3,8 +3,8 @@
     align-self: center;
 }
 
-#picker-dropdown {
-    z-index: 2;
+#picker-dropdown .dropdown-item {
+    word-wrap: break-word;
 }
 
 @media only screen and (max-width: 768px) {
