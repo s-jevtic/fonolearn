@@ -50,14 +50,6 @@ export class PhoneDataService {
     }
   }
 
-  // from Angular docs
-  private selectionClearedSource = new Subject<void>();
-  selectionCleared$ = this.selectionClearedSource.asObservable();
-
-  clear(): void {
-    this.selectionClearedSource.next();
-  }
-
   pulmonicConsonants: PulmonicConsonant[];
   otherPulmonic: OtherPulmonic[];
   implosives: Implosive[];

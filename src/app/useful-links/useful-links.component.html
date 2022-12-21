@@ -2,14 +2,6 @@
    <app-menu-icon (click)="toggleSidebar()"></app-menu-icon> 
     <div class="px-0" id="sidebar">
         <div class="pt-3 pb-4 me-3" id="links-menu" [attr.hidden]="show? null : true"> <!--[attr.hidden] instead of *ngIf because we need the element to exist-->
-            <span [attr.hidden]="mainMenuActive()? null : true">
-                <h2 class="mb-3">Options</h2>
-                <label for="no-of-choices" class="form-text">Number of choices when guessing:</label>
-                <input type="number" min="2" max="10" [defaultValue]="3" id="no-of-choices" class="form-control" (change)="checkNumber()"/>
-                <button role="button" class="btn btn-lg btn-danger my-3" (click)="clearSelection()">Clear selection</button>
-
-                <hr/><hr/>
-            </span>
             <h2 class="my-3">Useful links</h2>
             <a href="https://www.internationalphoneticassociation.org/content/full-ipa-chart">Official full IPA chart</a> <br class="mb-3"/>
             <a href="https://www.ipachart.com">Interactive IPA chart</a> <br class="mb-3" />

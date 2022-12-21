@@ -87,11 +87,7 @@ export class MainMenuComponent implements OnInit {
           });
         }
       });
-    
-    this.phoneDataService.selectionCleared$.subscribe(
-      () => {
-        this.clearSelection();
-      });
+
   }
 
   ipa(event: any): void {
@@ -214,6 +210,10 @@ export class MainMenuComponent implements OnInit {
 
   noOfChoices(): number {
     return this.phoneDataService.noOfChoices;
+  }
+
+  checkNumber(): void {
+    this.phoneDataService.noOfChoices = parseInt((<HTMLInputElement> document.getElementById('no-of-choices')).value)
   }
 
   premadeSets: any;

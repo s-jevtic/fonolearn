@@ -7,6 +7,23 @@
     word-wrap: break-word;
 }
 
+#no-of-choices-wrapper {
+    width: max-content;
+}
+
+#no-of-choices-label {
+    width:10rem;
+    color: var(--dark-color-neu-hl);
+}
+
+#no-of-choices {
+    width:10rem;
+}
+
+#sound-picker-container button {
+    height: 100%;
+}
+
 @media only screen and (max-width: 768px) {
     #main-buttons, #main-buttons .btn, #picker-dropdown {
         max-width: calc((100vw - var(--closed-sidebar-width)) * 0.75);
