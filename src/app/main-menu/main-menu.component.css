@@ -11,13 +11,8 @@
     width: max-content;
 }
 
-#no-of-choices-label {
-    width:10rem;
-    color: var(--dark-color-neu-hl);
-}
-
-#no-of-choices {
-    width:10rem;
+#no-of-choices-wrapper > * {
+    width: 10rem;
 }
 
 #sound-picker-container button {

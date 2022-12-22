@@ -18,7 +18,7 @@
 
 
 <div class="d-md-flex justify-content-around mx-auto" id="no-of-choices-wrapper">
-    <label for="no-of-choices" class="form-text" id="no-of-choices-label">Number of choices when guessing:</label>
+    <label for="no-of-choices" class="form-text">Number of choices when guessing:</label>
     <input type="number" min="2" max="10" [defaultValue]="3" id="no-of-choices" class="form-control" (change)="checkNumber()"/>
 </div>
 <div class="container">
@@ -26,8 +26,6 @@
 </div>
 
 <div class="container-sm" id="sound-picker-container">
-    
-
     <nav>
         <ul class="nav nav-tabs my-2 mx-5 justify-content-center" id="consonant-tablist" role="tablist">
             <li class="nav-item">

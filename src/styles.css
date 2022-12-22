@@ -192,14 +192,24 @@ main {
 }
 
 .form-control {
+    border-radius: 0;
+}
+.bg-light .form-control {
     border-color: var(--dark-color-neu-hl);
     background-color: var(--light-color-fg);
     color: var(--light-color-text);
-    border-radius: 0;
+}
+.bg-dark .form-control {
+    border-color: var(--dark-color-neu-sh);
+    background-color: var(--dark-color-fg);
+    color: var(--dark-color-text);
 }
 
-.form-text {
+.bg-light .form-text {
     color: var(--dark-color-neu-sh);
+}
+.bg-dark .form-text{
+    color: var(--dark-color-neu-hl);
 }
 
 a {
