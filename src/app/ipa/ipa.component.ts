@@ -14,6 +14,8 @@ export class IpaComponent implements OnInit {
   constructor(private route: ActivatedRoute, private phoneDataService: PhoneDataService) { }
 
   ngOnInit(): void {
+    this.noOfChoices = this.phoneDataService.noOfChoices;
+
     this.noneSelected = true;
 
     let pulmonicConsonants = this.phoneDataService.pulmonicConsonants;
@@ -34,7 +36,9 @@ export class IpaComponent implements OnInit {
     this.guessedCount = 0;
     this.totalCount = 0;
 
-    if (this.selectedPhones.length != 0) {
+    this.clicked = Array<number>(this.noOfChoices).fill(0);
+
+    if (this.selectedPhones.length >= this.noOfChoices) {
       this.noneSelected = false;
       this.newGuess();
     }
@@ -44,7 +48,7 @@ export class IpaComponent implements OnInit {
     this.listened = false;
     this.guessed = false;
     this.tried = false;
-    this.clicked = [0, 0, 0]
+    this.clicked = Array<number>(this.noOfChoices).fill(0);
     this.arg = -1;
     this.genRandomSymbols();
     this.playSound();
@@ -60,7 +64,7 @@ export class IpaComponent implements OnInit {
       .sort((a, b) => a.sort - b.sort)
       .map(({ value }) => value)
     
-    this.randomPhones = shuffled.slice(0, 3);
+    this.randomPhones = shuffled.slice(0, this.noOfChoices);
     this.correctIndex = Math.floor(Math.random() * this.randomPhones.length);
   }
 
@@ -95,7 +99,8 @@ export class IpaComponent implements OnInit {
   tried: boolean;
   guessed: boolean;
   arg: number;
-  clicked: number[] = [0, 0, 0];
+  clicked: number[];
+  noOfChoices: number;
 
   consonants: Phone[];  
   selectedConsonants: Phone[];

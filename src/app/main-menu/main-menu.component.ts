@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Phone } from '../phones/phone';
 import { PulmonicConsonant } from '../phones/pulmonicconsonant';
@@ -18,7 +18,7 @@ import { premadeSets } from '../phones/premade-sets';
 })
 export class MainMenuComponent implements OnInit {
 
-  constructor(private router: Router, private phoneDataService: PhoneDataService) { }
+  constructor(private router: Router, private phoneDataService: PhoneDataService, private zone: NgZone) { }
 
   ngOnInit(): void {
     this.premadeSets = premadeSets;
@@ -62,14 +62,36 @@ export class MainMenuComponent implements OnInit {
     this.consonants.concat(this.vowels).forEach(p => {
       this.phoneChecked.set(p, false);
     })
+
+    let mobileMQ = matchMedia('(max-width: 768px)');
+
+    if (mobileMQ.matches) {
+      this.zone.run(() => {
+        document.getElementById("main-buttons")?.classList.remove('btn-group');
+        document.getElementById("main-buttons")?.classList.add('btn-group-vertical');
+      });
+    }
+
+    mobileMQ.addEventListener("change",
+      mobileMQ => {
+        if (mobileMQ.matches) {
+          this.zone.run(() => {
+            document.getElementById("main-buttons")?.classList.remove('btn-group');
+            document.getElementById("main-buttons")?.classList.add('btn-group-vertical');
+          });
+        }
+        else {
+          this.zone.run(() => {
+            document.getElementById("main-buttons")?.classList.remove('btn-group-vertical');
+            document.getElementById("main-buttons")?.classList.add('btn-group');
+          });
+        }
+      });
+
   }
 
   ipa(event: any): void {
-    let beginButton = document.getElementById("begin-button")!;
-    if (Array.from(this.phoneChecked.values()).indexOf(true) == -1) { // if there is no true element in checked
-      alert("No phones selected!"); // placeholder, should make this a Bootstrap alert
-    }
-    else this.router.navigate(["./ipa"]);
+    this.router.navigate(["./ipa"]);
   }
   
   ipaCheck(event: any, p: Phone): void {
@@ -153,6 +175,45 @@ export class MainMenuComponent implements OnInit {
         this.ipaToggle(p);
       }
     });
+  }
+  clearSelection(): void {
+    this.consonants.forEach(p => {
+      if (this.phoneChecked.get(p)) {
+        this.ipaToggle(p);
+      }
+    });
+    this.vowels.forEach(p => {
+      if (this.phoneChecked.get(p)) {
+        this.ipaToggle(p);
+      }
+    });
+  }
+
+  selectionCount(): number {
+    let count = 0;
+    this.consonants.forEach(p => {
+      if (this.phoneChecked.get(p)) {
+        count++;
+      }
+    });
+    this.vowels.forEach(p => {
+      if (this.phoneChecked.get(p)) {
+        count++;
+      }
+    });
+    return count;
+  }
+
+  notEnoughSelected(): boolean {
+    return this.selectionCount() < this.phoneDataService.noOfChoices; // not enough phones are selected if there are more choices than selected phones
+  }
+
+  noOfChoices(): number {
+    return this.phoneDataService.noOfChoices;
+  }
+
+  checkNumber(): void {
+    this.phoneDataService.noOfChoices = parseInt((<HTMLInputElement> document.getElementById('no-of-choices')).value)
   }
 
   premadeSets: any;

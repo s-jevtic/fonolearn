@@ -1,8 +1,11 @@
 <div class="container-fluid d-flex justify-content-center px-3 my-4">
-    <div class="btn-group">
-        <button class="btn btn-lg btn-primary" role="button" id="begin-button" (click)="ipa($event)">Begin with selected sounds</button>
+    <div class="btn-group" id="main-buttons">
+        <span *ngIf="notEnoughSelected()" placement="bottom" ngbTooltip="Select at least {{ noOfChoices() }} sounds.">
+            <button class="btn btn-lg btn-primary disabled" role="button" id="begin-button-disabled">Select some sounds first!</button>
+        </span>
+        <button class="btn btn-lg btn-primary" role="button" id="begin-button" *ngIf="!notEnoughSelected()" (click)="ipa($event)">Begin with selected sounds</button>
         <button class="btn btn-lg btn-secondary dropdown-toggle dropdown-toggle-split" id="soundSetPicker" data-bs-toggle="dropdown" aria-expanded="false">Pick premade set of sounds</button>
-        <ul class="dropdown-menu" aria-labelledby="soundSetPicker">
+        <ul class="dropdown-menu bg-dark" id="picker-dropdown" aria-labelledby="soundSetPicker">
             <li><button class="dropdown-item" (click)="selectAll($event)">all</button></li>
             <li><button class="dropdown-item" (click)="selectConsonants($event)">consonants only</button></li>
             <li><button class="dropdown-item" (click)="selectVowels($event)">vowels only</button></li>
@@ -13,19 +16,41 @@
     </div>
 </div>
 
-<h2>Sound picker</h2>
 
-<div class="container-fluid" id="sound-picker">
-    <hr class="phone-class-divider mx-3 my-4"/>
-    <h3>Consonants</h3>
-    <div class="row d-flex align-items-center py-3 px-5">
-        <div class="col-sm-4">
-            <h4>Pulmonic (table)</h4>
-        </div>
-        <div class="vr"></div>
-        <hr class="h4-divider"/>
-        <div class="col-lg-7 d-flex justify-content-center">
-            <div class="table-responsive">
+<div class="d-md-flex justify-content-around mx-auto" id="no-of-choices-wrapper">
+    <label for="no-of-choices" class="form-text">Number of choices when guessing:</label>
+    <input type="number" min="2" max="10" [defaultValue]="3" id="no-of-choices" class="form-control" (change)="checkNumber()"/>
+</div>
+<div class="container">
+    <button role="button" class="btn btn-sm btn-danger mt-3" (click)="clearSelection()">Clear selection</button>
+</div>
+
+<div class="container-sm" id="sound-picker-container">
+    <nav>
+        <ul class="nav nav-tabs my-2 mx-5 justify-content-center" id="consonant-tablist" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="nav-ptable-tab" data-bs-toggle="tab" data-bs-target="#nav-ptable" type="button" role="tab" aria-controls="nav-ptable" aria-selected="true">Pulmonic (table)</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="nav-otherp-tab" data-bs-toggle="tab" data-bs-target="#nav-otherp" type="button" role="tab" aria-controls="nav-otherp" aria-selected="false">Coarticulated and other pulmonic</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="nav-implosives-tab" data-bs-toggle="tab" data-bs-target="#nav-implosives" type="button" role="tab" aria-controls="nav-implosives" aria-selected="false">Implosives</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="nav-ejectives-tab" data-bs-toggle="tab" data-bs-target="#nav-ejectives" type="button" role="tab" aria-controls="nav-ejectives" aria-selected="false">Ejectives</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="nav-clicks-tab" data-bs-toggle="tab" data-bs-target="#nav-clicks" type="button" role="tab" aria-controls="nav-clicks" aria-selected="false">Clicks</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="nav-vowels-tab" data-bs-toggle="tab" data-bs-target="#nav-vowels" type="button" role="tab" aria-controls="nav-vowels" aria-selected="false">Vowels</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="tab-content container p-2" id="sound-picker">
+        <div class="tab-pane fade show active justify-content-center" id="nav-ptable" role="tabpanel" aria-labelledby="nav-ptable-tab" tabindex="0">
+            <div class="table-responsive d-flex justify-content-center">
                 <table class="table-borderless">
                     <tbody>
                         <ng-container *ngFor="let row of pulmonicTable; let i = index">
@@ -36,11 +61,11 @@
                                             <ng-container *ngFor="let phone of position; let k = index">
                                                 <ng-container *ngIf="phone.clickable == true; else noButton">
                                                     <input type="checkbox" class="btn-check custom-check" id="btncheck{{phone.symbol}}" (change)="ipaCheck($event, phone)" autocomplete="off">
-                                                    <label class="btn btn-link shadow-none ipa-button ipa p-1" for="btncheck{{phone.symbol}}" data-toggle="tooltip" data-placement="top" title="{{phone.desc}}" id="label{{phone.symbol}}">{{ phone.symbol }}</label>
+                                                    <label class="btn btn-link shadow-none ipa-button ipa p-1" for="btncheck{{phone.symbol}}" placement="top" ngbTooltip="{{phone.desc}}" id="label{{phone.symbol}}">{{ phone.symbol }}</label>
                                                 </ng-container>
                                                 <ng-template #noButton>
                                                     <ng-container *ngIf="phone.symbol != ''; else isNull">
-                                                        <div class="p-1 ipa ipa-td" data-toggle="tooltip" data-placement="top" title="{{phone.desc}}">{{ phone.symbol }}</div>
+                                                        <div class="p-1 ipa ipa-td" placement="top" ngbTooltip="{{phone.desc}}">{{ phone.symbol }}</div>
                                                     </ng-container>
                                                     <ng-template #isNull>
                                                         <div class="p-1 ipa ipa-td"></div>
@@ -56,109 +81,76 @@
                 </table>
             </div>
         </div>
-    </div>
-    <hr class="consonant-class-divider mx-5 my-3"/>
-    <div class="row d-flex align-items-center py-3 px-5">
-        <div class="col-sm-4">
-            <h4>Coarticulated and other pulmonic</h4>
-        </div>
-        <div class="vr"></div>
-        <hr class="h4-divider"/>
-        <div class="col-lg-7 d-flex justify-content-center">
+        <div class="tab-pane fade justify-content-center" id="nav-otherp" role="tabpanel" aria-labelledby="nav-otherp-tab" tabindex="0">
             <ng-container *ngFor="let phone of otherPulmonic">
                 <ng-container *ngIf="phone.clickable">
                     <input type="checkbox" class="btn-check custom-check" id="btncheck{{phone.symbol}}" (change)="ipaCheck($event, phone)" autocomplete="off">
-                    <label class="btn btn-link shadow-none ipa-button ipa p-1 m-1" for="btncheck{{phone.symbol}}" data-toggle="tooltip" data-placement="top" title="{{phone.desc}}" id="label{{phone.symbol}}">{{ phone.symbol }}</label>
+                    <label class="btn btn-link shadow-none ipa-button ipa p-1 m-1" for="btncheck{{phone.symbol}}" placement="top" ngbTooltip="{{phone.desc}}" id="label{{phone.symbol}}">{{ phone.symbol }}</label>
                 </ng-container>
                 <ng-container *ngIf="!phone.clickable">
-                    <div class="p-1 m-1 ipa ipa-td" data-toggle="tooltip" data-placement="top" title="{{phone.desc}}">{{ phone.symbol }}</div>
+                    <div class="p-1 m-1 ipa ipa-td" placement="top" ngbTooltip="{{phone.desc}}">{{ phone.symbol }}</div>
                 </ng-container>
             </ng-container>
         </div>
-    </div>
-    <hr class="consonant-class-divider mx-5 my-3"/>
-    <div class="row d-flex align-items-center py-3 px-5">
-        <div class="col-sm-4">
-            <h4>Implosives</h4>
-        </div>
-        <div class="vr"></div>
-        <hr class="h4-divider"/>
-        <div class="col-lg-7 d-flex justify-content-center">
+        <div class="tab-pane fade justify-content-center" id="nav-implosives" role="tabpanel" aria-labelledby="nav-implosives-tab" tabindex="0">
             <ng-container *ngFor="let phone of implosives">
                 <ng-container *ngIf="phone.clickable">
                     <input type="checkbox" class="btn-check custom-check" id="btncheck{{phone.symbol}}" (change)="ipaCheck($event, phone)" autocomplete="off">
-                    <label class="btn btn-link shadow-none ipa-button ipa p-1 m-1" for="btncheck{{phone.symbol}}" data-toggle="tooltip" data-placement="top" title="{{phone.desc}}" id="label{{phone.symbol}}">{{ phone.symbol }}</label>
+                    <label class="btn btn-link shadow-none ipa-button ipa p-1 m-1" for="btncheck{{phone.symbol}}" placement="top" ngbTooltip="{{phone.desc}}" id="label{{phone.symbol}}">{{ phone.symbol }}</label>
                 </ng-container>
                 <ng-container *ngIf="!phone.clickable">
-                    <div class="p-1 m-1 ipa ipa-td" data-toggle="tooltip" data-placement="top" title="{{phone.desc}}">{{ phone.symbol }}</div>
+                    <div class="p-1 m-1 ipa ipa-td" placement="top" ngbTooltip="{{phone.desc}}">{{ phone.symbol }}</div>
                 </ng-container>
             </ng-container>
         </div>
-    </div>
-    <hr class="consonant-class-divider mx-5 my-3"/>
-    <div class="row d-flex align-items-center py-3 px-5">
-        <div class="col-sm-4">
-            <h4>Ejectives</h4>
-        </div>
-        <div class="vr"></div>
-        <hr class="h4-divider"/>
-        <div class="col-lg-7 d-flex justify-content-center">
+        <div class="tab-pane fade justify-content-center" id="nav-ejectives" role="tabpanel" aria-labelledby="nav-ejectives-tab" tabindex="0">
             <ng-container *ngFor="let phone of ejectives">
                 <ng-container *ngIf="phone.clickable">
                     <input type="checkbox" class="btn-check custom-check" id="btncheck{{phone.symbol}}" (change)="ipaCheck($event, phone)" autocomplete="off">
-                    <label class="btn btn-link shadow-none ipa-button ipa p-1 m-1" for="btncheck{{phone.symbol}}" data-toggle="tooltip" data-placement="top" title="{{phone.desc}}" id="label{{phone.symbol}}">{{ phone.symbol }}</label>
+                    <label class="btn btn-link shadow-none ipa-button ipa p-1 m-1" for="btncheck{{phone.symbol}}" placement="top" ngbTooltip="{{phone.desc}}" id="label{{phone.symbol}}">{{ phone.symbol }}</label>
                 </ng-container>
                 <ng-container *ngIf="!phone.clickable">
-                    <div class="p-1 m-1 ipa ipa-td" data-toggle="tooltip" data-placement="top" title="{{phone.desc}}">{{ phone.symbol }}</div>
+                    <div class="p-1 m-1 ipa ipa-td" placement="top" ngbTooltip="{{phone.desc}}">{{ phone.symbol }}</div>
                 </ng-container>
             </ng-container>
         </div>
-    </div>
-    <hr class="consonant-class-divider mx-5 my-3"/>
-    <div class="row d-flex align-items-center py-3 px-5">
-        <div class="col-sm-4">
-            <h4>Clicks</h4>
-        </div>
-        <div class="vr"></div>
-        <hr class="h4-divider"/>
-        <div class="col-lg-7 d-flex justify-content-center">
+        <div class="tab-pane fade justify-content-center" id="nav-clicks" role="tabpanel" aria-labelledby="nav-clicks-tab" tabindex="0">
             <ng-container *ngFor="let phone of clicks">
                 <ng-container *ngIf="phone.clickable">
                     <input type="checkbox" class="btn-check custom-check" id="btncheck{{phone.symbol}}" (change)="ipaCheck($event, phone)" autocomplete="off">
-                    <label class="btn btn-link shadow-none ipa-button ipa p-1 m-1" for="btncheck{{phone.symbol}}" data-toggle="tooltip" data-placement="top" title="{{phone.desc}}" id="label{{phone.symbol}}">{{ phone.symbol }}</label>
+                    <label class="btn btn-link shadow-none ipa-button ipa p-1 m-1" for="btncheck{{phone.symbol}}" placement="top" ngbTooltip="{{phone.desc}}" id="label{{phone.symbol}}">{{ phone.symbol }}</label>
                 </ng-container>
                 <ng-container *ngIf="!phone.clickable">
-                    <div class="p-1 m-1 ipa ipa-td" data-toggle="tooltip" data-placement="top" title="{{phone.desc}}">{{ phone.symbol }}</div>
+                    <div class="p-1 m-1 ipa ipa-td" placement="top" ngbTooltip="{{phone.desc}}">{{ phone.symbol }}</div>
                 </ng-container>
             </ng-container>
         </div>
-    </div>
-    <hr class="phone-class-divider mx-3 my-4"/>
-    <h3>Vowels</h3>
-    <div class="table-responsive d-flex justify-content-center">
-        <table class="table-borderless">
-            <tbody>
-                <ng-container *ngFor="let row of vowelTable; let i = index">
-                    <tr>
-                        <ng-container *ngFor="let position of row; let j = index">
-                            <td>
-                                <div class="btn-group m-1" role="group">
-                                    <ng-container *ngFor="let phone of position; let k = index">
-                                        <ng-container *ngIf="phone.clickable">
-                                            <input type="checkbox" class="btn-check custom-check" id="btncheck{{phone.symbol}}" (change)="ipaCheck($event, phone)" autocomplete="off">
-                                            <label class="btn btn-link shadow-none ipa-button ipa p-1" for="btncheck{{phone.symbol}}" data-toggle="tooltip" data-placement="top" title="{{phone.desc}}" id="label{{phone.symbol}}">{{ phone.symbol }}</label>
-                                        </ng-container>
-                                        <ng-container *ngIf="!phone.clickable">
-                                            <div class="p-1 ipa ipa-td" data-toggle="tooltip" data-placement="top" title="{{phone.desc}}">{{ phone.symbol }}</div>
-                                        </ng-container>
-                                    </ng-container>
-                                </div>
-                            </td>
+        <div class="tab-pane fade justify-content-center" id="nav-vowels" role="tabpanel" aria-labelledby="nav-vowels-tab" tabindex="0">
+            <div class="table-responsive d-flex justify-content-center">
+                <table class="table-borderless">
+                    <tbody>
+                        <ng-container *ngFor="let row of vowelTable; let i = index">
+                            <tr>
+                                <ng-container *ngFor="let position of row; let j = index">
+                                    <td>
+                                        <div class="btn-group m-1" role="group">
+                                            <ng-container *ngFor="let phone of position; let k = index">
+                                                <ng-container *ngIf="phone.clickable">
+                                                    <input type="checkbox" class="btn-check custom-check" id="btncheck{{phone.symbol}}" (change)="ipaCheck($event, phone)" autocomplete="off">
+                                                    <label class="btn btn-link shadow-none ipa-button ipa p-1" for="btncheck{{phone.symbol}}" placement="top" ngbTooltip="{{phone.desc}}" id="label{{phone.symbol}}">{{ phone.symbol }}</label>
+                                                </ng-container>
+                                                <ng-container *ngIf="!phone.clickable">
+                                                    <div class="p-1 ipa ipa-td" placement="top" ngbTooltip="{{phone.desc}}">{{ phone.symbol }}</div>
+                                                </ng-container>
+                                            </ng-container>
+                                        </div>
+                                    </td>
+                                </ng-container>
+                            </tr>
                         </ng-container>
-                    </tr>
-                </ng-container>
-            </tbody>
-        </table>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
-    <hr class="phone-class-divider mx-3 my-4"/>
 </div>

@@ -1,19 +1,31 @@
-.vr{
-    padding: 0;
+#sound-picker {
+    background-color: var(--dark-color-fg);
+    align-self: center;
 }
 
-#sound-picker .row{
-    justify-content: space-around;
+#picker-dropdown .dropdown-item {
+    word-wrap: break-word;
 }
 
-@media screen and (max-width: 992px  /* 992 because of the Bootstrap lg breakpoint */) {
-    .vr{
-        display: none;
+#no-of-choices-wrapper {
+    width: max-content;
+}
+
+#no-of-choices-wrapper > * {
+    width: 10rem;
+}
+
+#sound-picker-container button {
+    height: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+    #main-buttons, #main-buttons .btn, #picker-dropdown {
+        max-width: calc((100vw - var(--closed-sidebar-width)) * 0.75);
+        flex-grow: 0;
     }
-}
-
-@media screen and (min-width: 992px) {
-    hr.h4-divider{
-        display: none;
+    #main-buttons .btn, #picker-dropdown .dropdown-item {
+        display: inline;
+        white-space: normal;
     }
 }

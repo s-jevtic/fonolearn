@@ -1,49 +1,225 @@
+/* You can add global styles to this file, and also import other style files */
 :root{
+    /* made using Mozilla color picker */
+    --dark-color-bg: #12171B;
+    --dark-color-fg: #27343E;
+    --dark-color-text: #DDE3E7;
+    --dark-color-main: #0A6CAD;
+    --dark-color-main-hl: #0C8ADD;
+    --dark-color-main-sh: #074E7D;
+    --dark-color-pos: #0AAD4B;
+    --dark-color-pos-hl: #0CDD60;
+    --dark-color-pos-sh: #077D36;
+    --dark-color-neg: #AD0A1A;
+    --dark-color-neg-hl: #DD0C21;
+    --dark-color-neg-sh: #7D0713;
+    --dark-color-neu: #535D64;
+    --dark-color-neu-hl: #6A777F;
+    --dark-color-neu-sh: #3C4348;
+
+    --light-color-bg: #DDE3E7;
+    --light-color-fg: #E4E5E6;
+    --light-color-text: #18191A;
+
+    --bs-border-radius: 0.1825rem;
+    --bs-border-radius-sm: 0.125rem;
+    --bs-border-radius-lg: 0.25rem;
+    --bs-border-radius-xl: 0.5rem;
+    --bs-border-radius-2xl: 1rem;
+
     --closed-sidebar-width: calc(35px + 3rem);
     --link-width: 15rem; /* maybe remove the constants and make the width automatic in the future? */
     --open-sidebar-width: calc(var(--closed-sidebar-width) + var(--link-width));
 }
 
-
-html{
-    font-family: 'DejaVu Sans', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
-    height: 100%;
-}
-
 body{
-    height: 100%;
+    font-family: 'DejaVu Sans', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+    text-align: center;
+    color: var(--dark-color-text) !important;
+    min-height: 100vh;
 }
 
 .ipa{
-    font-family: 'DejaVu Serif';
-    /*background-color: black;*/
+    font-family: 'IPA Kiel', 'Doulos SIL', 'DejaVu Serif';
     text-align: center;
+    font-size: large;
 }
 
 header{
-    color: #212529;
+    color: var(--light-color-text);
 }
 
 main {
     text-align: center;
-    color: white;
+    color: var(--dark-color-text) !important;
+    height: 100%;
 }
 
-.ipa{
-    font-family: 'IPA Kiel', 'DejaVu Serif';
-    font-size: large;
+.bg-light {
+    background-color: var(--light-color-bg) !important;
 }
 
-.ipa-button {
-    height: 35px;
-    width: 35px;
-    text-align: center;
-    color: --bs-color-success;
-    text-decoration: none;
+.bg-dark {
+    background-color: var(--dark-color-bg) !important;
+}
+
+.btn {
+    border: none;
+    --bs-btn-border-radius: 0;
+}
+
+.btn-primary {
+    background-color: var(--dark-color-main) !important;
+    border: 5px solid transparent !important;
+}
+.btn-primary:hover {
+    border: 5px solid var(--dark-color-main-hl) !important;
+}
+.btn-primary:focus {
+    border: 5px solid var(--dark-color-main-sh) !important;
+}
+
+.btn-success {
+    background-color: var(--dark-color-pos) !important;
+    border: 5px solid transparent !important;
+}
+.btn-success:hover {
+    border: 5px solid var(--dark-color-pos-hl) !important;
+}
+.btn-success:focus {
+    border: 5px solid var(--dark-color-pos-sh) !important;
+}
+
+.btn-danger {
+    background-color: var(--dark-color-neg) !important;
+    border: 5px solid transparent !important;
+}
+.btn-danger:hover {
+    border: 5px solid var(--dark-color-neg-hl) !important;
+}
+.btn-danger:focus {
+    border: 5px solid var(--dark-color-neg-sh) !important;
+}
+
+.btn-secondary {
+    background-color: var(--dark-color-neu) !important;
+    border: 5px solid transparent !important;
+}
+.btn-secondary:hover {
+    border: 5px solid var(--dark-color-neu-hl) !important;
+}
+.btn-secondary:focus {
+    border: 5px solid var(--dark-color-neu-sh) !important;
+}
+
+.btn-link {
+    color: var(--dark-color-main) !important;
+    border: 5px solid transparent !important;
+}
+.btn-link:hover {
+    color: var(--dark-color-main-hl) !important;
+}
+.btn-link:focus {
+    border: 5px solid var(--dark-color-main-sh) !important;
 }
 
 .ipa-td {
-    height: 35px;
-    width: 35px;
+    height: 2.5rem;
+    width: 2.5rem;
     text-align: center;
+}
+
+.guess-btn {
+    width: 3rem;
+    height: 3rem;
+}
+
+.alert-danger {
+    background-color: var(--dark-color-neg-hl);
+    border-color: var(--dark-color-neg-sh);
+    border-radius: 0;
+    color: var(--light-color-text);
+}
+
+#ipa-vspace {
+    height: 1rem;
+}
+
+#begin-button, #begin-button-disabled, #soundSetPicker {
+    width: 20rem;
+}
+
+.dropdown-menu {
+    border-radius: 0;
+}
+.dropdown-menu.bg-dark {
+    border-color: var(--dark-color-neu-hl);
+    background-color: var(--dark-color-bg);
+    color: var(--dark-color-text);
+}
+.dropdown-menu.bg-dark .dropdown-item {
+    color: var(--dark-color-text);
+}
+.dropdown-menu.bg-dark .dropdown-item:hover {
+    background-color: var(--dark-color-neu-hl);
+}
+
+.nav-tabs {
+    color: var(--dark-color-main);
+    --bs-nav-tabs-border-color: var(--light-color-bg);
+    --bs-nav-tabs-border-radius: 0;
+    --bs-nav-tabs-link-hover-border-color: var(--dark-color-main-hl);
+    --bs-nav-tabs-link-active-color: var(--light-color-text);
+    --bs-nav-tabs-link-active-bg: var(--light-color-bg);
+    --bs-nav-tabs-link-active-border-color: var(--dark-color-main-sh);
+}
+
+.ipa-button {
+    height: 2.5rem;
+    width: 2.5rem;
+    text-align: center;
+    text-decoration: none;
+    --bs-btn-border-radius: 0.375rem !important;
+}
+.ipa-button.btn-link {
+    color: var(--dark-color-main-hl) !important;
+}
+.ipa-button.btn-link:hover {
+    color: var(--dark-color-main) !important;
+}
+.ipa-button.btn-link:active {
+    color: var(--dark-color-main-sh) !important;
+}
+
+.form-control {
+    border-radius: 0;
+}
+.bg-light .form-control {
+    border-color: var(--dark-color-neu-hl);
+    background-color: var(--light-color-fg);
+    color: var(--light-color-text);
+}
+.bg-dark .form-control {
+    border-color: var(--dark-color-neu-sh);
+    background-color: var(--dark-color-fg);
+    color: var(--dark-color-text);
+}
+
+.bg-light .form-text {
+    color: var(--dark-color-neu-sh);
+}
+.bg-dark .form-text{
+    color: var(--dark-color-neu-hl);
+}
+
+a {
+    color: var(--dark-color-main);
+}
+
+a:hover {
+    color: var(--dark-color-main-hl);
+}
+
+a:active {
+    color: var(--dark-color-main-sh);
 }
