@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PhoneDataService } from '../phone-data.service';
 import { Phone } from '../phones/phone';
@@ -86,6 +86,11 @@ export class IpaComponent implements OnInit {
     else this.clicked[arg] = 1;
     if (!this.tried) this.totalCount++;
     this.tried = true;
+  }
+
+  @HostListener('document:keypress', ['$event'])
+  selectAnswerKeyboard(event: KeyboardEvent): void {
+    if (isFinite(Number(event.key)) && Number(event.key) <= this.randomPhones.length && Number(event.key) >= 1) this.checkAnswer(Number(event.key) - 1);
   }
 
   noneSelected: boolean;
