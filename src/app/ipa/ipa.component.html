@@ -5,10 +5,10 @@
         </div>
         <div class="d-flex justify-content-center my-3">
             <button class="btn btn-lg btn-primary mx-1" *ngIf="guessed" (click)="newGuess()">Proceed</button>
-            <button class="btn btn-lg btn-secondary mx-1" type="button" *ngIf="listened" (click)="playSound()">Listen again</button>
+            <button class="btn btn-lg btn-secondary mx-1" type="button" (click)="playSound()">Listen again</button>
         </div>
         <div class="align-content-center my-4">
-            <div class="d-inline-flex align-content-center mb-3" *ngIf="listened">
+            <div class="d-md-flex justify-content-center mb-3">
                 <ng-container *ngFor="let p of randomPhones; let i = index">
                     <button class="btn ipa guess-btn m-3 py-1" [ngClass]="{'btn-primary' : clicked[i] == 0, 'btn-danger' : clicked[i] == 1, 'btn-success' : clicked[i] == 2}" type="button" (click)="checkAnswer(i)">{{ p.symbol }}</button>
                 </ng-container>
@@ -18,6 +18,9 @@
                     <p class="mb-0" *ngIf="guessed">Correct!</p>
                     <p class="mb-0" *ngIf="!guessed">Try again...</p>
                 </ng-container>
+            </div>
+            <div class="d-flex justify-content-center text-light mt-3">
+                <button class="btn btn-warning mx-3" id="hintbutton" type="button" ngbPopover="{{this.randomPhones[this.correctIndex].desc}}" placement="right">Hint</button>
             </div>
         </div>
     </ng-container>
@@ -33,3 +36,4 @@
         <a class="btn btn-lg btn-link mx-3" type="button" href="">Exit</a>
     </div>
 </div>
+

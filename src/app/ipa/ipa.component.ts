@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PhoneDataService } from '../phone-data.service';
 import { Phone } from '../phones/phone';
@@ -42,16 +42,17 @@ export class IpaComponent implements OnInit {
       this.noneSelected = false;
       this.newGuess();
     }
+
   }
 
   newGuess(): void {
-    this.listened = false;
     this.guessed = false;
     this.tried = false;
     this.clicked = Array<number>(this.noOfChoices).fill(0);
     this.arg = -1;
     this.genRandomSymbols();
     this.playSound();
+    // document.getElementById("hintbutton")?.setAttribute("cPopover", this.randomPhones[this.correctIndex].desc);
   }
 
   guessedCount = 0;
@@ -76,8 +77,6 @@ export class IpaComponent implements OnInit {
 
     audio.load();
     audio.play();
-
-    this.listened = true;
   }
 
   checkAnswer(arg: number) {
@@ -93,9 +92,13 @@ export class IpaComponent implements OnInit {
     this.tried = true;
   }
 
+  @HostListener('document:keypress', ['$event'])
+  selectAnswerKeyboard(event: KeyboardEvent): void {
+    if (isFinite(Number(event.key)) && Number(event.key) <= this.randomPhones.length && Number(event.key) >= 1) this.checkAnswer(Number(event.key) - 1);
+  }
+
   noneSelected: boolean;
 
-  listened: boolean;
   tried: boolean;
   guessed: boolean;
   arg: number;
