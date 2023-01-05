@@ -30,7 +30,6 @@ main{ /* all of those are necessary for main content to have full height */
     display: flex;
     height: 100%;
     width: 100%;
-    /* align-items: stretch; */
 }
 
 #content{
@@ -41,9 +40,10 @@ main{ /* all of those are necessary for main content to have full height */
     overflow: hidden;
 }
 
-@media only screen and (max-width: 768px){ /* so that there is enough space for a closed sidebar on mobile */
-    /* #content{
-        max-width: calc(100% - var(--closed-sidebar-width));
-        margin-right: var(--closed-sidebar-width);  
-    } */
+#logo {
+    width: calc(2vw + 5rem);
+}
+
+#title {
+    font-size: calc(1.5vw + 1rem);
 }
