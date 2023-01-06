@@ -1,6 +1,12 @@
 #sound-picker {
     background-color: var(--dark-color-fg);
     align-self: center;
+    display: flex;
+    overflow-x: auto;
+}
+
+#sound-picker > * {
+    margin: auto;
 }
 
 #picker-dropdown .dropdown-item {
