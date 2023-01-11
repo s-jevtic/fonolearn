@@ -2,7 +2,7 @@ import { Component, NgZone, OnInit, ViewChild } from '@angular/core';
 import { AnimationEvent } from '@angular/animations';
 import { sidebarAnimation } from '../animations';
 import { MenuIconComponent } from '../menu-icon/menu-icon.component';
-import { isMobile } from '../app.component';
+import { CheckMobileService } from '../check-mobile.service';
 import { PhoneDataService } from '../phone-data.service';
 
 @Component({
@@ -13,19 +13,26 @@ import { PhoneDataService } from '../phone-data.service';
 })
 export class UsefulLinksComponent implements OnInit {
 
-  constructor(private zone: NgZone, private phoneDataService: PhoneDataService) { }
+  constructor(private zone: NgZone, private phoneDataService: PhoneDataService, public checkMobileService: CheckMobileService) { }
 
   @ViewChild(MenuIconComponent) menu:MenuIconComponent;
+
+  isMobile: boolean;
 
   ngOnInit(): void {
     this.menuState = 'closed';
     this.show = false;
     this.toggled = false;
     this.sidebarWrapper = document.getElementById("sidebar-wrapper")!;
+    this.checkMobileService.media().subscribe((isMobileArg: boolean) => {
+      this.zone.runOutsideAngular(() => {
+        this.isMobile = isMobileArg;
+      });
+    });
   }
 
   toggleSidebar() {
-    if (isMobile) {
+    if (this.isMobile) {
       this.menuState = this.menuState == 'closed' ? 'open-full' : 'closed';
     }
     else {

@@ -4,9 +4,15 @@
 </header>
 <main role="main">
   <div class="wrapper pb-4">
+    <!--<ng-container *ngIf="isMobile">
+      <app-useful-links></app-useful-links>
+    </ng-container>-->
     <div class="container-fluid" id="content">
       <router-outlet></router-outlet>
     </div>
+    <!--<ng-container *ngIf="!isMobile">
+      <app-useful-links></app-useful-links>
+    </ng-container>-->
     <app-useful-links></app-useful-links>
   </div>
 </main>

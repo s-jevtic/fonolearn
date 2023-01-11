@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
 import { Click } from './phones/click';
 import { consonantList } from './phones/consonants';
 import { Ejective } from './phones/ejective';

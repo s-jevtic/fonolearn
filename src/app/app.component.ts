@@ -1,5 +1,6 @@
 import { Component, NgZone, ViewChild } from '@angular/core';
 import { UsefulLinksComponent } from './useful-links/useful-links.component';
+import { CheckMobileService } from './check-mobile.service';
 
 @Component({
   selector: 'app-root',
@@ -13,33 +14,36 @@ import { UsefulLinksComponent } from './useful-links/useful-links.component';
 export class AppComponent {
   title = 'fonolearn';
 
-  constructor(private zone: NgZone) { }
+  constructor(private zone: NgZone, public checkMobileService: CheckMobileService) { }
 
   @ViewChild(UsefulLinksComponent) sidebar : UsefulLinksComponent;
+
+  isMobile$ = this.checkMobileService.media();
+
+  isMobile: boolean;
   
   ngOnInit() {
     let mobileMQ = matchMedia('(max-width: 768px)');
-    isMobile = mobileMQ.matches;
+    this.isMobile = mobileMQ.matches;
 
-    if (isMobile) {
+    if (this.isMobile) {
       document.getElementById("content")!.style.setProperty("margin-left", "0");
     }
     else {
       document.getElementById("content")!.style.setProperty("margin-left", "var(--closed-sidebar-width)");
     }
 
-    mobileMQ.addEventListener("change",
-      mobileMQ => {
-        this.zone.runOutsideAngular(() => {
-          isMobile = mobileMQ.matches;
-          this.MQChange();
-        });
-      }
-    );
+    // subscribe to the behavior subject
+    this.checkMobileService.media().subscribe((isMobileArg: boolean) => {
+      this.zone.runOutsideAngular(() => {
+        this.isMobile = isMobileArg;
+        this.MQChange();
+      });
+    });
   }
 
   public MQChange() {
-    if (isMobile) {
+    if (this.isMobile) {
       document.getElementById("content")!.style.setProperty("margin-left", "0");
     }
     else {
@@ -54,5 +58,3 @@ export class AppComponent {
     window.location.assign('ipa');
   }
 }
-
-export var isMobile: boolean;
