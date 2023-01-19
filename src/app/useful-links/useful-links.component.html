@@ -1,8 +1,23 @@
-<div (swipeLeft)="onLeftSwipe($event)" (swipeRight)="onRightSwipe($event)" [@openClose]="menuState" (@openClose.start)="animationStartEvent($event)" (@openClose.done)="animationDoneEvent($event)" class="border-end bg-light px-0" id="sidebar-wrapper">
-   <app-menu-icon (click)="toggleSidebar()"></app-menu-icon> 
+<div (swipeDown)="onDownSwipe($event)" (swipeUp)="onUpSwipe($event)" [@openClose]="menuState" (@openClose.start)="animationStartEvent($event)" (@openClose.done)="animationDoneEvent($event)" class="border-end bg-light px-0" id="sidebar-wrapper">
+    <app-menu-icon (click)="toggleSidebar()" *ngIf="!isMobile; else largeScreen"></app-menu-icon>
+    <ng-template #largeScreen>
+        <div id="dropdown-text" class="m-2 p-2" (click)="toggleSidebar()">
+            <div class="dropdown-triangle-wrapper">
+                <svg class="dropdown-triangle">
+                    <polygon points="0,0 20,0 10,10" />
+                </svg>
+            </div>
+            <h6>Useful links</h6>
+            <div class="dropdown-triangle-wrapper">
+                <svg class="dropdown-triangle">
+                    <polygon points="0,0 20,0 10,10" />
+                </svg>
+            </div>
+        </div>
+    </ng-template>
     <div class="px-0" id="sidebar">
-        <div class="pt-3 pb-4 me-3" id="links-menu" [attr.hidden]="show? null : true"> <!--[attr.hidden] instead of *ngIf because we need the element to exist-->
-            <h2 class="my-3">Useful links</h2>
+        <div class="pt-3 pb-4 me-3" id="links-menu" [hidden]="!show"> <!--[attr.hidden] instead of *ngIf because we need the element to exist-->
+            <h2 class="my-3" *ngIf="!isMobile">Useful links</h2>
             <a href="https://www.internationalphoneticassociation.org/content/full-ipa-chart">Official full IPA chart</a> <br class="mb-3"/>
             <a href="https://www.ipachart.com">Interactive IPA chart</a> <br class="mb-3" />
             <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet">IPA Wikipedia article</a> <br class="mb-1"/>

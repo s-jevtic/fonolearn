@@ -7,7 +7,7 @@ import { CheckMobileService } from './check-mobile.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   animations: [
-    
+
   ]
 })
 
@@ -16,13 +16,15 @@ export class AppComponent {
 
   constructor(private zone: NgZone, public checkMobileService: CheckMobileService) { }
 
-  @ViewChild(UsefulLinksComponent) sidebar : UsefulLinksComponent;
+  @ViewChild(UsefulLinksComponent, {static: true}) sidebar : UsefulLinksComponent;
+  //static: true is needed because the component is referenced in ngOnInit (source: stackoverflow)
 
   isMobile$ = this.checkMobileService.media();
 
   isMobile: boolean;
-  
+
   ngOnInit() {
+    console.log(this.sidebar);
     let mobileMQ = matchMedia('(max-width: 768px)');
     this.isMobile = mobileMQ.matches;
 
@@ -49,8 +51,12 @@ export class AppComponent {
     else {
       document.getElementById("content")!.style.setProperty("margin-left", "var(--closed-sidebar-width)");
     }
-    if (this.sidebar.menuState != 'closed') {
-      this.sidebar.menuState = this.sidebar.menuState == 'open'? 'open-full' : 'open';
+
+    if (this.sidebar.menuState == 'open' || this.sidebar.menuState == 'open-m') {
+      this.sidebar.menuState = this.sidebar.menuState == 'open'? 'open-m' : 'open';
+    }
+    if (this.sidebar.menuState == 'closed' || this.sidebar.menuState == 'closed-m') {
+      this.sidebar.menuState = this.sidebar.menuState == 'closed'? 'closed-m' : 'closed';
     }
   }
 

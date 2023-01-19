@@ -2,23 +2,32 @@ import { animate, state, style, transition, trigger } from "@angular/animations"
 
 export const sidebarAnimation = trigger('openClose', [
     state('open', style({
-      width: 'calc(35px + 16rem)',
+        bottom: 0,
+        width: 'calc(35px + 16rem)',
     })),
-    state('open-full', style({
-      width: '100vw'
-    })),
+    //state('open-full', style({
+      //width: '100vw'
+    //})),
     state('closed', style({
-      width: 'calc(35px + 3rem)',
+        bottom: 0,
+        width: 'calc(35px + 3rem)',
+    })),
+    state('open-m', style({
+        left: 0,
+        bottom: 0,
+    })),
+    state('closed-m', style({
+        left: 0,
     })),
     transition('open <=> closed', [
-      animate('0.3s ease-in-out')
+      animate('0.3s ease-in-out'),
     ]),
-    transition('open-full <=> closed', [
-      animate('0.3s ease-in-out')
+    transition('open-m <=> closed-m', [
+      animate('0.3s ease-in-out'),
     ]),
-    transition('open-full <=> open', [
-      animate('0.1s ease-in-out')
-    ])
+    //transition('open-full <=> open', [
+      //animate('0.1s ease-in-out')
+    //])
 ]);
 
 export const menuIconAnimation = trigger('changeIcon', [

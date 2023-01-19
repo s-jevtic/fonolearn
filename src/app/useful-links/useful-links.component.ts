@@ -3,7 +3,6 @@ import { AnimationEvent } from '@angular/animations';
 import { sidebarAnimation } from '../animations';
 import { MenuIconComponent } from '../menu-icon/menu-icon.component';
 import { CheckMobileService } from '../check-mobile.service';
-import { PhoneDataService } from '../phone-data.service';
 
 @Component({
   selector: 'app-useful-links',
@@ -13,14 +12,14 @@ import { PhoneDataService } from '../phone-data.service';
 })
 export class UsefulLinksComponent implements OnInit {
 
-  constructor(private zone: NgZone, private phoneDataService: PhoneDataService, public checkMobileService: CheckMobileService) { }
+  constructor(private zone: NgZone, public checkMobileService: CheckMobileService) { }
 
-  @ViewChild(MenuIconComponent) menu:MenuIconComponent;
+  @ViewChild(MenuIconComponent, {static: true}) menu: MenuIconComponent;
+  //static: true is needed because the component is referenced in ngOnInit (source: stackoverflow)
 
   isMobile: boolean;
 
   ngOnInit(): void {
-    this.menuState = 'closed';
     this.show = false;
     this.toggled = false;
     this.sidebarWrapper = document.getElementById("sidebar-wrapper")!;
@@ -29,11 +28,12 @@ export class UsefulLinksComponent implements OnInit {
         this.isMobile = isMobileArg;
       });
     });
+    this.menuState = this.isMobile? 'closed-m' : 'closed';
   }
 
   toggleSidebar() {
     if (this.isMobile) {
-      this.menuState = this.menuState == 'closed' ? 'open-full' : 'closed';
+      this.menuState = this.menuState == 'closed-m' ? 'open-m' : 'closed-m';
     }
     else {
       this.menuState = this.menuState == 'closed' ? 'open' : 'closed';
@@ -43,7 +43,7 @@ export class UsefulLinksComponent implements OnInit {
   }
 
   animationStartEvent(event: AnimationEvent) {
-    if (event.fromState == 'closed' || (event.toState == 'closed' && event.fromState != 'void')) {
+    if ((event.fromState == 'closed' || (event.toState == 'closed' && event.fromState != 'void')) && this.menu) {
       this.menu.changeIcon();
     }
     if(!this.toggled) {
@@ -57,21 +57,21 @@ export class UsefulLinksComponent implements OnInit {
     }
   }
 
-  onLeftSwipe(evt: Event) {
-    if (this.menuState == 'closed') {
+  onDownSwipe(evt: Event) {
+    if ((this.menuState == 'closed') || (this.menuState == 'closed-m')) {
       this.toggleSidebar();
     }
   }
 
-  onRightSwipe(evt: Event) {
-    if (this.menuState !== 'closed') {
+  onUpSwipe(evt: Event) {
+    if ((this.menuState == 'open') || (this.menuState == 'open-m')) {
       this.toggleSidebar();
     }
   }
 
-  mainMenuActive(): boolean {
-    return document.getElementById("sound-picker-container")? true : false; // kind of a workaround, checking if an element *inside* the main menu exists
-  }
+  //mainMenuActive(): boolean {
+    //return document.getElementById("sound-picker-container")? true : false; // kind of a workaround, checking if an element *inside* the main menu exists
+  //}
 
   menuState: string;
   show: boolean;
