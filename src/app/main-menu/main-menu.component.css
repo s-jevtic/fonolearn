@@ -27,7 +27,7 @@
 
 @media only screen and (max-width: 768px) {
     #main-buttons, #main-buttons .btn, #picker-dropdown {
-        max-width: calc((100vw - var(--closed-sidebar-width)) * 0.75);
+        /*max-width: calc((100vw - var(--closed-sidebar-width)) * 0.75);*/
         flex-grow: 0;
     }
     #main-buttons .btn, #picker-dropdown .dropdown-item {

@@ -1,5 +1,5 @@
 .row {
-    margin:0px !important; 
+    margin:0px !important;
 }
 
 .main-content>* {
@@ -36,7 +36,8 @@ main{ /* all of those are necessary for main content to have full height */
     align-items: center;
     color: var(--dark-color-text) !important;
     flex: 1 1 auto;
-    margin: 0 var(--closed-sidebar-width);
+    /*margin: 0 var(--closed-sidebar-width);*/
+    margin: var(--closed-dropdown-height) 0;
     overflow: hidden;
 }
 

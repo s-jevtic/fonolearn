@@ -2,22 +2,19 @@ import { animate, state, style, transition, trigger } from "@angular/animations"
 
 export const sidebarAnimation = trigger('openClose', [
     state('open', style({
-        bottom: 0,
         width: 'calc(35px + 16rem)',
     })),
     //state('open-full', style({
       //width: '100vw'
     //})),
     state('closed', style({
-        bottom: 0,
         width: 'calc(35px + 3rem)',
     })),
     state('open-m', style({
-        left: 0,
-        bottom: 0,
+        height: '12rem',
     })),
     state('closed-m', style({
-        left: 0,
+        height: '3rem',
     })),
     transition('open <=> closed', [
       animate('0.3s ease-in-out'),
