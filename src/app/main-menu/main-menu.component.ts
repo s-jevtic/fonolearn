@@ -63,30 +63,30 @@ export class MainMenuComponent implements OnInit {
       this.phoneChecked.set(p, false);
     })
 
-    let mobileMQ = matchMedia('(max-width: 768px)');
+    //let mobileMQ = matchMedia('(max-width: 768px)');
 
-    if (mobileMQ.matches) {
-      this.zone.run(() => {
-        document.getElementById("main-buttons")?.classList.remove('btn-group');
-        document.getElementById("main-buttons")?.classList.add('btn-group-vertical');
-      });
-    }
+    //if (mobileMQ.matches) {
+      //this.zone.run(() => {
+        //document.getElementById("main-buttons")?.classList.remove('btn-group');
+        //document.getElementById("main-buttons")?.classList.add('btn-group-vertical');
+      //});
+    //}
 
-    mobileMQ.addEventListener("change",
-      mobileMQ => {
-        if (mobileMQ.matches) {
-          this.zone.run(() => {
-            document.getElementById("main-buttons")?.classList.remove('btn-group');
-            document.getElementById("main-buttons")?.classList.add('btn-group-vertical');
-          });
-        }
-        else {
-          this.zone.run(() => {
-            document.getElementById("main-buttons")?.classList.remove('btn-group-vertical');
-            document.getElementById("main-buttons")?.classList.add('btn-group');
-          });
-        }
-      });
+    //mobileMQ.addEventListener("change",
+      //mobileMQ => {
+        //if (mobileMQ.matches) {
+          //this.zone.run(() => {
+            //document.getElementById("main-buttons")?.classList.remove('btn-group');
+            //document.getElementById("main-buttons")?.classList.add('btn-group-vertical');
+          //});
+        //}
+        //else {
+          //this.zone.run(() => {
+            //document.getElementById("main-buttons")?.classList.remove('btn-group-vertical');
+            //document.getElementById("main-buttons")?.classList.add('btn-group');
+          //});
+        //}
+      //});
 
   }
 

@@ -45,7 +45,7 @@ body{
 .ipa{
     font-family: 'IPA Kiel', 'Doulos SIL', 'DejaVu Serif';
     text-align: center;
-    font-size: large;
+    font-size: 1.5rem;
 }
 
 header{
@@ -126,12 +126,6 @@ main {
     border: 5px solid var(--dark-color-main-sh) !important;
 }
 
-.ipa-td {
-    height: 2.5rem;
-    width: 2.5rem;
-    text-align: center;
-}
-
 .guess-btn {
     width: 3rem;
     height: 3rem;
@@ -146,10 +140,6 @@ main {
 
 #ipa-vspace {
     height: 1rem;
-}
-
-#begin-button, #begin-button-disabled, #soundSetPicker {
-    width: 20rem;
 }
 
 .dropdown-menu {

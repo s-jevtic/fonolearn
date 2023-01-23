@@ -1,3 +1,7 @@
+#sound-picker-container nav {
+    width: fit-content;
+}
+
 #sound-picker {
     background-color: var(--dark-color-fg);
     align-self: center;
@@ -23,6 +27,16 @@
 
 #sound-picker-container button {
     height: 100%;
+}
+
+.ipa-td {
+    height: 3rem;
+    width: 3rem;
+    text-align: center;
+}
+
+#begin-button, #begin-button-disabled, #soundSetPicker {
+    width: 20rem;
 }
 
 @media only screen and (max-width: 768px) {

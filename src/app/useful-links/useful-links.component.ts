@@ -1,4 +1,4 @@
-import { Component, NgZone, OnInit, ViewChild } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
 import { AnimationEvent } from '@angular/animations';
 import { sidebarAnimation, menuIconAnimation } from '../animations';
 import { CheckMobileService } from '../check-mobile.service';
