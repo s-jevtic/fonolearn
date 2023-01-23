@@ -36,8 +36,7 @@ main{ /* all of those are necessary for main content to have full height */
     align-items: center;
     color: var(--dark-color-text) !important;
     flex: 1 1 auto;
-    /*margin: 0 var(--closed-sidebar-width);*/
-    margin: var(--closed-dropdown-height) 0;
+    margin: 0 0 var(--closed-dropdown-height) 0;
     overflow: hidden;
 }
 
@@ -47,4 +46,10 @@ main{ /* all of those are necessary for main content to have full height */
 
 #title {
     font-size: calc(1.5vw + 1rem);
+}
+
+@media only screen and (max-width: 768px) {
+    #content {
+        margin: var(--closed-dropdown-height) 0 0 0;
+    }
 }

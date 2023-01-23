@@ -1,21 +1,16 @@
 import { Component, NgZone, OnInit, ViewChild } from '@angular/core';
 import { AnimationEvent } from '@angular/animations';
-import { sidebarAnimation } from '../animations';
-import { MenuIconComponent } from '../menu-icon/menu-icon.component';
+import { sidebarAnimation, menuIconAnimation } from '../animations';
 import { CheckMobileService } from '../check-mobile.service';
 
 @Component({
   selector: 'app-useful-links',
   templateUrl: './useful-links.component.html',
   styleUrls: ['./useful-links.component.css'],
-  animations: [sidebarAnimation],
+  animations: [sidebarAnimation, menuIconAnimation],
 })
 export class UsefulLinksComponent implements OnInit {
-
   constructor(private zone: NgZone, public checkMobileService: CheckMobileService) { }
-
-  @ViewChild(MenuIconComponent, {static: true}) menu: MenuIconComponent;
-  //static: true is needed because the component is referenced in ngOnInit (source: stackoverflow)
 
   isMobile: boolean;
 
@@ -26,26 +21,21 @@ export class UsefulLinksComponent implements OnInit {
     this.checkMobileService.media().subscribe((isMobileArg: boolean) => {
       this.zone.runOutsideAngular(() => {
         this.isMobile = isMobileArg;
+        this.MQChange();
       });
     });
-    this.menuState = this.isMobile? 'closed-m' : 'closed';
+    this.menuState = 'closed';
+    this.arrowState = this.isMobile? 'downwards' : 'upwards';
   }
 
   toggleSidebar() {
-    if (this.isMobile) {
-      this.menuState = this.menuState == 'closed-m' ? 'open-m' : 'closed-m';
-    }
-    else {
-      this.menuState = this.menuState == 'closed' ? 'open' : 'closed';
-    }
+    this.menuState = this.menuState == 'closed' ? 'open' : 'closed';
+    this.arrowState = this.arrowState == 'upwards' ? 'downwards' : 'upwards';
     this.toggled = !this.toggled;
     this.sidebarWrapper!.classList.toggle("toggled");
   }
 
   animationStartEvent(event: AnimationEvent) {
-    if ((event.fromState == 'closed' || (event.toState == 'closed' && event.fromState != 'void')) && this.menu) {
-      this.menu.changeIcon();
-    }
     if(!this.toggled) {
       this.show = false;
     }
@@ -58,21 +48,25 @@ export class UsefulLinksComponent implements OnInit {
   }
 
   onDownSwipe(evt: Event) {
-    if ((this.menuState == 'closed') || (this.menuState == 'closed-m')) {
+    if (((this.menuState == 'closed') && this.isMobile) || ((this.menuState == 'open') && !this.isMobile)) {
       this.toggleSidebar();
     }
   }
 
   onUpSwipe(evt: Event) {
-    if ((this.menuState == 'open') || (this.menuState == 'open-m')) {
+    if (((this.menuState == 'closed') && !this.isMobile) || ((this.menuState == 'open') && this.isMobile)) {
       this.toggleSidebar();
     }
   }
 
-  //mainMenuActive(): boolean {
-    //return document.getElementById("sound-picker-container")? true : false; // kind of a workaround, checking if an element *inside* the main menu exists
-  //}
+  private MQChange() {
+    //this.MQChanging = true;
+    this.arrowState = this.arrowState == 'upwards' ? 'downwards' : 'upwards';
+    //this.MQChanging = false;
+  }
 
+  MQChanging: boolean;
+  arrowState: string;
   menuState: string;
   show: boolean;
   toggled: boolean;

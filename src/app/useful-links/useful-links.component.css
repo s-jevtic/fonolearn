@@ -2,65 +2,65 @@
     display: flex;
     flex-direction: column;
     position: absolute;
-    right: 0;
     bottom: 0;
-    top: 0;
-    z-index: 1;
+    left: calc((100vw - var(--dropdown-width))/2);
+    right: calc((100vw - var(--dropdown-width))/2);
+    z-index: 5;
 }
 
 #sidebar-wrapper {
+    width: var(--dropdown-width);
+    background-color: var(--dark-color-fg) !important;
     flex-direction: column;
-    min-height: 100%;
-    max-height: max-content;
-    border-top: 1px solid var(--dark-color-neu);
-    color: var(--light-color-text);
+    color: var(--dark-color-text);
+    border-bottom: none;
+    border-top: 1px solid var(--dark-color-text);
+    border-left: 1px solid var(--dark-color-text);
+    border-right: 1px solid var(--dark-color-text);
 }
 
 #menu-icon {
     float: left;
 }
 
-#sidebar {
-    width: var(--link-width);
-    /*min-height: 100%;*/
-    margin: 0;
+.dropdown-triangle-wrapper {
+    justify-content: center;
+    margin: calc(1rem - 50px) 0;
+    width: 2rem;
+}
+
+#dropdown-text {
+    height: var(--closed-dropdown-height);
+}
+
+#dropdown-text p {
+    width: 7.5rem;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#links-menu {
+    margin-right: 0 !important;
+}
+
+.dropdown-triangle {
+    height: 10px;
+    width: 20px;
+    fill: var(--dark-color-text);
 }
 
 @media only screen and (max-width: 768px) {
     :host {
         bottom: unset;
         left: 0;
-        flex-direction: row;
+        right: 0;
     }
     #sidebar-wrapper {
         width: 100%;
-        background-color: var(--dark-color-fg) !important;
-        color: var(--dark-color-text);
         border-top: none;
-    }
-    .dropdown-triangle-wrapper {
-        justify-content: center;
-        width: 2rem;
-    }
-    #dropdown-text {
-        align-content: center;
-        width: max-content;
-        vertical-align: middle;
-    }
-    #dropdown-text p {
-        width: 7.5rem;
-        height: 100%;
-        text-align: center;
-        vertical-align: middle;
-    }
-    .dropdown-triangle {
-        height: 10px;
-        width: 20px;
-        fill: var(--dark-color-text);
-        margin: 0 calc(1rem - 50px);
-    }
-    #links-menu {
-        margin-right: 0 !important;
+        border-left: none;
+        border-right: none;
+        border-bottom: 1px solid var(--dark-color-text);
     }
 }
 

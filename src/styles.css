@@ -32,6 +32,7 @@
     --open-sidebar-width: calc(var(--closed-sidebar-width) + var(--link-width));
     --closed-dropdown-height: 3rem;
     --open-dropdown-height: 12rem;
+    --dropdown-width: 40rem;
 }
 
 body{

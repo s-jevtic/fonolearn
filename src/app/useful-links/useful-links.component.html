@@ -1,27 +1,20 @@
-<div (swipeDown)="onDownSwipe($event)" (swipeUp)="onUpSwipe($event)" [@openClose]="menuState" (@openClose.start)="animationStartEvent($event)" (@openClose.done)="animationDoneEvent($event)" class="wrapper d-flex align-items-center border-end bg-light px-0" id="sidebar-wrapper">
-    <app-menu-icon (click)="toggleSidebar()" *ngIf="!isMobile; else mobile"></app-menu-icon>
-    <ng-template #mobile>
-        <div id="dropdown-text" class="p-2 d-flex justify-content-center align-items-center" (click)="toggleSidebar()">
-            <div class="dropdown-triangle-wrapper">
-                <svg class="dropdown-triangle">
-                    <polygon points="0,0 20,0 10,10" />
-                </svg>
-            </div>
-            <p class="my-0">Useful links</p>
-            <div class="dropdown-triangle-wrapper">
-                <svg class="dropdown-triangle">
-                    <polygon points="0,0 20,0 10,10" />
-                </svg>
-            </div>
+<div (swipeDown)="onDownSwipe($event)" (swipeUp)="onUpSwipe($event)" [@openClose]="menuState" (@openClose.start)="animationStartEvent($event)" (@openClose.done)="animationDoneEvent($event)" class="wrapper d-flex align-items-center bg-dark" id="sidebar-wrapper">
+    <div id="dropdown-text" class="p-2 container-fluid d-flex justify-content-center align-items-center align-self-center" (click)="toggleSidebar()">
+        <div [@changeIcon]="arrowState == 'upwards' ? 'upwards-l' : 'downwards'" class="dropdown-triangle-wrapper">
+            <svg class="dropdown-triangle">
+                <polygon points="0,0 20,0 10,10" />
+            </svg>
         </div>
-    </ng-template>
-    <div class="px-0" id="sidebar" *ngIf="menuState != 'closed-m'">
-        <div class="pt-3 pb-4 me-3" id="links-menu" [hidden]="!show"> <!--[attr.hidden] instead of *ngIf because we need the element to exist-->
-            <h2 class="my-3" *ngIf="!isMobile">Useful links</h2>
-            <a href="https://www.internationalphoneticassociation.org/content/full-ipa-chart">Official full IPA chart</a> <br class="mb-3"/>
-            <a href="https://www.ipachart.com">Interactive IPA chart</a> <br class="mb-3" />
-            <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet">IPA Wikipedia article</a> <!-- <br class="mb-1"/> -->
-            <!--<hr *ngIf="!isMobile" />-->
+        <p class="my-0">Useful links</p>
+        <div [@changeIcon]="arrowState == 'upwards' ? 'upwards-r' : 'downwards'" class="dropdown-triangle-wrapper">
+            <svg class="dropdown-triangle">
+                <polygon points="0,0 20,0 10,10" />
+            </svg>
         </div>
+    </div>
+    <div class="py-3" id="links-menu" [hidden]="!show"> <!--[hidden] instead of *ngIf because we need the element to exist-->
+        <a target="_blank" href="https://www.internationalphoneticassociation.org/content/full-ipa-chart">Official full IPA chart</a> <br class="mb-3"/>
+        <a target="_blank" href="https://www.ipachart.com">Interactive IPA chart</a> <br class="mb-3" />
+        <a target="_blank" href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet">IPA Wikipedia article</a> <br class="mb-1"/>
     </div>
 </div>
