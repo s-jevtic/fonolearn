@@ -1,21 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
 :root{
     /* made using Mozilla color picker */
-    --dark-color-bg: #12171B;
-    --dark-color-fg: #27343E;
+    --dark-color-bg: #12171B; /* background */
+    --dark-color-fg: #27343E; /* foreground */
     --dark-color-text: #DDE3E7;
     --dark-color-main: #0A6CAD;
     --dark-color-main-hl: #0C8ADD;
     --dark-color-main-sh: #074E7D;
-    --dark-color-pos: #0AAD4B;
+    --dark-color-pos: #0AAD4B; /* positive */
     --dark-color-pos-hl: #0CDD60;
     --dark-color-pos-sh: #077D36;
-    --dark-color-neg: #AD0A1A;
+    --dark-color-neg: #AD0A1A; /* negative */
     --dark-color-neg-hl: #DD0C21;
     --dark-color-neg-sh: #7D0713;
-    --dark-color-neu: #535D64;
+    --dark-color-neu: #535D64; /* neutral */
     --dark-color-neu-hl: #6A777F;
     --dark-color-neu-sh: #3C4348;
+    --dark-color-stg: #535D6410; /* semi-transparent gray */
 
     --light-color-bg: #DDE3E7;
     --light-color-fg: #E4E5E6;
@@ -33,6 +34,8 @@
     --closed-dropdown-height: 3rem;
     --open-dropdown-height: 12rem;
     --dropdown-width: 40rem;
+
+    --ipa-button-size: 3rem;
 }
 
 body{
@@ -162,26 +165,9 @@ main {
     --bs-nav-tabs-border-color: var(--light-color-bg);
     --bs-nav-tabs-border-radius: 0;
     --bs-nav-tabs-link-hover-border-color: var(--dark-color-main-hl);
-    --bs-nav-tabs-link-active-color: var(--light-color-text);
-    --bs-nav-tabs-link-active-bg: var(--light-color-bg);
+    --bs-nav-tabs-link-active-color: var(--dark-color-text);
+    --bs-nav-tabs-link-active-bg: var(--dark-color-fg);
     --bs-nav-tabs-link-active-border-color: var(--dark-color-main-sh);
-}
-
-.ipa-button {
-    height: 2.5rem;
-    width: 2.5rem;
-    text-align: center;
-    text-decoration: none;
-    --bs-btn-border-radius: 0.375rem !important;
-}
-.ipa-button.btn-link {
-    color: var(--dark-color-main-hl) !important;
-}
-.ipa-button.btn-link:hover {
-    color: var(--dark-color-main) !important;
-}
-.ipa-button.btn-link:active {
-    color: var(--dark-color-main-sh) !important;
 }
 
 .form-control {

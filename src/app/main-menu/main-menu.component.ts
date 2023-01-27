@@ -10,6 +10,7 @@ import { Vowel } from '../phones/vowel';
 import { VowelRoundedness } from '../phones/roundedness';
 import { PhoneDataService } from '../phone-data.service';
 import { premadeSets } from '../phones/premade-sets';
+import { max } from 'rxjs';
 
 @Component({
   selector: 'app-main-menu',
@@ -44,6 +45,13 @@ export class MainMenuComponent implements OnInit {
       this.pulmonicTable[consonant.manner][consonant.place][consonant.voicing > 0 ? 1 : 0] = consonant;
     }
 
+    const placeCount = [...this.pulmonicTable].sort((b, a) => a.length - b.length)[0].length;
+    for(let manner of this.pulmonicTable) {
+      while(manner.length < placeCount) {
+        manner.push([PulmonicConsonant.NullConsonant, PulmonicConsonant.NullConsonant]);
+      }
+    }
+
     this.vowels = this.phoneDataService.vowels;
 
     this.vowelTable = [[[]]];
@@ -55,6 +63,13 @@ export class MainMenuComponent implements OnInit {
         this.vowelTable[vowel.height].push([Vowel.NullVowel, Vowel.NullVowel]);
       }
       this.vowelTable[vowel.height][vowel.backness][vowel.roundedness != VowelRoundedness.Unrounded ? 1 : 0] = vowel;
+    }
+
+    const backnessCount = [...this.vowelTable].sort((b, a) => a.length - b.length)[0].length;
+    for(let height of this.vowelTable) {
+      while(height.length < backnessCount) {
+        height.push([Vowel.NullVowel, Vowel.NullVowel]);
+      }
     }
 
     this.phoneChecked = new Map<Phone, boolean>();
