@@ -202,3 +202,13 @@ a:hover {
 a:active {
     color: var(--dark-color-main-sh);
 }
+
+nav ul {
+    border-bottom: none !important;
+}
+
+.nav-link.active {
+    border-color: var(--dark-color-text) !important;
+    color: var(--dark-color-text) !important;
+    border-bottom: none !important;
+}

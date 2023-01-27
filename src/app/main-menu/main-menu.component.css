@@ -54,6 +54,7 @@
 }
 
 #consonant-tablist nav {
+    display: inline-block;
     overflow: scroll;
 }
 
@@ -61,9 +62,13 @@ tr {
     width: 100%;
 }
 
-/*tr:nth-child(odd) {*/
-    /*background-color: var(--dark-color-stg);*/
-/*}*/
+#sound-picker {
+    max-width: fit-content;
+}
+
+#sound-picker .tab-pane.show {
+    display: inline-flex;
+}
 
 td:nth-child(odd) {
     background-color: var(--dark-color-stg);

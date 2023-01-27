@@ -10,7 +10,6 @@ import { Vowel } from '../phones/vowel';
 import { VowelRoundedness } from '../phones/roundedness';
 import { PhoneDataService } from '../phone-data.service';
 import { premadeSets } from '../phones/premade-sets';
-import { max } from 'rxjs';
 
 @Component({
   selector: 'app-main-menu',
