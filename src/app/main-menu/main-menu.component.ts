@@ -10,6 +10,11 @@ import { Vowel } from '../phones/vowel';
 import { VowelRoundedness } from '../phones/roundedness';
 import { PhoneDataService } from '../phone-data.service';
 import { premadeSets } from '../phones/premade-sets';
+import { SwiperComponent } from "swiper/angular";
+import SwiperCore, { Pagination, Navigation } from "swiper";
+import { sliceMatrix } from '../../utils';
+
+SwiperCore.use([Pagination, Navigation]);
 
 @Component({
   selector: 'app-main-menu',
@@ -50,6 +55,8 @@ export class MainMenuComponent implements OnInit {
         manner.push([PulmonicConsonant.NullConsonant, PulmonicConsonant.NullConsonant]);
       }
     }
+
+    this.pulmonicTableSliced = sliceMatrix(this.pulmonicTable, 2);
 
     this.vowels = this.phoneDataService.vowels;
 
@@ -235,6 +242,7 @@ export class MainMenuComponent implements OnInit {
   consonants: Phone[];
   pulmonicConsonants: PulmonicConsonant[];
   pulmonicTable: PulmonicConsonant[][][];
+  pulmonicTableSliced: PulmonicConsonant[][][][];
   otherPulmonic: OtherPulmonic[];
   implosives: Implosive[];
   ejectives: Ejective[];

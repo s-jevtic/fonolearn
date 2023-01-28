@@ -48,36 +48,87 @@
         </nav>
         <div class="tab-content container-fluid p-0" id="sound-picker">
             <div class="tab-pane fade show active justify-content-center" id="nav-ptable" role="tabpanel" aria-labelledby="nav-ptable-tab" tabindex="0">
-                <div class="table-responsive d-flex justify-content-center">
-                    <table class="table-borderless">
-                        <tbody>
-                            <ng-container *ngFor="let row of pulmonicTable; let i = index">
-                                <tr>
-                                    <ng-container *ngFor="let position of row; let j = index">
-                                        <td>
-                                            <div class="btn-group m-1" role="group">
-                                                <ng-container *ngFor="let phone of position; let k = index">
-                                                    <ng-container *ngIf="phone.clickable == true; else noButton">
-                                                        <input type="checkbox" class="btn-check custom-check" id="btncheck{{phone.symbol}}" (change)="ipaCheck($event, phone)" autocomplete="off">
-                                                        <label class="btn btn-link shadow-none ipa-button ipa p-0" for="btncheck{{phone.symbol}}" placement="top" container="body" ngbTooltip="{{phone.desc}}" id="label{{phone.symbol}}">{{ phone.symbol }}</label>
-                                                    </ng-container>
-                                                    <ng-template #noButton>
-                                                        <ng-container *ngIf="phone.symbol != ''; else isNull">
-                                                            <div class="p-1 ipa ipa-td" placement="top" container="body" ngbTooltip="{{phone.desc}}">{{ phone.symbol }}</div>
+                <swiper
+                    [pagination]="{clickable: true}"
+                    [navigation]="true"
+                    class="table-swiper"
+                    [breakpoints]="{
+                          '640': {
+                            slidesPerView: 2,
+                            spaceBetween: 0
+                          },
+                          '768': {
+                            slidesPerView: 3,
+                            spaceBetween: 0
+                          },
+                          '1024': {
+                            slidesPerView: 5,
+                            spaceBetween: 0
+                          }
+                        }">
+                    <ng-container *ngFor="let slice of pulmonicTableSliced">
+                        <ng-template swiperSlide>
+                            <table class="table-borderless">
+                                <tbody>
+                                    <ng-container *ngFor="let row of slice; let i = index">
+                                        <tr>
+                                            <ng-container *ngFor="let position of row; let j = index">
+                                                <td>
+                                                    <div class="btn-group m-1" role="group">
+                                                        <ng-container *ngFor="let phone of position; let k = index">
+                                                            <ng-container *ngIf="phone.clickable == true; else noButton">
+                                                                <input type="checkbox" class="btn-check custom-check" id="btncheck{{phone.symbol}}" (change)="ipaCheck($event, phone)" autocomplete="off">
+                                                                <label class="btn btn-link shadow-none ipa-button ipa p-0" for="btncheck{{phone.symbol}}" placement="top" container="body" ngbTooltip="{{phone.desc}}" id="label{{phone.symbol}}">{{ phone.symbol }}</label>
+                                                            </ng-container>
+                                                            <ng-template #noButton>
+                                                                <ng-container *ngIf="phone.symbol != ''; else isNull">
+                                                                    <div class="p-1 ipa ipa-td" placement="top" container="body" ngbTooltip="{{phone.desc}}">{{ phone.symbol }}</div>
+                                                                </ng-container>
+                                                                <ng-template #isNull>
+                                                                    <div class="ipa ipa-td"></div>
+                                                                </ng-template>
+                                                            </ng-template>
                                                         </ng-container>
-                                                        <ng-template #isNull>
-                                                            <div class="ipa ipa-td"></div>
-                                                        </ng-template>
-                                                    </ng-template>
-                                                </ng-container>
-                                            </div>
-                                        </td>
+                                                    </div>
+                                                </td>
+                                            </ng-container>
+                                        </tr>
                                     </ng-container>
-                                </tr>
-                            </ng-container>
-                        </tbody>
-                    </table>
-                </div>
+                                </tbody>
+                            </table>
+                        </ng-template>
+                    </ng-container>
+                </swiper>
+                <!--<div class="table-responsive d-flex justify-content-center">-->
+                    <!--<table class="table-borderless">-->
+                        <!--<tbody>-->
+                            <!--<ng-container *ngFor="let row of pulmonicTable; let i = index">-->
+                                <!--<tr>-->
+                                    <!--<ng-container *ngFor="let position of row; let j = index">-->
+                                        <!--<td>-->
+                                            <!--<div class="btn-group m-1" role="group">-->
+                                                <!--<ng-container *ngFor="let phone of position; let k = index">-->
+                                                    <!--<ng-container *ngIf="phone.clickable == true; else noButton">-->
+                                                        <!--<input type="checkbox" class="btn-check custom-check" id="btncheck{{phone.symbol}}" (change)="ipaCheck($event, phone)" autocomplete="off">-->
+                                                        <!--<label class="btn btn-link shadow-none ipa-button ipa p-0" for="btncheck{{phone.symbol}}" placement="top" container="body" ngbTooltip="{{phone.desc}}" id="label{{phone.symbol}}">{{ phone.symbol }}</label>-->
+                                                    <!--</ng-container>-->
+                                                    <!--<ng-template #noButton>-->
+                                                        <!--<ng-container *ngIf="phone.symbol != ''; else isNull">-->
+                                                            <!--<div class="p-1 ipa ipa-td" placement="top" container="body" ngbTooltip="{{phone.desc}}">{{ phone.symbol }}</div>-->
+                                                        <!--</ng-container>-->
+                                                        <!--<ng-template #isNull>-->
+                                                            <!--<div class="ipa ipa-td"></div>-->
+                                                        <!--</ng-template>-->
+                                                    <!--</ng-template>-->
+                                                <!--</ng-container>-->
+                                            <!--</div>-->
+                                        <!--</td>-->
+                                    <!--</ng-container>-->
+                                <!--</tr>-->
+                            <!--</ng-container>-->
+                        <!--</tbody>-->
+                    <!--</table>-->
+                <!--</div>-->
             </div>
             <div class="tab-pane fade justify-content-center" id="nav-otherp" role="tabpanel" aria-labelledby="nav-otherp-tab" tabindex="0">
                 <ng-container *ngFor="let phone of otherPulmonic">
