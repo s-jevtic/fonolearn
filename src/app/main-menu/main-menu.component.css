@@ -66,6 +66,10 @@ tr {
     max-width: fit-content;
 }
 
+#sound-picker .tab-pane {
+    width: 100%;
+}
+
 #sound-picker .tab-pane.show {
     display: inline-flex;
 }
@@ -76,6 +80,26 @@ td:nth-child(odd) {
 
 table {
     display: table;
+}
+
+.swiper-slide {
+    width: unset !important;
+}
+
+.swiper-button-prev, .swiper-button-next {
+    color: var(--dark-color-neu);
+    opacity: 1;
+}
+.swiper-button-prev.swiper-button-disabled, .swiper-button-next.swiper-button-disabled {
+    opacity: 0.1;
+}
+
+.swiper-pagination-bullet {
+    color: var(--dark-color-neu-hl);
+}
+.swiper-pagination-bullet-active {
+    background-color: var(--dark-color-main-hl);
+    opacity: 0.1;
 }
 
 @media only screen and (max-width: 768px) {

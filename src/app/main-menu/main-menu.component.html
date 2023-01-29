@@ -48,24 +48,7 @@
         </nav>
         <div class="tab-content container-fluid p-0" id="sound-picker">
             <div class="tab-pane fade show active justify-content-center" id="nav-ptable" role="tabpanel" aria-labelledby="nav-ptable-tab" tabindex="0">
-                <swiper
-                    [pagination]="{clickable: true}"
-                    [navigation]="true"
-                    class="table-swiper"
-                    [breakpoints]="{
-                          '640': {
-                            slidesPerView: 2,
-                            spaceBetween: 0
-                          },
-                          '768': {
-                            slidesPerView: 3,
-                            spaceBetween: 0
-                          },
-                          '1024': {
-                            slidesPerView: 5,
-                            spaceBetween: 0
-                          }
-                        }">
+                <swiper class="table-swiper" [config]="swiperConfig">
                     <ng-container *ngFor="let slice of pulmonicTableSliced">
                         <ng-template swiperSlide>
                             <table class="table-borderless">

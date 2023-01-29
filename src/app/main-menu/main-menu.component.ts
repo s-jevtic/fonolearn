@@ -1,4 +1,5 @@
-import { Component, NgZone, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit, ViewEncapsulation } from '@angular/core';
+    //longSwipes: false,
 import { Router } from '@angular/router';
 import { Phone } from '../phones/phone';
 import { PulmonicConsonant } from '../phones/pulmonicconsonant';
@@ -11,7 +12,7 @@ import { VowelRoundedness } from '../phones/roundedness';
 import { PhoneDataService } from '../phone-data.service';
 import { premadeSets } from '../phones/premade-sets';
 import { SwiperComponent } from "swiper/angular";
-import SwiperCore, { Pagination, Navigation } from "swiper";
+import SwiperCore, { Pagination, Navigation, SwiperOptions } from "swiper";
 import { sliceMatrix } from '../../utils';
 
 SwiperCore.use([Pagination, Navigation]);
@@ -19,7 +20,11 @@ SwiperCore.use([Pagination, Navigation]);
 @Component({
   selector: 'app-main-menu',
   templateUrl: './main-menu.component.html',
-  styleUrls: ['./main-menu.component.css']
+  styleUrls: [
+    '../../../node_modules/swiper/swiper-bundle.css',
+    './main-menu.component.css',
+  ],
+  encapsulation: ViewEncapsulation.None,
 })
 export class MainMenuComponent implements OnInit {
 
@@ -56,7 +61,7 @@ export class MainMenuComponent implements OnInit {
       }
     }
 
-    this.pulmonicTableSliced = sliceMatrix(this.pulmonicTable, 2);
+    this.pulmonicTableSliced = sliceMatrix(this.pulmonicTable, 1);
 
     this.vowels = this.phoneDataService.vowels;
 
@@ -255,4 +260,26 @@ export class MainMenuComponent implements OnInit {
   phoneChecked: Map<Phone, boolean>;
 
   noneSelectedAlert: boolean;
+
+	swiperConfig: SwiperOptions = {
+		//pagination: {clickable: true},
+    navigation: true,
+    scrollbar: false,
+    spaceBetween: 10,
+    breakpoints: {
+      640: {
+        slidesPerView: 3,
+      },
+      768: {
+        slidesPerView: 6,
+      },
+      1024: {
+        slidesPerView: 8,
+      },
+    },
+    centeredSlides: true,
+    cssMode: true,
+    rewind: true,
+    resistance: false,
+	};
 }
