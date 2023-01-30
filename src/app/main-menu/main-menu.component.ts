@@ -1,5 +1,4 @@
 import { Component, NgZone, OnInit, ViewEncapsulation } from '@angular/core';
-    //longSwipes: false,
 import { Router } from '@angular/router';
 import { Phone } from '../phones/phone';
 import { PulmonicConsonant } from '../phones/pulmonicconsonant';
