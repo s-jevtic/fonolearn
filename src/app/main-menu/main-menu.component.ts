@@ -12,10 +12,10 @@ import { VowelRoundedness } from '../phones/roundedness';
 import { PhoneDataService } from '../phone-data.service';
 import { premadeSets } from '../phones/premade-sets';
 import { SwiperComponent } from "swiper/angular";
-import SwiperCore, { Pagination, Navigation, SwiperOptions } from "swiper";
+import SwiperCore, { Navigation, SwiperOptions } from "swiper";
 import { sliceMatrix } from '../../utils';
 
-SwiperCore.use([Pagination, Navigation]);
+SwiperCore.use([Navigation]);
 
 @Component({
   selector: 'app-main-menu',
@@ -262,9 +262,9 @@ export class MainMenuComponent implements OnInit {
   noneSelectedAlert: boolean;
 
 	swiperConfig: SwiperOptions = {
-		//pagination: {clickable: true},
     navigation: true,
-    scrollbar: false,
+    slidesPerView: 2,
+    slidesPerGroup: 1,
     spaceBetween: 10,
     breakpoints: {
       640: {
@@ -275,11 +275,15 @@ export class MainMenuComponent implements OnInit {
       },
       1024: {
         slidesPerView: 8,
+        centeredSlides: false,
       },
+      1400: {
+        slidesPerView: 12,
+        centeredSlides: false,
+      }
     },
     centeredSlides: true,
     cssMode: true,
     rewind: true,
-    resistance: false,
 	};
 }

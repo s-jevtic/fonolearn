@@ -67,7 +67,7 @@ tr {
 }
 
 #sound-picker .tab-pane {
-    width: 100%;
+    max-width: 100%;
 }
 
 #sound-picker .tab-pane.show {
