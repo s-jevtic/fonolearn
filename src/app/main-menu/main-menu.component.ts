@@ -264,7 +264,6 @@ export class MainMenuComponent implements OnInit {
 	swiperConfig: SwiperOptions = {
     navigation: true,
     slidesPerView: 2,
-    slidesPerGroup: 1,
     spaceBetween: 10,
     breakpoints: {
       640: {
@@ -283,6 +282,8 @@ export class MainMenuComponent implements OnInit {
       }
     },
     centeredSlides: true,
+    centerInsufficientSlides: true,
+    centeredSlidesBounds: true,
     cssMode: true,
     rewind: true,
 	};
