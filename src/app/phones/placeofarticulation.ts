@@ -27,3 +27,5 @@ export const PlaceFromString: any = {
   "pharyngeal": PlaceOfArticulation.Pharyngeal,
   "glottal": PlaceOfArticulation.Glottal
 }
+
+export const UnknownPlaceString = $localize `(unknown place of articulation)`;

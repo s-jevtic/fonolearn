@@ -11,3 +11,5 @@ export const VoicingFromString: any = {
   "breathy-voiced": Voicing.BreathyVoiced,
   "creaky-voiced": Voicing.CreakyVoiced
 }
+
+export const UnknownVoicingString = $localize `(unknown voicing)`;

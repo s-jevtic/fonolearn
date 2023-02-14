@@ -23,3 +23,5 @@ export const MannerFromString: any = {
   "approximant": MannerOfArticulation.Approximant,
   "lateral-approximant": MannerOfArticulation.LateralApproximant
 }
+
+export const UnknownMannerString = $localize `(unknown manner of articulation)`;

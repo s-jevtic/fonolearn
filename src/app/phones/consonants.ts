@@ -48,7 +48,7 @@ export const consonantList = {
             "place": "pharyngeal",
             "manner": "stop",
             "clickable": true,
-            "desc": "epiglottal plosive"
+            "desc": $localize `epiglottal plosive`
         },
         {
             "symbol": "ʔ",
@@ -56,7 +56,7 @@ export const consonantList = {
             "place": "glottal",
             "manner": "stop",
             "clickable": true,
-            "desc": "glottal stop"
+            "desc": $localize `glottal stop`
         },
 
         {
@@ -194,7 +194,7 @@ export const consonantList = {
             "place": "labiodental",
             "manner": "tap-flap",
             "clickable": true,
-            "desc": "(voiced) labiodental flap"
+            "desc": $localize `(voiced) labiodental flap`
         },
         {
             "symbol": "ɾ",
@@ -202,7 +202,7 @@ export const consonantList = {
             "place": "alveolar",
             "manner": "tap-flap",
             "clickable": true,
-            "desc": "(voiced) alveolar tap"
+            "desc": $localize `(voiced) alveolar tap`
         },
         {
             "symbol": "ɽ",
@@ -210,7 +210,7 @@ export const consonantList = {
             "place": "retroflex",
             "manner": "tap-flap",
             "clickable": true,
-            "desc": "(voiced) retroflex flap"
+            "desc": $localize `(voiced) retroflex flap`
         },
 
         {
@@ -390,7 +390,7 @@ export const consonantList = {
             "place": "glottal",
             "manner": "approximant",
             "clickable": true,
-            "desc": "voiceless glottal approximant/fricative"
+            "desc": $localize `voiceless glottal approximant/fricative`
         },
 
         {
@@ -434,7 +434,7 @@ export const consonantList = {
             "place": "glottal",
             "manner": "approximant",
             "clickable": true,
-            "desc": "breathy voiced glottal approximant/fricative"
+            "desc": $localize `breathy voiced glottal approximant/fricative`
         },
 
         {
@@ -619,42 +619,42 @@ export const consonantList = {
             "voicing": "voiceless",
             "manner": "approximant",
             "clickable": true,
-            "desc": "voiceless labiovelar approximant/fricative"
+            "desc": $localize `voiceless labiovelar approximant/fricative`
         },
         {
             "symbol": "w",
             "voicing": "voiced",
             "manner": "approximant",
             "clickable": true,
-            "desc": "voiced labiovelar approximant"
+            "desc": $localize `voiced labiovelar approximant`
         },
         {
             "symbol": "ɥ",
             "voicing": "voiced",
             "manner": "approximant",
             "clickable": true,
-            "desc": "voiced labiopalatal approximant"
+            "desc": $localize `voiced labiopalatal approximant`
         },
         {
             "symbol": "ɫ",
             "voicing": "voiced",
             "manner": "lateral-approximant",
             "clickable": false,
-            "desc": "voiced velarized alveolar lateral approximant"
+            "desc": $localize `voiced velarized alveolar lateral approximant`
         },
         {
             "symbol": "ɺ",
             "voicing": "voiced",
             "manner": "tap-flap",
             "clickable": true,
-            "desc": "voiced alveolar lateral flap"
+            "desc": $localize `voiced alveolar lateral flap`
         },
         {
             "symbol": "ɧ",
             "voicing": "voiceless",
             "manner": "fricative",
             "clickable": false,
-            "desc": "simultaneous ʃ and x"
+            "desc": $localize `simultaneous ʃ and x`
         }
     ],
     "implosives": [

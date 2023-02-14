@@ -138,7 +138,7 @@ export const vowelList = [
         "height": "mid",
         "backness": "central",
         "clickable": true,
-        "desc": "mid central vowel (schwa)"
+        "desc": $localize `mid central vowel (schwa)`
     },
   
   

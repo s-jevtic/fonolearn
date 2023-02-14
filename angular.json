@@ -111,7 +111,7 @@
           }
         }
       }
-    }
+    },
   },
   "cli": {
     "analytics": false,

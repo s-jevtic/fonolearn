@@ -9,3 +9,5 @@ export const BacknessFromString: any = {
     "central": VowelBackness.Central,
     "back": VowelBackness.Back
 }
+
+export const UnknownBacknessString = $localize `:unknown vowel backness:(unknown backness)`;

@@ -1,7 +1,7 @@
 import { Phone } from './phone';
-import { MannerFromString, MannerOfArticulation } from './mannerofarticulation';
-import { Voicing, VoicingFromString } from './voicing';
-import { PlaceFromString, PlaceOfArticulation } from './placeofarticulation';
+import { MannerFromString, MannerOfArticulation, UnknownMannerString } from './mannerofarticulation';
+import { UnknownVoicingString, Voicing, VoicingFromString } from './voicing';
+import { PlaceFromString, PlaceOfArticulation, UnknownPlaceString } from './placeofarticulation';
 
 export class PulmonicConsonant extends Phone {
 
@@ -15,42 +15,42 @@ export class PulmonicConsonant extends Phone {
       this.desc = "";
 
       switch(voicing) {
-        case Voicing.Voiceless: this.desc += "voiceless "; break;
-        case Voicing.Voiced: this.desc += "voiced "; break;
-        case Voicing.BreathyVoiced: this.desc += "breathy voiced "; break;
-        default: this.desc += "(unknown voicing) ";
+        case Voicing.Voiceless: this.desc += $localize `voiceless` + " "; break;
+        case Voicing.Voiced: this.desc += $localize `voiced` + " "; break;
+        case Voicing.BreathyVoiced: this.desc += $localize `breathy voiced` + " "; break;
+        default: this.desc += UnknownVoicingString + " ";
         if(this.symbol != '') console.log("voicing error for phone " + this.symbol);
       }
 
       switch(place) {
-        case PlaceOfArticulation.Bilabial: this.desc += "bilabial "; break;
-        case PlaceOfArticulation.Labiodental: this.desc += "labiodental "; break;
-        case PlaceOfArticulation.Dental: this.desc += "dental "; break;
-        case PlaceOfArticulation.Alveolar: this.desc += "alveolar "; break;
-        case PlaceOfArticulation.Retroflex: this.desc += "retroflex "; break;
-        case PlaceOfArticulation.Palatal: this.desc += "palatal "; break;
-        case PlaceOfArticulation.PalatoAlveolar: this.desc += "palato-alveolar "; break;
-        case PlaceOfArticulation.AlveoloPalatal: this.desc += "alveolo-palatal "; break;
-        case PlaceOfArticulation.Velar: this.desc += "velar "; break;
-        case PlaceOfArticulation.Uvular: this.desc += "uvular "; break;
-        case PlaceOfArticulation.Pharyngeal: this.desc += "pharyngeal/epiglottal "; break;
-        case PlaceOfArticulation.Glottal: this.desc += "glottal "; break;
-        default: this.desc += "(unknown place of articulation) ";
+        case PlaceOfArticulation.Bilabial: this.desc += $localize `bilabial` + " "; break;
+        case PlaceOfArticulation.Labiodental: this.desc += $localize `labiodental` + " "; break;
+        case PlaceOfArticulation.Dental: this.desc += $localize `dental` + " "; break;
+        case PlaceOfArticulation.Alveolar: this.desc += $localize `alveolar` + " "; break;
+        case PlaceOfArticulation.Retroflex: this.desc += $localize `retroflex` + " "; break;
+        case PlaceOfArticulation.Palatal: this.desc += $localize `palatal` + " "; break;
+        case PlaceOfArticulation.PalatoAlveolar: this.desc += $localize `palato-alveolar` + " "; break;
+        case PlaceOfArticulation.AlveoloPalatal: this.desc += $localize `alveolo-palatal` + " "; break;
+        case PlaceOfArticulation.Velar: this.desc += $localize `velar` + " "; break;
+        case PlaceOfArticulation.Uvular: this.desc += $localize `uvular` + " "; break;
+        case PlaceOfArticulation.Pharyngeal: this.desc += $localize `pharyngeal/epiglottal` + " "; break;
+        case PlaceOfArticulation.Glottal: this.desc += $localize `glottal` + " "; break;
+        default: this.desc += UnknownPlaceString + " ";
         if(this.symbol != '') console.log("place of articulation error for phone " + this.symbol);
       }
 
       switch(manner) {
-        case MannerOfArticulation.Stop: this.desc += "stop (plosive)"; break;
-        case MannerOfArticulation.Nasal: this.desc += "nasal"; break;
-        case MannerOfArticulation.Trill: this.desc += "trill"; break;
-        case MannerOfArticulation.TapFlap: this.desc += "tap/flap"; break;
-        case MannerOfArticulation.Fricative: this.desc += "fricative"; break;
-        case MannerOfArticulation.LateralFricative: this.desc += "lateral fricative"; break;
-        case MannerOfArticulation.Affricate: this.desc += "affricate"; break;
-        case MannerOfArticulation.LateralAffricate: this.desc += "lateral affricate"; break;
-        case MannerOfArticulation.Approximant: this.desc += "approximant"; break;
-        case MannerOfArticulation.LateralApproximant: this.desc += "lateral approximant"; break;
-        default: this.desc += "(unknown manner of articulation) ";
+        case MannerOfArticulation.Stop: this.desc += $localize `stop (plosive)`; break;
+        case MannerOfArticulation.Nasal: this.desc += $localize `nasal`; break;
+        case MannerOfArticulation.Trill: this.desc += $localize `trill`; break;
+        case MannerOfArticulation.TapFlap: this.desc += $localize `tap/flap`; break;
+        case MannerOfArticulation.Fricative: this.desc += $localize `fricative`; break;
+        case MannerOfArticulation.LateralFricative: this.desc += $localize `lateral fricative`; break;
+        case MannerOfArticulation.Affricate: this.desc += $localize `affricate`; break;
+        case MannerOfArticulation.LateralAffricate: this.desc += $localize `lateral affricate`; break;
+        case MannerOfArticulation.Approximant: this.desc += $localize `approximant`; break;
+        case MannerOfArticulation.LateralApproximant: this.desc += $localize `lateral approximant`; break;
+        default: this.desc += UnknownMannerString + " ";
         if(this.symbol != '') console.log("manner of articulation error for phone " + this.symbol);
       }
 

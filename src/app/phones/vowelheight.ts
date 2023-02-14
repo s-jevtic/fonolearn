@@ -17,3 +17,5 @@ export const HeightFromString: any = {
     "near-open": VowelHeight.NearOpen,
     "open": VowelHeight.Open
 }
+
+export const UnknownHeightString = `:unknown vowel height:(unknown height)`;

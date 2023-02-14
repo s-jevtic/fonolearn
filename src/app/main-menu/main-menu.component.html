@@ -1,13 +1,13 @@
 <div class="container-fluid d-flex flex-row flex-wrap justify-content-around align-items-center pt-5" id="menu-container">
     <div class="d-flex flex-column align-items-center px-3 my-4">
         <div class="btn-group-vertical my-3" id="main-buttons">
-            <button *ngIf="notEnoughSelected()" class="btn btn-primary disabled" role="button" id="begin-button-disabled">Select at least {{ noOfChoices() }} sounds or...</button>
-            <button class="btn btn-primary" role="button" id="begin-button" *ngIf="!notEnoughSelected()" (click)="ipa($event)">Begin with selected sounds</button>
-            <button class="btn btn-secondary dropdown-toggle dropdown-toggle-split" id="soundSetPicker" data-bs-toggle="dropdown" aria-expanded="false">Pick premade set of sounds</button>
+            <button *ngIf="notEnoughSelected()" class="btn btn-primary disabled" role="button" id="begin-button-disabled" i18n>Select at least {{ noOfChoices() }} sounds or...</button>
+            <button class="btn btn-primary" role="button" id="begin-button" *ngIf="!notEnoughSelected()" (click)="ipa($event)" i18n>Begin with selected sounds</button>
+            <button class="btn btn-secondary dropdown-toggle dropdown-toggle-split" id="soundSetPicker" data-bs-toggle="dropdown" aria-expanded="false" i18n>Pick premade set of sounds</button>
             <ul class="dropdown-menu bg-dark" id="picker-dropdown" aria-labelledby="soundSetPicker">
-                <li><button class="dropdown-item" (click)="selectAll($event)">all</button></li>
-                <li><button class="dropdown-item" (click)="selectConsonants($event)">consonants only</button></li>
-                <li><button class="dropdown-item" (click)="selectVowels($event)">vowels only</button></li>
+                <li><button class="dropdown-item" (click)="selectAll($event)" i18n>all</button></li>
+                <li><button class="dropdown-item" (click)="selectConsonants($event)" i18n>consonants only</button></li>
+                <li><button class="dropdown-item" (click)="selectVowels($event)" i18n>vowels only</button></li>
                 <ng-container *ngFor="let s of premadeSets">
                     <li><button class="dropdown-item" (click)="loadSet($event, s)">{{ s.setName }}</button></li>
                 </ng-container>
@@ -15,11 +15,11 @@
         </div>
 
         <div class="d-md-flex justify-content-around mx-auto my-3" id="no-of-choices-wrapper">
-            <label for="no-of-choices" class="form-text">Number of choices when guessing:</label>
+            <label for="no-of-choices" class="form-text" i18n>Number of choices when guessing:</label>
             <input type="number" min="2" max="10" [defaultValue]="3" id="no-of-choices" class="form-control" (change)="checkNumber()"/>
         </div>
         <div class="wrapper my-3">
-            <button role="button" class="btn btn-sm btn-danger mt-3" (click)="clearSelection()">Clear selection</button>
+            <button role="button" class="btn btn-sm btn-danger mt-3" (click)="clearSelection()" i18n>Clear selection</button>
         </div>
     </div>
 
@@ -27,22 +27,22 @@
         <nav>
             <ul class="nav nav-tabs my-0 mx-5 justify-content-center" id="consonant-tablist" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link active" id="nav-ptable-tab" data-bs-toggle="tab" data-bs-target="#nav-ptable" type="button" role="tab" aria-controls="nav-ptable" aria-selected="true">Pulmonic (table)</a>
+                    <a class="nav-link active" id="nav-ptable-tab" data-bs-toggle="tab" data-bs-target="#nav-ptable" type="button" role="tab" aria-controls="nav-ptable" aria-selected="true" i18n>Pulmonic (table)</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="nav-otherp-tab" data-bs-toggle="tab" data-bs-target="#nav-otherp" type="button" role="tab" aria-controls="nav-otherp" aria-selected="false">Coarticulated and other pulmonic</a>
+                    <a class="nav-link" id="nav-otherp-tab" data-bs-toggle="tab" data-bs-target="#nav-otherp" type="button" role="tab" aria-controls="nav-otherp" aria-selected="false" i18n>Coarticulated and other pulmonic</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="nav-implosives-tab" data-bs-toggle="tab" data-bs-target="#nav-implosives" type="button" role="tab" aria-controls="nav-implosives" aria-selected="false">Implosives</a>
+                    <a class="nav-link" id="nav-implosives-tab" data-bs-toggle="tab" data-bs-target="#nav-implosives" type="button" role="tab" aria-controls="nav-implosives" aria-selected="false" i18n>Implosives</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="nav-ejectives-tab" data-bs-toggle="tab" data-bs-target="#nav-ejectives" type="button" role="tab" aria-controls="nav-ejectives" aria-selected="false">Ejectives</a>
+                    <a class="nav-link" id="nav-ejectives-tab" data-bs-toggle="tab" data-bs-target="#nav-ejectives" type="button" role="tab" aria-controls="nav-ejectives" aria-selected="false" i18n>Ejectives</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="nav-clicks-tab" data-bs-toggle="tab" data-bs-target="#nav-clicks" type="button" role="tab" aria-controls="nav-clicks" aria-selected="false">Clicks</a>
+                    <a class="nav-link" id="nav-clicks-tab" data-bs-toggle="tab" data-bs-target="#nav-clicks" type="button" role="tab" aria-controls="nav-clicks" aria-selected="false" i18n>Clicks</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="nav-vowels-tab" data-bs-toggle="tab" data-bs-target="#nav-vowels" type="button" role="tab" aria-controls="nav-vowels" aria-selected="false">Vowels</a>
+                    <a class="nav-link" id="nav-vowels-tab" data-bs-toggle="tab" data-bs-target="#nav-vowels" type="button" role="tab" aria-controls="nav-vowels" aria-selected="false" i18n>Vowels</a>
                 </li>
             </ul>
         </nav>

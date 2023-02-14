@@ -1,5 +1,5 @@
 import { Phone } from './phone';
-import { PlaceFromString, PlaceOfArticulation } from './placeofarticulation';
+import { PlaceFromString, PlaceOfArticulation, UnknownPlaceString } from './placeofarticulation';
 
 export class Click extends Phone {
     constructor(symbol: string, place: PlaceOfArticulation, lateral: boolean, clickable: boolean, desc?: string) {
@@ -9,19 +9,19 @@ export class Click extends Phone {
         this.lateral = lateral;
         this.desc = "";
         switch(this.place) {
-            case PlaceOfArticulation.Bilabial: this.desc += "bilabial "; break;
-            case PlaceOfArticulation.Dental: this.desc += "dental "; break;
+            case PlaceOfArticulation.Bilabial: this.desc += $localize `bilabial` + " "; break;
+            case PlaceOfArticulation.Dental: this.desc += $localize `dental` + " "; break;
             case PlaceOfArticulation.Alveolar: 
                 if(this.lateral) {
-                    this.desc += "lateral alveolar ";
+                    this.desc += $localize `lateral alveolar` + " ";
                 }
                 else {
-                    this.desc += "(post)alveolar ";
+                    this.desc += $localize `(post)alveolar` + " ";
                 }
                 break;
-            case PlaceOfArticulation.PalatoAlveolar: this.desc += "palato-alveolar "; break;
+            case PlaceOfArticulation.PalatoAlveolar: this.desc += $localize `palato-alveolar` + " "; break;
             default:
-                this.desc += "(unknown place of articulation) ";
+                this.desc += UnknownPlaceString + " ";
                 console.log("place of articulation error for phone " + this.symbol);
         }
         this.desc += "click";

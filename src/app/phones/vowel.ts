@@ -1,8 +1,8 @@
 import { Phone } from './phone';
-import { HeightFromString, VowelHeight } from './vowelheight';
-import { BacknessFromString, VowelBackness } from './vowelbackness';
+import { HeightFromString, UnknownHeightString, VowelHeight } from './vowelheight';
+import { BacknessFromString, UnknownBacknessString, VowelBackness } from './vowelbackness';
 import { Voicing, VoicingFromString } from './voicing';
-import { RoundednessFromString, VowelRoundedness } from './roundedness';
+import { RoundednessFromString, UnknownRoundednessString, VowelRoundedness } from './roundedness';
 
 export class Vowel extends Phone {
 
@@ -24,35 +24,35 @@ export class Vowel extends Phone {
         this.desc = "";
         switch(voicing) {
             case Voicing.Voiced: break;
-            case Voicing.BreathyVoiced: this.desc += "breathy voiced "; break;
-            case Voicing.CreakyVoiced: this.desc += "creaky voiced "; break;
-            case Voicing.Voiceless: this.desc += "voiceless "; break;
+            case Voicing.BreathyVoiced: this.desc += $localize `breathy voiced `; break;
+            case Voicing.CreakyVoiced: this.desc += $localize `creaky voiced `; break;
+            case Voicing.Voiceless: this.desc += $localize `voiceless `; break;
             default: this.desc += "(unknown voicing) ";
         }
         switch(roundedness) {
-            case VowelRoundedness.RoundedUnspecified: this.desc += "rounded "; break
-            case VowelRoundedness.Compressed: this.desc += "rounded (compressed) "; break;
-            case VowelRoundedness.Protruded: this.desc += "rounded (protruded) "; break;
-            case VowelRoundedness.Unrounded: this.desc += "unrounded "; break;
-            default: this.desc += "(unknown roundedness) ";
+            case VowelRoundedness.RoundedUnspecified: this.desc += $localize `rounded `; break
+            case VowelRoundedness.Compressed: this.desc += $localize `rounded (compressed) `; break;
+            case VowelRoundedness.Protruded: this.desc += $localize `rounded (protruded) `; break;
+            case VowelRoundedness.Unrounded: this.desc += $localize `unrounded `; break;
+            default: this.desc += UnknownRoundednessString + " ";
         }
         switch(height) {
-            case VowelHeight.Close: this.desc += "close "; break;
-            case VowelHeight.NearClose: this.desc += "near-close "; break;
-            case VowelHeight.CloseMid: this.desc += "close-mid "; break;
-            case VowelHeight.Mid: this.desc += "mid "; break;
-            case VowelHeight.OpenMid: this.desc += "open-mid "; break;
-            case VowelHeight.NearOpen: this.desc += "near-open "; break;
-            case VowelHeight.Open: this.desc += "open "; break;
-            default: this.desc += "(unknown height) ";
+            case VowelHeight.Close: this.desc += $localize `close `; break;
+            case VowelHeight.NearClose: this.desc += $localize `near-close `; break;
+            case VowelHeight.CloseMid: this.desc += $localize `close-mid `; break;
+            case VowelHeight.Mid: this.desc += $localize `mid `; break;
+            case VowelHeight.OpenMid: this.desc += $localize `open-mid `; break;
+            case VowelHeight.NearOpen: this.desc += $localize `near-open `; break;
+            case VowelHeight.Open: this.desc += $localize `open `; break;
+            default: this.desc += UnknownHeightString + " ";
         }
         switch(backness) {
-            case VowelBackness.Back: this.desc += "back "; break;
-            case VowelBackness.Central: this.desc += "central "; break;
-            case VowelBackness.Front: this.desc += "front "; break;
-            default: this.desc += "(unknown backness) ";
+            case VowelBackness.Back: this.desc += $localize `back `; break;
+            case VowelBackness.Central: this.desc += $localize `central `; break;
+            case VowelBackness.Front: this.desc += $localize `front `; break;
+            default: this.desc += UnknownBacknessString + " ";
         }
-        this.desc += "vowel";
+        this.desc += $localize `vowel`;
         if(typeof(desc) !== 'undefined') {
             this.desc = desc;
         }

@@ -1,0 +1,977 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="ngb.alert.close" datatype="html">
+        <source>Close</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/ngb-config.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.HH" datatype="html">
+        <source>HH</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/ngb-config.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.toast.close-aria" datatype="html">
+        <source>Close</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/ngb-config.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.pagination.first" datatype="html">
+        <source>««</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/ngb-config.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.datepicker.select-month" datatype="html">
+        <source>Select month</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/ngb-config.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/ngb-config.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.datepicker.previous-month" datatype="html">
+        <source>Previous month</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/ngb-config.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/ngb-config.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.progressbar.value" datatype="html">
+        <source><x id="INTERPOLATION"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/ngb-config.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.carousel.slide-number" datatype="html">
+        <source> Slide <x id="INTERPOLATION"/> of <x id="INTERPOLATION_1"/> </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/ngb-config.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+        <note priority="1" from="description">Currently selected slide number read by screen reader</note>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.hours" datatype="html">
+        <source>Hours</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/ngb-config.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.pagination.previous" datatype="html">
+        <source>«</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/ngb-config.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.carousel.previous" datatype="html">
+        <source>Previous</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/ngb-config.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.MM" datatype="html">
+        <source>MM</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/ngb-config.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.pagination.next" datatype="html">
+        <source>»</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/ngb-config.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.datepicker.select-year" datatype="html">
+        <source>Select year</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/ngb-config.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/ngb-config.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.datepicker.next-month" datatype="html">
+        <source>Next month</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/ngb-config.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/ngb-config.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.carousel.next" datatype="html">
+        <source>Next</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/ngb-config.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.minutes" datatype="html">
+        <source>Minutes</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/ngb-config.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.pagination.last" datatype="html">
+        <source>»»</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/ngb-config.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.increment-hours" datatype="html">
+        <source>Increment hours</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/ngb-config.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.pagination.first-aria" datatype="html">
+        <source>First</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/ngb-config.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.pagination.previous-aria" datatype="html">
+        <source>Previous</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/ngb-config.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.decrement-hours" datatype="html">
+        <source>Decrement hours</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/ngb-config.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.pagination.next-aria" datatype="html">
+        <source>Next</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/ngb-config.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.increment-minutes" datatype="html">
+        <source>Increment minutes</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/ngb-config.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.pagination.last-aria" datatype="html">
+        <source>Last</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/ngb-config.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.decrement-minutes" datatype="html">
+        <source>Decrement minutes</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/ngb-config.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.SS" datatype="html">
+        <source>SS</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/ngb-config.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.seconds" datatype="html">
+        <source>Seconds</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/ngb-config.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.increment-seconds" datatype="html">
+        <source>Increment seconds</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/ngb-config.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.decrement-seconds" datatype="html">
+        <source>Decrement seconds</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/ngb-config.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.PM" datatype="html">
+        <source><x id="INTERPOLATION"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/ngb-config.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.AM" datatype="html">
+        <source><x id="INTERPOLATION"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/ngb-config.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3541823393283231257" datatype="html">
+        <source>an IPA learning app</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3090309830816393435" datatype="html">
+        <source>Guessed: <x id="INTERPOLATION" equiv-text="{{ guessedCount }}"/>/<x id="INTERPOLATION_1" equiv-text="{{ totalCount }}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/ipa/ipa.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1181910457994920507" datatype="html">
+        <source>Proceed</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/ipa/ipa.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7737421308870399643" datatype="html">
+        <source>Listen again</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/ipa/ipa.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1676258168611972336" datatype="html">
+        <source>Correct!</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/ipa/ipa.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4530986782906325001" datatype="html">
+        <source>Try again...</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/ipa/ipa.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5135659169158832318" datatype="html">
+        <source>Hint</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/ipa/ipa.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3143348926207552954" datatype="html">
+        <source> Warning: not enough sounds selected! <x id="START_TAG_BUTTON" ctype="x-button" equiv-text="&lt;button type=&quot;button&quot; class=&quot;btn-close&quot; data-bs-dismiss=&quot;alert&quot; aria-label=&quot;Close&quot;&gt;"/><x id="CLOSE_TAG_BUTTON" ctype="x-button" equiv-text="&lt;/button&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/ipa/ipa.component.html</context>
+          <context context-type="linenumber">29,31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5045200874122539692" datatype="html">
+        <source>Exit</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/ipa/ipa.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6186472925310161651" datatype="html">
+        <source>Select at least <x id="INTERPOLATION" equiv-text="{{ noOfChoices() }}"/> sounds or...</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main-menu/main-menu.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5072616171020549639" datatype="html">
+        <source>Begin with selected sounds</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main-menu/main-menu.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7545943651675526323" datatype="html">
+        <source>Pick premade set of sounds</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main-menu/main-menu.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7126464771610287155" datatype="html">
+        <source>all</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main-menu/main-menu.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9028219882370534550" datatype="html">
+        <source>consonants only</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main-menu/main-menu.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4303052407434610699" datatype="html">
+        <source>vowels only</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main-menu/main-menu.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4705646912224095055" datatype="html">
+        <source>Number of choices when guessing:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main-menu/main-menu.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="103921551219467537" datatype="html">
+        <source>Clear selection</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main-menu/main-menu.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8769289984988872544" datatype="html">
+        <source>Pulmonic (table)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main-menu/main-menu.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2412408835617756469" datatype="html">
+        <source>Coarticulated and other pulmonic</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main-menu/main-menu.component.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7358285688791539852" datatype="html">
+        <source>Implosives</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main-menu/main-menu.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1539117485416816816" datatype="html">
+        <source>Ejectives</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main-menu/main-menu.component.html</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="569285066181689741" datatype="html">
+        <source>Clicks</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main-menu/main-menu.component.html</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3852309863225837860" datatype="html">
+        <source>Vowels</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/main-menu/main-menu.component.html</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8889985448991317802" datatype="html">
+        <source>bilabial</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/click.ts</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/ejective.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/implosive.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/pulmonicconsonant.ts</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2157611578081893032" datatype="html">
+        <source>dental</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/click.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/pulmonicconsonant.ts</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5261746430881999442" datatype="html">
+        <source>lateral alveolar</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/click.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6891860870124123719" datatype="html">
+        <source>(post)alveolar</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/click.ts</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8504343179344256259" datatype="html">
+        <source>palato-alveolar</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/click.ts</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/pulmonicconsonant.ts</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7975483324245780092" datatype="html">
+        <source>epiglottal plosive</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/consonants.ts</context>
+          <context context-type="linenumber">51</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4097234018486682865" datatype="html">
+        <source>glottal stop</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/consonants.ts</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1281328375173416556" datatype="html">
+        <source>(voiced) labiodental flap</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/consonants.ts</context>
+          <context context-type="linenumber">197</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9156383768004650757" datatype="html">
+        <source>(voiced) alveolar tap</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/consonants.ts</context>
+          <context context-type="linenumber">205</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5049747417832679113" datatype="html">
+        <source>(voiced) retroflex flap</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/consonants.ts</context>
+          <context context-type="linenumber">213</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6254479424592225011" datatype="html">
+        <source>voiceless glottal approximant/fricative</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/consonants.ts</context>
+          <context context-type="linenumber">393</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1587824302663202788" datatype="html">
+        <source>breathy voiced glottal approximant/fricative</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/consonants.ts</context>
+          <context context-type="linenumber">437</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8088735835163763152" datatype="html">
+        <source>voiceless labiovelar approximant/fricative</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/consonants.ts</context>
+          <context context-type="linenumber">622</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1625694797534403648" datatype="html">
+        <source>voiced labiovelar approximant</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/consonants.ts</context>
+          <context context-type="linenumber">629</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3584598548019974356" datatype="html">
+        <source>voiced labiopalatal approximant</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/consonants.ts</context>
+          <context context-type="linenumber">636</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2935219828934891361" datatype="html">
+        <source>voiced velarized alveolar lateral approximant</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/consonants.ts</context>
+          <context context-type="linenumber">643</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1860970405407568706" datatype="html">
+        <source>voiced alveolar lateral flap</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/consonants.ts</context>
+          <context context-type="linenumber">650</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3858731671317973458" datatype="html">
+        <source>simultaneous ʃ and x</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/consonants.ts</context>
+          <context context-type="linenumber">657</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5574271941607481046" datatype="html">
+        <source>dental/alveolar</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/ejective.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/implosive.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1093932391446415581" datatype="html">
+        <source>retroflex</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/ejective.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/implosive.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/pulmonicconsonant.ts</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5970630729234660591" datatype="html">
+        <source>velar</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/ejective.ts</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/implosive.ts</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/pulmonicconsonant.ts</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="519211503429703877" datatype="html">
+        <source> fricative</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/ejective.ts</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="638058189455311242" datatype="html">
+        <source>palatal</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/implosive.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/pulmonicconsonant.ts</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3186523367398026210" datatype="html">
+        <source>uvular</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/implosive.ts</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/pulmonicconsonant.ts</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1283912316117786543" datatype="html">
+        <source>implosive</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/implosive.ts</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9037710255570100777" datatype="html">
+        <source>(unknown manner of articulation)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/mannerofarticulation.ts</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8195148530846877054" datatype="html">
+        <source>(unknown)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/phone.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <note priority="1" from="description">Unknown phone description</note>
+      </trans-unit>
+      <trans-unit id="5086374988844258863" datatype="html">
+        <source>(unknown place of articulation)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/placeofarticulation.ts</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8630769880437604127" datatype="html">
+        <source>English (Received Pronunciation)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/premade-sets.ts</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8052608817929272859" datatype="html">
+        <source>Serbo-Croatian [Bosnian/Montenegrin/Croatian/Serbian]</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/premade-sets.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1064043926973350713" datatype="html">
+        <source>French (Standard)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/premade-sets.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5332065596060422308" datatype="html">
+        <source>voiceless</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/pulmonicconsonant.ts</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8490753622788442236" datatype="html">
+        <source>voiced</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/pulmonicconsonant.ts</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6890959273163163741" datatype="html">
+        <source>breathy voiced</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/pulmonicconsonant.ts</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8719539720904826555" datatype="html">
+        <source>labiodental</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/pulmonicconsonant.ts</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2969285168266066782" datatype="html">
+        <source>alveolar</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/pulmonicconsonant.ts</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5026520667428312102" datatype="html">
+        <source>alveolo-palatal</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/pulmonicconsonant.ts</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7170385898136870323" datatype="html">
+        <source>pharyngeal/epiglottal</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/pulmonicconsonant.ts</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9143254993024447768" datatype="html">
+        <source>glottal</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/pulmonicconsonant.ts</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6908292999817835349" datatype="html">
+        <source>stop (plosive)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/pulmonicconsonant.ts</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1956821014524986596" datatype="html">
+        <source>nasal</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/pulmonicconsonant.ts</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4964329729204170438" datatype="html">
+        <source>trill</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/pulmonicconsonant.ts</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7791651364770041382" datatype="html">
+        <source>tap/flap</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/pulmonicconsonant.ts</context>
+          <context context-type="linenumber">46</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1504381779795847033" datatype="html">
+        <source>fricative</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/pulmonicconsonant.ts</context>
+          <context context-type="linenumber">47</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="937953955428464694" datatype="html">
+        <source>lateral fricative</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/pulmonicconsonant.ts</context>
+          <context context-type="linenumber">48</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6367866007566635569" datatype="html">
+        <source>affricate</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/pulmonicconsonant.ts</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5152033239820151854" datatype="html">
+        <source>lateral affricate</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/pulmonicconsonant.ts</context>
+          <context context-type="linenumber">50</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5714769461763432786" datatype="html">
+        <source>approximant</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/pulmonicconsonant.ts</context>
+          <context context-type="linenumber">51</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5333433971191036859" datatype="html">
+        <source>lateral approximant</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/pulmonicconsonant.ts</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3161513567729331434" datatype="html">
+        <source>(unknown roundedness)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/roundedness.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5024452421073079876" datatype="html">
+        <source>(unknown voicing)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/voicing.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3346765705323618325" datatype="html">
+        <source>breathy voiced </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/vowel.ts</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5961213512308788025" datatype="html">
+        <source>creaky voiced </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/vowel.ts</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4694710196131033769" datatype="html">
+        <source>voiceless </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/vowel.ts</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5577172754648579159" datatype="html">
+        <source>rounded </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/vowel.ts</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4535524968770146342" datatype="html">
+        <source>rounded (compressed) </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/vowel.ts</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="525833429577131698" datatype="html">
+        <source>rounded (protruded) </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/vowel.ts</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2227764092791738485" datatype="html">
+        <source>unrounded </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/vowel.ts</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4190507813842863993" datatype="html">
+        <source>close </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/vowel.ts</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4741144917569151174" datatype="html">
+        <source>near-close </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/vowel.ts</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7014726538647650832" datatype="html">
+        <source>close-mid </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/vowel.ts</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8403713350281839682" datatype="html">
+        <source>mid </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/vowel.ts</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8391694352580313769" datatype="html">
+        <source>open-mid </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/vowel.ts</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8096692447104050806" datatype="html">
+        <source>near-open </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/vowel.ts</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5033606848666183775" datatype="html">
+        <source>open </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/vowel.ts</context>
+          <context context-type="linenumber">46</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7055829034897201572" datatype="html">
+        <source>back </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/vowel.ts</context>
+          <context context-type="linenumber">50</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="226193331321212388" datatype="html">
+        <source>central </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/vowel.ts</context>
+          <context context-type="linenumber">51</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8196593150478632666" datatype="html">
+        <source>front </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/vowel.ts</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7328899211845698452" datatype="html">
+        <source>vowel</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/vowel.ts</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4059871031791580225" datatype="html">
+        <source>(unknown backness)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/vowelbackness.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+        <note priority="1" from="description">unknown vowel backness</note>
+      </trans-unit>
+      <trans-unit id="3891281422652946412" datatype="html">
+        <source>mid central vowel (schwa)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/phones/vowels.ts</context>
+          <context context-type="linenumber">141</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1522281342585544961" datatype="html">
+        <source>Official full IPA chart</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/useful-links/useful-links.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5053506762520633249" datatype="html">
+        <source>Interactive IPA chart</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/useful-links/useful-links.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6287597362004896587" datatype="html">
+        <source>IPA Wikipedia article</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/useful-links/useful-links.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

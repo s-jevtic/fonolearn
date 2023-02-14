@@ -12,3 +12,5 @@ export const RoundednessFromString: any = {
     "rounded-unspecified": VowelRoundedness.RoundedUnspecified,
     "rounded": VowelRoundedness.RoundedUnspecified // this one should never "happen", but just in case
 }
+
+export const UnknownRoundednessString = $localize `(unknown roundedness)`
