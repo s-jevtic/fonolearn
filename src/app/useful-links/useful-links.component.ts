@@ -21,9 +21,10 @@ export class UsefulLinksComponent implements OnInit {
     this.checkMobileService.media().subscribe((isMobileArg: boolean) => {
       this.zone.runOutsideAngular(() => {
         this.isMobile = isMobileArg;
-        this.MQChange();
+        // this.MQChange();
       });
     });
+    this.checkMobileService.isLargeBreakpoint$.subscribe((s: boolean) => {this.MQChange();});
     this.menuState = 'closed';
     this.arrowState = this.isMobile? 'downwards' : 'upwards';
   }

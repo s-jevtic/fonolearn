@@ -1,14 +1,25 @@
 import { Injectable } from '@angular/core';
-import { fromEvent, Observable, BehaviorSubject } from 'rxjs';
-import { startWith, map } from 'rxjs/operators';
+import { fromEvent, Observable, BehaviorSubject, fromEventPattern } from 'rxjs';
+import { startWith, map, pluck } from 'rxjs/operators';
+
+const mediaQuery = '(max-width: 768px)';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CheckMobileService {
 
-
   constructor() { }
+
+  isLargeBreakpoint$ = fromEventPattern(
+    handler => 
+      window
+        .matchMedia(mediaQuery)
+        .addListener(handler),
+  ).pipe(
+    // startWith(window.matchMedia(mediaQuery)),
+    map((x => (x as MediaQueryList).matches)),
+  );
 
   // return true if screen is mobile using BehaviorSubject object
   media(): Observable<boolean> {
