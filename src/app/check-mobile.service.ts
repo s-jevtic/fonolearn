@@ -11,16 +11,6 @@ export class CheckMobileService {
 
   constructor() { }
 
-  isLargeBreakpoint$ = fromEventPattern(
-    handler => 
-      window
-        .matchMedia(mediaQuery)
-        .addListener(handler),
-  ).pipe(
-    // startWith(window.matchMedia(mediaQuery)),
-    map((x => (x as MediaQueryList).matches)),
-  );
-
   // return true if screen is mobile using BehaviorSubject object
   media(): Observable<boolean> {
     // create BehaviorSubject object with initial value of initial window width

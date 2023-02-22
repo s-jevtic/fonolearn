@@ -14,19 +14,25 @@ export class UsefulLinksComponent implements OnInit {
 
   isMobile: boolean;
 
+  mql: MediaQueryList;
+
   ngOnInit(): void {
+    this.mql = window.matchMedia("(max-width: 768px)");
     this.show = false;
     this.toggled = false;
     this.sidebarWrapper = document.getElementById("sidebar-wrapper")!;
     this.checkMobileService.media().subscribe((isMobileArg: boolean) => {
       this.zone.runOutsideAngular(() => {
         this.isMobile = isMobileArg;
-        // this.MQChange();
       });
     });
-    this.checkMobileService.isLargeBreakpoint$.subscribe((s: boolean) => {this.MQChange();});
+    this.mql.addEventListener('change', this.MQChange.bind(this));
     this.menuState = 'closed';
     this.arrowState = this.isMobile? 'downwards' : 'upwards';
+  }
+
+  ngOnDestroy(): void {
+    this.mql.removeEventListener('change', this.MQChange.bind(this));
   }
 
   toggleSidebar() {
@@ -62,7 +68,10 @@ export class UsefulLinksComponent implements OnInit {
 
   private MQChange() {
     //this.MQChanging = true;
-    this.arrowState = this.arrowState == 'upwards' ? 'downwards' : 'upwards';
+    this.zone.run(() => {
+      this.arrowState = this.arrowState == 'upwards' ? 'downwards' : 'upwards';
+    });
+    
     //this.MQChanging = false;
   }
 
