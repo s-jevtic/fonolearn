@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 import { IpaComponent } from './ipa/ipa.component';
 import { MainMenuComponent } from './main-menu/main-menu.component';
 import { UsefulLinksComponent } from './useful-links/useful-links.component';
-import { MenuIconComponent } from './menu-icon/menu-icon.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -29,7 +28,6 @@ export class MyHammerConfig extends HammerGestureConfig {
     IpaComponent,
     MainMenuComponent,
     UsefulLinksComponent,
-    MenuIconComponent
   ],
   imports: [
     BrowserModule,
