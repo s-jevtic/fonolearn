@@ -67,10 +67,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "fonolearn:build:production"
+              "buildTarget": "fonolearn:build:production"
             },
             "development": {
-              "browserTarget": "fonolearn:build:development"
+              "buildTarget": "fonolearn:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -78,7 +78,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "fonolearn:build"
+            "buildTarget": "fonolearn:build"
           }
         },
         "test": {
