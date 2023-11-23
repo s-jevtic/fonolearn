@@ -65,7 +65,7 @@ export class PulmonicConsonant extends Phone {
     place: PlaceOfArticulation;
     manner: MannerOfArticulation;
 
-    static NullConsonant = new PulmonicConsonant("", -1, -1, -1, false);
+    //static NullConsonant = new PulmonicConsonant("", -1, -1, -1, false);
 
     static fromObject(data: any): PulmonicConsonant {
       let symbol = data.symbol;

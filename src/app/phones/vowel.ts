@@ -63,7 +63,7 @@ export class Vowel extends Phone {
     backness: VowelBackness;
     voicing: Voicing;
 
-    static NullVowel = new Vowel("", -1, -1, false);
+    //static NullVowel = new Vowel("", -1, -1, false);
 
     static fromObject(data: any): Vowel {
         let symbol = data.symbol;

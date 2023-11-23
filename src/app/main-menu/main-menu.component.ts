@@ -31,7 +31,7 @@ export class MainMenuComponent implements OnInit {
 
   ngOnInit(): void {
     this.premadeSets = premadeSets;
-  
+
     this.pulmonicConsonants = this.phoneDataService.pulmonicConsonants;
     this.otherPulmonic = this.phoneDataService.otherPulmonic;
     this.implosives = this.phoneDataService.implosives;
@@ -40,15 +40,15 @@ export class MainMenuComponent implements OnInit {
 
     this.consonants = [];
     this.consonants = this.consonants.concat(this.pulmonicConsonants, this.otherPulmonic, this.implosives, this.ejectives, this.clicks);
-    
+
     this.pulmonicTable = [[[]]];
     for(let consonant of this.pulmonicConsonants)
     {
       while(this.pulmonicTable.length <= consonant.manner) {
-        this.pulmonicTable.push([[PulmonicConsonant.NullConsonant, PulmonicConsonant.NullConsonant]]);
+        this.pulmonicTable.push([[null, null]]);
       }
       while(this.pulmonicTable[consonant.manner].length <= consonant.place) {
-        this.pulmonicTable[consonant.manner].push([PulmonicConsonant.NullConsonant, PulmonicConsonant.NullConsonant]);
+        this.pulmonicTable[consonant.manner].push([null, null]);
       }
       this.pulmonicTable[consonant.manner][consonant.place][consonant.voicing > 0 ? 1 : 0] = consonant;
     }
@@ -56,7 +56,7 @@ export class MainMenuComponent implements OnInit {
     const placeCount = [...this.pulmonicTable].sort((b, a) => a.length - b.length)[0].length;
     for(let manner of this.pulmonicTable) {
       while(manner.length < placeCount) {
-        manner.push([PulmonicConsonant.NullConsonant, PulmonicConsonant.NullConsonant]);
+        manner.push([null, null]);
       }
     }
 
@@ -67,10 +67,10 @@ export class MainMenuComponent implements OnInit {
     this.vowelTable = [[[]]];
     for(let vowel of this.vowels) {
       while(this.vowelTable.length <= vowel.height) {
-        this.vowelTable.push([[Vowel.NullVowel, Vowel.NullVowel]]);
+        this.vowelTable.push([[null, null]]);
       }
       while(this.vowelTable[vowel.height].length <= vowel.backness) {
-        this.vowelTable[vowel.height].push([Vowel.NullVowel, Vowel.NullVowel]);
+        this.vowelTable[vowel.height].push([null, null]);
       }
       this.vowelTable[vowel.height][vowel.backness][vowel.roundedness != VowelRoundedness.Unrounded ? 1 : 0] = vowel;
     }
@@ -78,7 +78,7 @@ export class MainMenuComponent implements OnInit {
     const backnessCount = [...this.vowelTable].sort((b, a) => a.length - b.length)[0].length;
     for(let height of this.vowelTable) {
       while(height.length < backnessCount) {
-        height.push([Vowel.NullVowel, Vowel.NullVowel]);
+        height.push([null, null]);
       }
     }
 
@@ -118,7 +118,7 @@ export class MainMenuComponent implements OnInit {
   ipa(event: any): void {
     this.router.navigate(["./ipa"]);
   }
-  
+
   ipaCheck(event: any, p: Phone): void {
     let label = <HTMLLabelElement>document.getElementById("label" + p.symbol);
 
@@ -245,16 +245,16 @@ export class MainMenuComponent implements OnInit {
 
   consonants: Phone[];
   pulmonicConsonants: PulmonicConsonant[];
-  pulmonicTable: PulmonicConsonant[][][];
-  pulmonicTableSliced: PulmonicConsonant[][][][];
+  pulmonicTable: (PulmonicConsonant | null)[][][]; // WORKAROUND
+  pulmonicTableSliced: (PulmonicConsonant | null)[][][][]; // WORKAROUND
   otherPulmonic: OtherPulmonic[];
   implosives: Implosive[];
   ejectives: Ejective[];
   clicks: Click[];
   vowels: Vowel[];
-  vowelTable: Vowel[][][];
+  vowelTable: (Vowel | null)[][][]; // WORKAROUND
   phones: Phone[];
-  
+
   checked: boolean[][];
   phoneChecked: Map<Phone, boolean>;
 
